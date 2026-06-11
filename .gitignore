@@ -3,3 +3,6 @@ _original/
 
 # 로컬 도구 설정
 .claude/
+
+# BGM 미리듣기 (선택용 임시 파일)
+bgm-preview/

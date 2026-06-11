@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <meta name="description" content="교실 전자칠판에서 바로 시작하는 초등 미니게임 46개. 룰렛 버튼 하나로 게임을 골라줍니다. 설치·로그인 없음, 오프라인 동작.">
-  <meta name="keywords" content="교실 놀이판, 초등학교, 미니게임, 전자칠판 게임, 자투리 시간, 보드게임, 무료 게임">
-  <meta name="author" content="교실 놀이판">
+  <meta name="keywords" content="짬짬이 교실, 초등학교, 미니게임, 전자칠판 게임, 자투리 시간, 보드게임, 무료 게임">
+  <meta name="author" content="짬짬이 교실">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="교실 놀이판 — 자투리 시간 미니게임 테이블">
+  <meta property="og:title" content="짬짬이 교실 — 자투리 시간 미니게임 테이블">
   <meta property="og:description" content="룰렛 버튼 하나면 게임이 정해집니다. 전자칠판 최적화 초등 미니게임 46개.">
-  <title>교실 놀이판 — 자투리 시간 미니게임</title>
+  <title>짬짬이 교실 — 자투리 시간 미니게임</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#1E7A46">
@@ -49,12 +49,11 @@
     }
     .logo { display: flex; align-items: center; gap: 12px; }
     .logo-mark {
-      width: 52px; height: 52px; border-radius: 12px;
-      background: #FFF8E1; border: 3px solid #2C2C2C;
-      box-shadow: 0 4px 0 rgba(0,0,0,0.4);
+      width: 52px; height: 52px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.7rem;
+      filter: drop-shadow(0 4px 0 rgba(0,0,0,0.4));
     }
+    .logo-mark svg { border-radius: 12px; }
     .logo h1 {
       font-size: 1.7rem; font-weight: 900; color: #FFF8E1;
       text-shadow: 0 3px 0 rgba(0,0,0,0.35);
@@ -221,9 +220,9 @@
   <div class="wrap">
     <header class="top-header">
       <div class="logo">
-        <div class="logo-mark">🎲</div>
+        <div class="logo-mark"><svg viewBox="0 0 100 100" width="52" height="52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="lgFg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#27945A"/><stop offset="100%" stop-color="#145932"/></linearGradient></defs><rect width="100" height="100" rx="22" fill="url(#lgFg)" stroke="#2C2C2C" stroke-width="5"/><path d="M28 6 L72 6 Q94 6 94 28 L94 34 Q50 52 6 34 L6 28 Q6 6 28 6 Z" fill="#fff" opacity="0.10"/><circle cx="50" cy="52" r="28" fill="#FFF8E1" stroke="#2C2C2C" stroke-width="3"/><path d="M43 38 L43 66 L66 52 Z" fill="#1E7A46"/><circle cx="50" cy="26" r="2.8" fill="#1E7A46"/><circle cx="80" cy="20" r="6.5" fill="#FFC83D" stroke="#2C2C2C" stroke-width="2"/><circle cx="80" cy="20" r="3" fill="#fff"/></svg></div>
         <div>
-          <h1>교실 놀이판</h1>
+          <h1>짬짬이 교실</h1>
           <div class="sub">전자칠판으로 즐기는 자투리 시간 미니게임</div>
         </div>
       </div>
@@ -274,7 +273,7 @@
     </div>
   </div>
 
-  <script src="shared/engine.js?v=4"></script>
+  <script src="shared/engine.js?v=6"></script>
   <script>
     // ═══ 게임 메타데이터 (registry 로드 실패 시 폴백) ═══
     var CATEGORY_MAP = {
@@ -477,6 +476,7 @@
       rStart.disabled = true;
       rAgain.disabled = true;
       rTitle.textContent = '🎲 게임 룰렛 돌리는 중...';
+      if (typeof playDrumroll === 'function') playDrumroll(2.3);
       rWindow.classList.add('spinning');
       rWindow.classList.remove('landed');
 
@@ -517,6 +517,7 @@
       rWindow.classList.add('landed');
       rTitle.textContent = '✨ 오늘의 게임은...';
       rouletteSound.play('ding');
+      if (typeof playCymbal === 'function') { playCymbal(); playApplause(1.2); }
       rStart.disabled = false;
       rAgain.disabled = false;
     }
