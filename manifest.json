@@ -1,0 +1,20 @@
+{
+  "name": "교실 놀이판",
+  "short_name": "교실 놀이판",
+  "description": "전자칠판으로 즐기는 자투리 시간 초등 미니게임 46개",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#1E7A46",
+  "theme_color": "#1E7A46",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["education", "games", "kids"]
+}
