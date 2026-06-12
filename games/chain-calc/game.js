@@ -373,16 +373,8 @@
 
     later(function () {
       animateChain(val, function () {
-        // P2 보기 활성화
-        p2EqEl.textContent = val + p2EqEl.textContent.replace('□', '').replace('?', '= ?');
-        // 수식 업데이트
-        var eqText = p2EqEl.textContent;
-        // 실제로 □를 val로 교체
-        var rawEq = isTriChain
-          ? val + ' - ' + eqText.split('-')[1]
-          : eqText;
-        // 간단히 수식 텍스트 재설정
-        p2EqEl.textContent = String(val) + p2EqEl.textContent.replace(/^\?/, '');
+        // □를 p1Selected 값으로 교체하여 P2 수식 완성
+        p2EqEl.textContent = p2EqEl.textContent.replace('□', String(val));
         p2EqEl.classList.add('p2-active');
         p2HintEl.textContent = '이어서 계산!';
         // P2 보기 enabled
