@@ -793,7 +793,6 @@ const _GAME_CATEGORY_MAP = {
   'emoji-zoom': 'speed',
   'running-sum': 'speed',
   'word-scramble': 'brain',
-  'hidden-shapes': 'brain',
   'closest-number': 'math',
   'fraction-match': 'math',
   'number-line': 'math',
@@ -803,7 +802,6 @@ const _GAME_CATEGORY_MAP = {
   'season-match': 'knowledge',
   'trash-sort': 'knowledge',
   'chain-calc': 'coop',
-  'clock-pass': 'coop',
   'ice-slide': 'puzzle',
   'magic-square': 'puzzle',
   };
