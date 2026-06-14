@@ -455,8 +455,9 @@
 }
 
 
-/* ── 4-player mode: move center panel to top so middle players aren't blocked ── */
-.screen-game:has(.zones-wrap.p4) .target-panel {
+/* ── 3·4-player mode: move center panel to top so middle players aren't blocked ── */
+.screen-game:has(.zones-wrap.p4) .target-panel,
+.screen-game:has(.zones-wrap.p3) .target-panel {
   top: 8px !important;
   transform: translateX(-50%) !important;
   max-width: 90%;

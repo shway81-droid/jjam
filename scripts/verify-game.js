@@ -201,6 +201,24 @@ check('7. 3인용 공정성: 3열 균등 배치 (2+1 금지)', () => {
   return true;
 });
 
+check('7. 3인용 가운데 패널 가림 방지 (p3도 패널 상단 이동)', () => {
+  const p = path.join(gameDir, 'style.css');
+  if (!fs.existsSync(p)) return 'style.css 없음';
+  const css = fs.readFileSync(p, 'utf-8');
+
+  // 가운데 공용 패널을 4인용에서 상단으로 옮기는 오버라이드(:has(.zones-wrap.p4))가 있다면,
+  // 3인용 가운데 칸(P2)도 동일하게 가려지므로 :has(.zones-wrap.p3) 오버라이드가 반드시 함께 있어야 함.
+  // (3열 균등 배치 규칙상 P2가 화면 정중앙에 오기 때문 — 패널이 P2 버튼을 덮음)
+  const hasP4PanelTop = /:has\(\.zones-wrap\.p4\)/.test(css);
+  if (!hasP4PanelTop) return true; // 가운데 이동 패널이 없는 게임 → 해당 없음
+
+  const hasP3PanelTop = /:has\(\.zones-wrap\.p3\)/.test(css);
+  if (!hasP3PanelTop) {
+    return '4인용 패널 상단이동(:has(.zones-wrap.p4))은 있는데 3인용(:has(.zones-wrap.p3))이 빠짐 — 3인용에서 공용 패널이 P2 버튼을 가림. p4 규칙에 p3 선택자를 함께 추가할 것';
+  }
+  return true;
+});
+
 // === 8. 카테고리 매핑 일관성 (런처 ↔ engine.js) ===
 check('8. 카테고리 매핑 일관성 (launcher ↔ engine.js)', () => {
   const launcher = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf-8');
