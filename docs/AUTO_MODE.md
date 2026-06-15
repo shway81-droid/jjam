@@ -160,6 +160,8 @@ node scripts/auto-add-game-helpers.js today-pushed-count
 - `shared/style.css` 수정 (engine.js `_GAME_CATEGORY_MAP` 갱신은 `npm run gen` 경유만 허용)
 - 사용자 승인 단계 (완전 자동 모드)
 - 디자인 새로 만들기 (골든 템플릿 그대로)
+- **PR(풀 리퀘스트)로만 올리고 끝내기** — 결과는 항상 `main`에 직접 커밋·푸시한다
+  (`git push origin main`). 드래프트 PR로 대체하지 말 것.
 - `GAME_ANTIPATTERNS.md`(0절)·`SELECTION.md`(삭제 1·2·3차)의 게임/메커니즘 재생성
 - 사용자가 중간에 질문해도 `pendingGames`가 0이 될 때까지 작업 중단 금지
   (짧게 답하고 즉시 재개)

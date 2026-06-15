@@ -20,6 +20,7 @@
 - 하루 목표 2개. `node scripts/auto-add-game-helpers.js preflight`로 시작해
   blockedForToday/alreadyComplete면 종료, 아니면 pendingGames만큼 제작.
 - `git pull origin main` 실패 시 그날 중단. 푸시는 `git push origin main`.
+- 결과는 **`main`에 직접 커밋·푸시**한다. PR(드래프트 포함) 생성으로 대체 금지.
 - 카테고리 균등: 제작 전 게임 풀을 .claude/game-pool.json에 생성(가장 적은 카테고리 우선),
   소진 시 재생성, 삭제된 게임은 재생성 금지.
 - 등록은 game.json 작성 후 `npm run gen` (CATEGORY_MAP/GAME_ICONS/PLAYER_COUNTS 수동편집 없음).
