@@ -27,6 +27,7 @@ self.addEventListener('install', function(event) {
         './shared/style.css',
         './shared/engine.js',
         './games/registry.json',
+        './games/meta.json',
         './favicon.svg',
         './og-image.svg',
         './og-image.png',
@@ -68,6 +69,8 @@ function isDirectoryFile(url) {
   }
   // registry.json
   if (pathname.endsWith('/games/registry.json')) return true;
+  // meta.json (런처가 받는 전 게임 메타 통합본 — 신규 게임 즉시 반영 위해 network-first)
+  if (pathname.endsWith('/games/meta.json')) return true;
   // manifest.json
   if (pathname.endsWith('/manifest.json')) return true;
 

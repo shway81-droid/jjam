@@ -572,10 +572,21 @@
     // ═══ 게임 목록 로딩 ═══
     async function loadGames() {
       try {
-        // cache:'no-cache' — 게임 추가/삭제가 HTTP 캐시에 가려지지 않게 항상 재검증
-        var res = await fetch('games/registry.json', { cache: 'no-cache' });
-        var folders = await res.json();
+        // cache:'no-cache' — 게임 추가/삭제가 HTTP 캐시에 가려지지 않게 항상 재검증.
+        // registry.json(목록)과 games/meta.json(전 게임 메타 통합본)을 병렬 2요청으로 가져온다.
+        // 과거엔 game.json을 게임 수만큼(수십 개) 개별 fetch했으나, meta.json 1개로 합쳐 요청 수를 79→2로 줄임.
+        var fetched = await Promise.all([
+          fetch('games/registry.json', { cache: 'no-cache' }).then(function(r) { return r.json(); }),
+          fetch('games/meta.json', { cache: 'no-cache' })
+            .then(function(r) { return r.ok ? r.json() : []; })
+            .catch(function() { return []; })
+        ]);
+        var folders = fetched[0];
+        var metaByFolder = {};
+        fetched[1].forEach(function(m) { metaByFolder[m.folder] = m; });
+        // registry 순서를 기준으로 메타 매핑. meta.json에 없는 폴더(신규 추가 후 gen 누락 등)만 개별 폴백.
         var games = await Promise.all(folders.map(function(folder) {
+          if (metaByFolder[folder]) return metaByFolder[folder];
           return fetch('games/' + folder + '/game.json', { cache: 'no-cache' })
             .then(function(r) { if (!r.ok) throw new Error(folder); return r.json(); })
             .then(function(meta) { meta.folder = folder; return meta; })
