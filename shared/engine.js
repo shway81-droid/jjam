@@ -917,7 +917,6 @@ const _GAME_CATEGORY_MAP = {
   'ice-slide': 'puzzle',
   'magic-square': 'puzzle',
   'place-value': 'coop',
-  'num-merge': 'puzzle',
 };
 /* @end:category-map */
 

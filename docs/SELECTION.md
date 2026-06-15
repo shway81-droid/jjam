@@ -97,5 +97,13 @@ skip-count·job-tool은 선별 당시 원작에 없던 신규 게임. 나머지 
 
 → 현재 78개. 분포: speed 14 / brain 12 / math 17 / knowledge 16 / coop 9 / puzzle 10
 
-> ⚠️ 자동 추가 루틴(`docs/AUTO_MODE.md`)은 이 문서의 1·2·3차 삭제 목록 + `GAME_ANTIPATTERNS.md` 0절을
+## 🚫 사용자 삭제 4차 (재추가 금지)
+
+자동 추가분 중 1종 삭제 — 폴더명이든 다른 이름이든 같은 메커니즘 재추가 금지:
+
+- puzzle: num-merge(숫자 합치기 — 같은 수를 밀어 두 배로 합치는 2048형 타일 머지)
+
+→ 현재 79개. 분포: speed 14 / brain 12 / math 17 / knowledge 16 / coop 10 / puzzle 10
+
+> ⚠️ 자동 추가 루틴(`docs/AUTO_MODE.md`)은 이 문서의 1·2·3·4차 삭제 목록 + `GAME_ANTIPATTERNS.md` 0절을
 > 후보 제외(avoid) 기준으로 읽는다. 게임을 삭제하면 여기에 반드시 기록할 것 — 누락 시 루틴이 재생성한다.
