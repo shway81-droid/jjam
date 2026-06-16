@@ -105,5 +105,13 @@ skip-count·job-tool은 선별 당시 원작에 없던 신규 게임. 나머지 
 
 → 현재 79개. 분포: speed 14 / brain 12 / math 17 / knowledge 16 / coop 10 / puzzle 10
 
-> ⚠️ 자동 추가 루틴(`docs/AUTO_MODE.md`)은 이 문서의 1·2·3·4차 삭제 목록 + `GAME_ANTIPATTERNS.md` 0절을
+## 🚫 사용자 삭제 5차 (재추가 금지)
+
+자동 추가분 중 1종 삭제 — 폴더명이든 다른 이름이든 같은 메커니즘 재추가 금지:
+
+- puzzle: color-flood(색 번지기 — 왼쪽 위 칸에서 같은 색 영역을 번지게 해 판 전체를 한 색으로 만드는 Flood-It형)
+
+→ 현재 80개. 분포: speed 14 / brain 12 / math 17 / knowledge 16 / coop 11 / puzzle 10
+
+> ⚠️ 자동 추가 루틴(`docs/AUTO_MODE.md`)은 이 문서의 1·2·3·4·5차 삭제 목록 + `GAME_ANTIPATTERNS.md` 0절을
 > 후보 제외(avoid) 기준으로 읽는다. 게임을 삭제하면 여기에 반드시 기록할 것 — 누락 시 루틴이 재생성한다.
