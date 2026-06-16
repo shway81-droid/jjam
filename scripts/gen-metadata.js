@@ -38,7 +38,7 @@ const fallbackBlock =
   games.map(g => {
     const obj = {
       folder: g.folder, name: g.name, description: g.description,
-      icon: g.icon, color: g.color, grades: g.grades,
+      icon: g.icon, color: g.color,
       playTime: g.playTime, category: g.category, players: g.players
     };
     return '      ' + JSON.stringify(obj) + ',';
@@ -51,7 +51,7 @@ const metaJson =
   '[\n' +
   games.map(g => JSON.stringify({
     folder: g.folder, name: g.name, description: g.description,
-    icon: g.icon, color: g.color, grades: g.grades,
+    icon: g.icon, color: g.color,
     playTime: g.playTime, category: g.category, players: g.players
   })).join(',\n') +
   '\n]\n';

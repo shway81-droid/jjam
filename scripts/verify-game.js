@@ -72,7 +72,7 @@ check('2. game.json 필수 필드', () => {
   const p = path.join(gameDir, 'game.json');
   if (!fs.existsSync(p)) return 'game.json 없음';
   const json = JSON.parse(fs.readFileSync(p, 'utf-8'));
-  const required = ['name', 'description', 'icon', 'color', 'grades', 'playTime', 'category'];
+  const required = ['name', 'description', 'icon', 'color', 'playTime', 'category'];
   const missing = required.filter(k => !(k in json));
   return missing.length === 0 || `누락: ${missing.join(', ')}`;
 });

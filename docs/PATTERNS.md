@@ -73,7 +73,6 @@ engine.js가 제공하는 헬퍼를 재사용한다: `runCountdown`, `createTime
   "description": "한 줄 설명",
   "icon": "🎲",                         // 이모지 1개
   "color": "#RRGGBB",                    // 헥스 6자리
-  "grades": [1, 2, 3, 4, 5, 6],
   "playTime": "30초",
   "category": "speed|brain|math|knowledge|coop|puzzle",
   "players": "2-4명" | "2명"
