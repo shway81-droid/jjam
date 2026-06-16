@@ -343,6 +343,39 @@
       .num-board { grid-template-columns:repeat(auto-fill, minmax(50px,1fr)); }
       .num-cell { font-size:1.15rem; min-height:46px; }
     }
+    /* 즐겨찾기 (⭐) — 상단 가로 띠 */
+    .fav-row { margin-bottom: 24px; }
+    .fav-row[hidden] { display: none; }
+    .fav-label { color:#FFF8E1; font-weight:900; font-size:1.1rem; margin-bottom:10px; text-shadow:0 2px 0 rgba(0,0,0,0.3); }
+    .fav-cards { display:flex; gap:12px; overflow-x:auto; padding:2px 2px 8px; }
+    .fav-card {
+      flex:0 0 auto; width:116px;
+      display:flex; flex-direction:column; align-items:center; gap:7px;
+      background:#FFF8E1; border:3px solid #2C2C2C; border-radius:16px;
+      box-shadow:0 5px 0 rgba(0,0,0,0.35); padding:12px 8px;
+      text-decoration:none; color:#2C2C2C; position:relative; transition:transform 0.1s;
+    }
+    .fav-card:active { transform:translateY(3px); box-shadow:0 2px 0 rgba(0,0,0,0.35); }
+    .fav-thumb { width:54px; height:54px; border-radius:13px; border:2px solid #2C2C2C; display:flex; align-items:center; justify-content:center; font-size:1.9rem; }
+    .fav-name { font-size:0.82rem; font-weight:900; text-align:center; line-height:1.15; }
+    /* 별 토글 (그리드 카드 + 즐겨찾기 카드 공용) */
+    .fav-toggle {
+      position:absolute; z-index:3; width:30px; height:30px; border-radius:50%;
+      border:2px solid #2C2C2C; background:#fff; color:#2C2C2C; padding:0;
+      font-size:0.95rem; line-height:1; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:1px 1px 0 #2C2C2C; -webkit-tap-highlight-color:transparent;
+    }
+    .fav-toggle.on { background:#FFD54F; }
+    .fav-toggle:active { transform:translate(1px,1px); box-shadow:0 0 0 #2C2C2C; }
+    .game-card-thumb .fav-toggle { top:8px; left:8px; }
+    .fav-card .fav-toggle { top:5px; right:6px; }
+    @media (min-width:1280px) {
+      .fav-card { width:132px; }
+      .fav-thumb { width:62px; height:62px; font-size:2.1rem; }
+      .fav-name { font-size:0.92rem; }
+      .fav-label { font-size:1.25rem; }
+    }
   </style>
 </head>
 <body>
@@ -377,6 +410,12 @@
       <button class="cat-btn" data-cat="coop">🤝 협력</button>
       <button class="cat-btn" data-cat="puzzle">🧩 퍼즐</button>
     </nav>
+
+    <!-- 즐겨찾기 (⭐) — 상단 가로 띠. 즐겨찾기 없으면 자동 숨김 -->
+    <section class="fav-row" id="favRow" aria-label="즐겨찾기" hidden>
+      <div class="fav-label">⭐ 즐겨찾기</div>
+      <div class="fav-cards" id="favCards"></div>
+    </section>
 
     <!-- 게임 그리드 + 학생 뽑기 (넓은 화면: 우측 사이드 패널 / 좁은 화면: 팝업) -->
     <div class="launcher-main">
@@ -562,6 +601,54 @@
       return '#' + [r,g,b].map(function(v){ return v.toString(16).padStart(2,'0'); }).join('');
     }
 
+    // ═══ 즐겨찾기 (⭐, localStorage 영구 저장) ═══
+    var FAV_KEY = 'fav-games';
+    var favs = [];
+    try { favs = JSON.parse(localStorage.getItem(FAV_KEY) || '[]'); if (!Array.isArray(favs)) favs = []; } catch (e) { favs = []; }
+    var favRow = document.getElementById('favRow');
+    var favCards = document.getElementById('favCards');
+    function isFav(f) { return favs.indexOf(f) >= 0; }
+    function saveFavs() { try { localStorage.setItem(FAV_KEY, JSON.stringify(favs)); } catch (e) {} }
+    function toggleFav(f) {
+      var i = favs.indexOf(f);
+      if (i >= 0) favs.splice(i, 1); else favs.push(f);
+      saveFavs();
+      refreshFavUI();
+    }
+    function renderFavRow() {
+      favCards.innerHTML = '';
+      favs.forEach(function(f) {
+        var game = allGames.filter(function(g) { return g.folder === f; })[0];
+        if (!game) return;
+        var a = document.createElement('a');
+        a.className = 'fav-card';
+        a.href = 'games/' + game.folder + '/index.html';
+        a.setAttribute('aria-label', game.name + ' 게임 시작');
+        a.innerHTML =
+          '<button class="fav-toggle on" data-folder="' + game.folder + '" aria-label="즐겨찾기 해제" title="즐겨찾기 해제">⭐</button>' +
+          '<span class="fav-thumb" style="background:' + pastelColor(game.color) + '">' + game.icon + '</span>' +
+          '<span class="fav-name">' + game.name + '</span>';
+        favCards.appendChild(a);
+      });
+      favRow.hidden = favCards.children.length === 0;
+    }
+    function refreshFavUI() {
+      renderFavRow();
+      grid.querySelectorAll('.fav-toggle').forEach(function(b) {
+        var on = isFav(b.dataset.folder);
+        b.classList.toggle('on', on);
+        b.textContent = on ? '⭐' : '☆';
+      });
+    }
+    // 별 클릭은 카드 이동을 막고 즐겨찾기만 토글 (그리드·띠 공용, 캡처 단계로 a 네비 차단)
+    document.addEventListener('click', function(e) {
+      var ft = e.target.closest ? e.target.closest('.fav-toggle') : null;
+      if (!ft) return;
+      e.preventDefault();
+      e.stopPropagation();
+      toggleFav(ft.dataset.folder);
+    }, true);
+
     function renderCards(games) {
       grid.innerHTML = '';
       allGames = games;
@@ -574,6 +661,7 @@
         var players = game.players || '2-4명';
         a.innerHTML =
           '<div class="game-card-thumb" style="--thumb-color:' + pastelColor(game.color) + '">' +
+            '<button class="fav-toggle' + (isFav(game.folder) ? ' on' : '') + '" data-folder="' + game.folder + '" aria-label="즐겨찾기" title="즐겨찾기">' + (isFav(game.folder) ? '⭐' : '☆') + '</button>' +
             '<span class="player-badge">' + players + '</span>' +
             '<span class="card-icon">' + game.icon + '</span>' +
           '</div>' +
@@ -586,6 +674,7 @@
         grid.appendChild(a);
       });
       applyFilters();
+      renderFavRow();
     }
 
     // ═══ 필터 (카테고리) ═══
