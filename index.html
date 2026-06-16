@@ -376,6 +376,17 @@
       .fav-name { font-size:0.92rem; }
       .fav-label { font-size:1.25rem; }
     }
+    /* 전체화면 토글 (사운드 토글과 동일 룩, 그 오른쪽) */
+    .fs-toggle {
+      width: var(--btn-min-touch, 48px); height: var(--btn-min-touch, 48px);
+      border-radius: 50%; border: 3px solid var(--ink, #2C2C2C);
+      background: var(--board-cream, #FFF8E1); box-shadow: 0 4px 0 rgba(0,0,0,0.4);
+      cursor: pointer; padding: 0; display: flex; align-items: center; justify-content: center;
+      -webkit-tap-highlight-color: transparent; transition: transform 0.1s;
+    }
+    .fs-toggle:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(0,0,0,0.4); }
+    .fs-toggle.on { background: #FFD54F; }
+    .fs-toggle svg { display: block; }
   </style>
 </head>
 <body>
@@ -391,6 +402,7 @@
       </div>
       <div class="header-right">
         <button class="sound-toggle" id="soundToggle" aria-label="사운드 토글">🔊</button>
+        <button class="fs-toggle" id="fsToggle" aria-label="전체화면" title="전체화면"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#2C2C2C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></button>
       </div>
     </header>
 
@@ -591,6 +603,32 @@
       updateSoundIcon();
     });
     updateSoundIcon();
+
+    // ═══ 전체화면 토글 (전자칠판용 — 브라우저 메뉴 숨겨 더 크게) ═══
+    (function() {
+      var fsBtn = document.getElementById('fsToggle');
+      if (!fsBtn) return;
+      function fsEl() { return document.fullscreenElement || document.webkitFullscreenElement || null; }
+      function updateFs() {
+        var on = !!fsEl();
+        fsBtn.classList.toggle('on', on);
+        fsBtn.setAttribute('title', on ? '전체화면 해제' : '전체화면');
+        fsBtn.setAttribute('aria-label', on ? '전체화면 해제' : '전체화면');
+      }
+      fsBtn.addEventListener('click', function() {
+        try {
+          if (fsEl()) {
+            (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+          } else {
+            var el = document.documentElement;
+            (el.requestFullscreen || el.webkitRequestFullscreen).call(el);
+          }
+        } catch (e) {}
+      });
+      document.addEventListener('fullscreenchange', updateFs);
+      document.addEventListener('webkitfullscreenchange', updateFs);
+      updateFs();
+    })();
 
     // ═══ 카드 렌더링 ═══
     function pastelColor(hex) {
