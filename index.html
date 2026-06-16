@@ -235,90 +235,113 @@
     }
     .pick-cta:active { transform: translateY(6px); box-shadow: 0 2px 0 #155C34; }
 
-    .student-overlay {
+    /* 학생 뽑기 — 좁은 화면: 팝업 / 넓은 화면(≥1024): 게임 그리드 오른쪽 상시 사이드 패널 */
+    .launcher-main { display: block; }
+    .student-panel {                       /* 기본(좁은 화면) = 팝업 */
       position: fixed; inset: 0; z-index: 5000;
       background: rgba(10,40,24,0.88); backdrop-filter: blur(6px);
       display: none; align-items: center; justify-content: center;
-      flex-direction: column; padding: 20px; overflow-y: auto;
+      padding: 20px; overflow-y: auto;
     }
-    .student-overlay.active { display: flex; }
-    .student-frame {
+    .student-panel.open { display: flex; }
+    .student-card {
       width: min(680px, 94vw); margin: auto;
       background: linear-gradient(180deg, #8D5A2B, #6D4423);
       border: 5px solid #2C2C2C; border-radius: 30px;
       box-shadow: 0 14px 0 rgba(0,0,0,0.5); padding: 22px; position: relative;
     }
+    .student-card-close {
+      position: absolute; top: -14px; right: -14px; z-index: 2;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: #fff; border: 3px solid #2C2C2C; box-shadow: 3px 3px 0 #2C2C2C;
+      font-size: 1.2rem; font-weight: 900; color: #2C2C2C; cursor: pointer; line-height: 1;
+    }
     .student-title {
-      text-align: center; color: #FFF8E1; font-weight: 900; font-size: 1.5rem;
-      text-shadow: 0 3px 0 rgba(0,0,0,0.4); margin-bottom: 16px;
+      text-align: center; color: #FFF8E1; font-weight: 900; font-size: 1.4rem;
+      text-shadow: 0 3px 0 rgba(0,0,0,0.4); margin-bottom: 14px;
     }
     /* 설정 */
-    .student-setup { background:#FFF8E1; border:4px solid #2C2C2C; border-radius:20px; padding:22px; text-align:center; }
-    .student-setup-label { font-size:1.3rem; font-weight:900; color:#2C2C2C; }
-    .student-privacy { font-size:0.9rem; font-weight:700; color:#5d4f37; margin-top:6px; }
-    .student-setup-row { display:flex; align-items:center; justify-content:center; gap:10px; margin:18px 0; }
+    .student-setup { background:#FFF8E1; border:4px solid #2C2C2C; border-radius:20px; padding:20px; text-align:center; }
+    .student-setup-label { font-size:1.2rem; font-weight:900; color:#2C2C2C; }
+    .student-privacy { font-size:0.85rem; font-weight:700; color:#5d4f37; margin-top:6px; }
+    .student-setup-row { display:flex; align-items:center; justify-content:center; gap:8px; margin:16px 0; }
     .num-step {
-      width:52px; height:52px; border-radius:14px; border:3px solid #2C2C2C; background:#FFC83D; color:#2C2C2C;
-      font-size:1.8rem; font-weight:900; cursor:pointer; box-shadow:0 4px 0 #E8A50C; line-height:1;
+      width:48px; height:48px; border-radius:14px; border:3px solid #2C2C2C; background:#FFC83D; color:#2C2C2C;
+      font-size:1.7rem; font-weight:900; cursor:pointer; box-shadow:0 4px 0 #E8A50C; line-height:1;
     }
     .num-step:active { transform:translateY(3px); box-shadow:0 1px 0 #E8A50C; }
     .student-total-input {
-      width:110px; height:60px; text-align:center; font-size:2rem; font-weight:900; color:#2C2C2C;
+      width:96px; height:56px; text-align:center; font-size:1.9rem; font-weight:900; color:#2C2C2C;
       border:3px solid #2C2C2C; border-radius:14px; font-family:inherit; background:#fff;
     }
-    .student-unit { font-size:1.3rem; font-weight:900; color:#2C2C2C; }
+    .student-unit { font-size:1.2rem; font-weight:900; color:#2C2C2C; }
     /* 뽑기 */
-    .pick-controls { display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:14px; }
-    .pick-count-label { color:#FFF8E1; font-weight:900; font-size:1.1rem; }
+    .pick-controls { display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:12px; flex-wrap:wrap; }
+    .pick-count-label { color:#FFF8E1; font-weight:900; font-size:1.05rem; }
     .pick-count { display:flex; gap:8px; }
     .pcount-btn {
-      padding:10px 20px; border-radius:999px; border:3px solid #2C2C2C; background:#FFF8E1; color:#2C2C2C;
-      font-family:inherit; font-size:1.05rem; font-weight:900; box-shadow:0 4px 0 rgba(0,0,0,0.4); cursor:pointer;
+      padding:9px 18px; border-radius:999px; border:3px solid #2C2C2C; background:#FFF8E1; color:#2C2C2C;
+      font-family:inherit; font-size:1.02rem; font-weight:900; box-shadow:0 4px 0 rgba(0,0,0,0.4); cursor:pointer;
     }
     .pcount-btn:active { transform:translateY(3px); box-shadow:0 1px 0 rgba(0,0,0,0.4); }
     .pcount-btn.active { background:#FFC83D; box-shadow:0 4px 0 #E8A50C; }
     .pcount-btn:disabled { opacity:0.4; cursor:not-allowed; }
     .draw-btn {
-      display:block; width:100%; font-family:inherit; font-size:1.8rem; font-weight:900; color:#2C2C2C;
+      display:block; width:100%; font-family:inherit; font-size:1.7rem; font-weight:900; color:#2C2C2C;
       background:linear-gradient(180deg,#FFE082,#FFC83D); border:4px solid #2C2C2C; border-radius:18px;
-      box-shadow:0 7px 0 #E8A50C; padding:18px; cursor:pointer; transition:transform 0.1s;
+      box-shadow:0 7px 0 #E8A50C; padding:16px; cursor:pointer; transition:transform 0.1s;
     }
     .draw-btn:active { transform:translateY(5px); box-shadow:0 2px 0 #E8A50C; }
     .draw-btn:disabled { opacity:0.6; cursor:default; }
     .draw-result {
-      min-height:96px; display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:center;
-      background:#FFF8E1; border:4px solid #2C2C2C; border-radius:18px; margin:14px 0; padding:16px;
+      min-height:90px; display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center;
+      background:#FFF8E1; border:4px solid #2C2C2C; border-radius:18px; margin:12px 0; padding:14px;
     }
-    .draw-result:empty::before { content:'아래 뽑기! 버튼을 눌러요'; color:#9b8c6e; font-weight:700; }
+    .draw-result:empty::before { content:'뽑기! 버튼을 눌러요'; color:#9b8c6e; font-weight:700; }
     .pick-chip {
-      min-width:72px; height:72px; padding:0 14px; border-radius:16px; border:3px solid #2C2C2C;
-      background:#34A853; color:#fff; font-size:2.2rem; font-weight:900;
+      min-width:64px; height:64px; padding:0 12px; border-radius:16px; border:3px solid #2C2C2C;
+      background:#34A853; color:#fff; font-size:2rem; font-weight:900;
       display:flex; align-items:center; justify-content:center; box-shadow:0 4px 0 #155C34;
     }
     .draw-result.rolling .pick-chip { background:#BDBDBD; box-shadow:0 4px 0 #8d8d8d; }
     .pick-chip.pop { animation:chipPop 0.3s ease; }
     @keyframes chipPop { 0%{transform:scale(0.4);} 70%{transform:scale(1.15);} 100%{transform:scale(1);} }
-    .pick-status { display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; color:#FFF8E1; font-weight:900; }
-    #remainInfo { background:rgba(0,0,0,0.25); border-radius:999px; padding:6px 14px; }
+    .pick-status { display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap; color:#FFF8E1; font-weight:900; }
+    #remainInfo { background:rgba(0,0,0,0.25); border-radius:999px; padding:5px 12px; font-size:0.95rem; }
     .num-board {
-      display:grid; grid-template-columns:repeat(auto-fill, minmax(46px,1fr)); gap:7px;
-      margin-top:14px; background:rgba(255,248,225,0.12); border-radius:14px; padding:10px;
+      display:grid; grid-template-columns:repeat(auto-fill, minmax(42px,1fr)); gap:6px;
+      margin-top:12px; background:rgba(255,248,225,0.12); border-radius:14px; padding:9px;
       max-height:30vh; overflow-y:auto;
     }
     .num-cell {
-      aspect-ratio:1; min-height:42px; display:flex; align-items:center; justify-content:center;
+      aspect-ratio:1; min-height:38px; display:flex; align-items:center; justify-content:center;
       border-radius:10px; border:2px solid #2C2C2C; background:#FFF8E1; color:#2C2C2C;
-      font-weight:900; font-size:1.05rem;
+      font-weight:900; font-size:1rem;
     }
     .num-cell.picked { background:#9e9e9e; color:rgba(255,255,255,0.9); opacity:0.55; }
+
+    /* 넓은 화면: 게임 그리드(왼쪽) + 학생 뽑기 사이드 패널(오른쪽) 2-pane */
+    @media (min-width: 1024px) {
+      .wrap { max-width: 1760px; }
+      .launcher-main { display: flex; gap: 24px; }
+      .game-grid { flex: 1; min-width: 0; }
+      .student-panel, .student-panel.open {   /* 팝업 → 정적 사이드 패널 */
+        position: static; display: block;
+        flex: 0 0 360px; width: 360px;
+        background: none; backdrop-filter: none; padding: 0; overflow: visible;
+      }
+      .student-card { position: sticky; top: 18px; width: 100%; margin: 0; }
+      .student-card-close { display: none; }   /* 도킹 시 닫기 불필요 */
+      #studentCta { display: none; }            /* 패널 상시 노출 → 버튼 숨김 */
+      .num-board { max-height: 40vh; }
+    }
     @media (min-width: 1280px) {
       .pick-cta { font-size: 2rem; padding: 24px 56px; }
-      .student-frame { width: min(840px, 92vw); }
-      .student-title { font-size: 2rem; }
-      .draw-btn { font-size: 2.2rem; }
-      .pick-chip { min-width:92px; height:92px; font-size:2.8rem; }
-      .num-board { grid-template-columns:repeat(auto-fill, minmax(58px,1fr)); }
-      .num-cell { font-size:1.3rem; min-height:54px; }
+      .student-title { font-size: 1.6rem; }
+      .draw-btn { font-size: 1.9rem; }
+      .pick-chip { min-width:74px; height:74px; font-size:2.3rem; }
+      .num-board { grid-template-columns:repeat(auto-fill, minmax(50px,1fr)); }
+      .num-cell { font-size:1.15rem; min-height:46px; }
     }
   </style>
 </head>
@@ -355,8 +378,50 @@
       <button class="cat-btn" data-cat="puzzle">🧩 퍼즐</button>
     </nav>
 
-    <!-- 게임 그리드 -->
-    <main class="game-grid" id="gameGrid" aria-label="게임 목록"></main>
+    <!-- 게임 그리드 + 학생 뽑기 (넓은 화면: 우측 사이드 패널 / 좁은 화면: 팝업) -->
+    <div class="launcher-main">
+      <main class="game-grid" id="gameGrid" aria-label="게임 목록"></main>
+
+      <aside class="student-panel" id="studentPanel" role="region" aria-label="학생 뽑기">
+        <div class="student-card">
+          <button class="student-card-close" id="studentClose" aria-label="닫기">✕</button>
+          <div class="student-title">👥 학생 뽑기</div>
+
+          <!-- 전체 인원 설정 -->
+          <div class="student-setup" id="studentSetup">
+            <div class="student-setup-label">우리 반 전체 인원은?</div>
+            <div class="student-privacy">🔒 번호만 사용해요 · 이름·개인정보 없음</div>
+            <div class="student-setup-row">
+              <button class="num-step" id="totalMinus" aria-label="줄이기">−</button>
+              <input class="student-total-input" id="totalInput" type="number" inputmode="numeric" min="2" max="60" value="25" aria-label="전체 인원">
+              <button class="num-step" id="totalPlus" aria-label="늘리기">+</button>
+              <span class="student-unit">명</span>
+            </div>
+            <button class="r-btn r-btn-start" id="totalConfirm">확인</button>
+          </div>
+
+          <!-- 뽑기 -->
+          <div class="student-pick" id="studentPick" hidden>
+            <div class="pick-controls">
+              <span class="pick-count-label">몇 명?</span>
+              <div class="pick-count" id="pickCount">
+                <button class="pcount-btn active" data-n="2">2명</button>
+                <button class="pcount-btn" data-n="3">3명</button>
+                <button class="pcount-btn" data-n="4">4명</button>
+              </div>
+            </div>
+            <button class="draw-btn" id="drawBtn">🎲 뽑기!</button>
+            <div class="draw-result" id="drawResult" aria-live="polite"></div>
+            <div class="pick-status">
+              <span id="remainInfo">남은 25명</span>
+              <button class="r-btn r-btn-again" id="studentReset">🔄 처음부터</button>
+              <button class="r-btn" id="changeTotal">인원 변경</button>
+            </div>
+            <div class="num-board" id="numBoard" aria-label="번호판"></div>
+          </div>
+        </div>
+      </aside>
+    </div>
 
     <footer class="footer">
       설치·로그인 없이 바로 시작 · 오프라인 동작 ·
@@ -377,47 +442,6 @@
       <div class="roulette-actions">
         <button class="r-btn r-btn-again" id="rouletteAgain" disabled>🔄 다시 돌리기</button>
         <button class="r-btn r-btn-start" id="rouletteStart" disabled>▶ 시작!</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 학생 뽑기 오버레이 -->
-  <div class="student-overlay" id="studentOverlay" role="dialog" aria-label="학생 뽑기">
-    <button class="roulette-close" id="studentClose" aria-label="닫기">✕</button>
-    <div class="student-frame">
-      <div class="student-title">👥 학생 뽑기</div>
-
-      <!-- 전체 인원 설정 -->
-      <div class="student-setup" id="studentSetup">
-        <div class="student-setup-label">우리 반 전체 인원은?</div>
-        <div class="student-privacy">🔒 번호만 사용해요 · 이름·개인정보 없음</div>
-        <div class="student-setup-row">
-          <button class="num-step" id="totalMinus" aria-label="줄이기">−</button>
-          <input class="student-total-input" id="totalInput" type="number" inputmode="numeric" min="2" max="60" value="25" aria-label="전체 인원">
-          <button class="num-step" id="totalPlus" aria-label="늘리기">+</button>
-          <span class="student-unit">명</span>
-        </div>
-        <button class="r-btn r-btn-start" id="totalConfirm">확인</button>
-      </div>
-
-      <!-- 뽑기 -->
-      <div class="student-pick" id="studentPick" hidden>
-        <div class="pick-controls">
-          <span class="pick-count-label">몇 명?</span>
-          <div class="pick-count" id="pickCount">
-            <button class="pcount-btn active" data-n="2">2명</button>
-            <button class="pcount-btn" data-n="3">3명</button>
-            <button class="pcount-btn" data-n="4">4명</button>
-          </div>
-        </div>
-        <button class="draw-btn" id="drawBtn">🎲 뽑기!</button>
-        <div class="draw-result" id="drawResult" aria-live="polite"></div>
-        <div class="pick-status">
-          <span id="remainInfo">남은 25명</span>
-          <button class="r-btn r-btn-again" id="studentReset">🔄 처음부터</button>
-          <button class="r-btn" id="changeTotal">인원 변경</button>
-        </div>
-        <div class="num-board" id="numBoard" aria-label="번호판"></div>
       </div>
     </div>
   </div>
@@ -709,7 +733,7 @@
 
     // ═══ 학생 뽑기 (번호만 · 비복원 · 소진 시 자동 리셋) ═══
     (function() {
-      var sOverlay = document.getElementById('studentOverlay');
+      var sPanel = document.getElementById('studentPanel');
       var sSetup = document.getElementById('studentSetup');
       var sPick = document.getElementById('studentPick');
       var totalInput = document.getElementById('totalInput');
@@ -829,22 +853,22 @@
         if (n !== total) { picked = new Set(); justReset = false; }
         total = n; save(); showPickView();
       }
-      function open() {
+      // 패널 내용 초기화 — 페이지 로드 시 1회 (넓은 화면 상시 패널이 바로 채워지도록)
+      function init() {
         loadState(); justReset = false;
-        if (sTimer) { clearTimeout(sTimer); sTimer = null; }
         drawBtn.disabled = false;
         drawResult.className = 'draw-result'; drawResult.innerHTML = '';
-        sOverlay.classList.add('active');
         if (total >= 2) showPickView(); else showSetupView();
       }
-      function close() {
-        sOverlay.classList.remove('active');
+      function openPopup() { sPanel.classList.add('open'); }   // 좁은 화면: 팝업 열기
+      function closePopup() {
+        sPanel.classList.remove('open');
         if (sTimer) { clearTimeout(sTimer); sTimer = null; }
       }
 
-      document.getElementById('studentCta').addEventListener('click', open);
-      document.getElementById('studentClose').addEventListener('click', close);
-      sOverlay.addEventListener('click', function(e) { if (e.target === sOverlay) close(); });
+      document.getElementById('studentCta').addEventListener('click', openPopup);
+      document.getElementById('studentClose').addEventListener('click', closePopup);
+      sPanel.addEventListener('click', function(e) { if (e.target === sPanel) closePopup(); });
       document.getElementById('totalConfirm').addEventListener('click', function() {
         setTotal(parseInt(totalInput.value, 10));
       });
@@ -869,6 +893,8 @@
         });
       });
       drawBtn.addEventListener('click', draw);
+
+      init();   // 로드 시 패널 초기화 (넓은 화면 상시 노출 / 좁은 화면 팝업 모두)
     })();
 
     // ═══ 게임 목록 로딩 ═══
