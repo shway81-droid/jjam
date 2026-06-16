@@ -387,6 +387,17 @@
     .fs-toggle:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(0,0,0,0.4); }
     .fs-toggle.on { background: #FFD54F; }
     .fs-toggle svg { display: block; }
+    /* 배경음악 토글 (사운드·전체화면과 동일 룩, on이면 노란색) */
+    .bgm-toggle-hdr {
+      width: var(--btn-min-touch, 48px); height: var(--btn-min-touch, 48px);
+      border-radius: 50%; border: 3px solid var(--ink, #2C2C2C);
+      background: var(--board-cream, #FFF8E1); box-shadow: 0 4px 0 rgba(0,0,0,0.4);
+      cursor: pointer; padding: 0; font-size: 1.3rem; line-height: 1; color: #2C2C2C;
+      display: flex; align-items: center; justify-content: center;
+      -webkit-tap-highlight-color: transparent; transition: transform 0.1s;
+    }
+    .bgm-toggle-hdr:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(0,0,0,0.4); }
+    .bgm-toggle-hdr.on { background: #FFD54F; }
   </style>
 </head>
 <body>
@@ -403,6 +414,7 @@
       <div class="header-right">
         <button class="sound-toggle" id="soundToggle" aria-label="사운드 토글">🔊</button>
         <button class="fs-toggle" id="fsToggle" aria-label="전체화면" title="전체화면"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#2C2C2C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></button>
+        <button class="bgm-toggle-hdr on" id="bgmToggle" aria-label="배경음악" title="배경음악">🎵</button>
       </div>
     </header>
 
@@ -628,6 +640,23 @@
       document.addEventListener('fullscreenchange', updateFs);
       document.addEventListener('webkitfullscreenchange', updateFs);
       updateFs();
+    })();
+
+    // ═══ 런처 배경음악 (동물의숲풍 휘파람 = coop 곡) + 헤더 음악 토글 ═══
+    (function() {
+      if (typeof createBgmManager !== 'function') return;
+      var lbgm = createBgmManager();
+      lbgm.play('coop');  // 런처 테마 — 섬마을 휘파람(동물의숲풍). bgm-on은 게임과 공유.
+      var btn = document.getElementById('bgmToggle');
+      if (!btn) return;
+      function update() {
+        var on = lbgm.isOn();
+        btn.classList.toggle('on', on);
+        btn.title = on ? '배경음악 끄기' : '배경음악 켜기';
+        btn.setAttribute('aria-label', on ? '배경음악 끄기' : '배경음악 켜기');
+      }
+      btn.addEventListener('click', function() { lbgm.toggle(); update(); });
+      update();
     })();
 
     // ═══ 카드 렌더링 ═══
