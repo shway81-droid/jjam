@@ -223,19 +223,20 @@ function ballBuildZones() {
 
 function ballGetZone(idx) { return ballZonesWrap.querySelector(`.zone[data-player="${idx}"]`); }
 
-// ─── 구슬 크기 계산 (가용 폭·높이에 맞춤 — 시험관이 잘리지 않도록) ──────
+// ─── 구슬 크기 계산 (가용 공간에 맞춤 — 시험관이 잘리지 않도록) ──────
+// 시험관 = 구슬 너비보다 넓게(좌우 여백) + 위쪽 헤드룸(빈 공간)을 두어 실제 시험관처럼 보이게.
+const BALL_TUBE_EXTRA = 14;     // 시험관 너비 = 구슬 지름 + 14px (좌우 여백 4px + 테두리 6px)
+const BALL_TOP_RATIO = 0.45;    // 시험관 위쪽 헤드룸 / 구슬 지름
 function ballComputeBallSize(wrap, nTubes) {
   const wrapW = wrap.clientWidth || 160;
   const wrapH = wrap.clientHeight || 160;
   const gap = 7;                 // 시험관 사이 간격(근사)
-  const tubePadX = 6;            // .ball-tube 좌우 padding(3+3) + 테두리 여유
-  const tubePadY = 8;            // .ball-tube 상하 padding(4+4)
   const slotGap = 2;             // 슬롯 사이 gap
-  // 폭 기준: 모든 시험관이 한 줄에 들어가도록
-  const byW = (wrapW - 4 - gap * (nTubes - 1)) / nTubes - tubePadX;
-  // 높이 기준: 시험관 한 개에 BALL_CAP개 슬롯 + 간격
-  const byH = (wrapH - 4 - tubePadY - slotGap * (BALL_CAP - 1)) / BALL_CAP;
-  return Math.max(10, Math.min(byW, byH, 38));
+  // 폭 기준: 모든 시험관이 한 줄에 들어가도록 (시험관 footprint = 구슬 + 14)
+  const byW = ((wrapW - 4 - gap * (nTubes - 1)) / nTubes) - BALL_TUBE_EXTRA;
+  // 높이 기준: BALL_CAP개 슬롯 + 위 헤드룸 + 슬롯 간격 + 아래 여백(5) + 아래 테두리(3)
+  const byH = (wrapH - 4 - 5 - 3 - slotGap * (BALL_CAP - 1)) / (BALL_CAP + BALL_TOP_RATIO);
+  return Math.max(10, Math.min(byW, byH, 40));
 }
 
 // ─── 렌더링 ───────────────────────────────────────────────
@@ -249,7 +250,8 @@ function ballRenderBoard(playerIdx) {
     const tubeEl = document.createElement('button');
     tubeEl.type = 'button';
     tubeEl.className = 'ball-tube';
-    tubeEl.style.width = (ballSize + 6) + 'px';
+    tubeEl.style.width = (ballSize + BALL_TUBE_EXTRA) + 'px';
+    tubeEl.style.paddingTop = Math.round(ballSize * BALL_TOP_RATIO) + 'px';
     if (ballSelected[playerIdx] === ti) tubeEl.classList.add('selected');
     // 빈 슬롯(위) → 채워진 구슬(아래) 순으로 렌더 (위에서 아래로)
     for (let s = BALL_CAP - 1; s >= 0; s--) {
