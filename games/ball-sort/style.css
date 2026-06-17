@@ -52,29 +52,44 @@
 
 /* 시험관 한 개 (너비·슬롯 크기는 JS가 가용 공간에 맞춰 인라인 지정) */
 .ball-tube {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   gap: 2px;
   padding: 0 0 5px;
-  background: rgba(255, 255, 255, 0.85);
+  margin-top: 7px;                 /* 윗입구 테(rim)가 위로 삐져나올 공간 */
+  background: rgba(255, 255, 255, 0.92);
   border: 3px solid #2C2C2C;
-  border-top: none;
-  border-radius: 4px 4px 16px 16px;
-  box-shadow: 3px 3px 0 #2C2C2C;
+  border-radius: 5px 5px 16px 16px; /* 바닥 둥글기는 JS가 구슬 크기에 맞춰 인라인 지정 */
+  box-shadow: 2px 3px 4px rgba(44, 44, 44, 0.2);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
   box-sizing: border-box;
   font-family: var(--font-family);
 }
-.ball-tube:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #2C2C2C; }
+/* 시험관 윗입구 테 (둥근 타원 mouth) — 잘린 듯 보이지 않도록 */
+.ball-tube::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -5px;
+  right: -5px;
+  height: 13px;
+  background: #FFFFFF;
+  border: 3px solid #2C2C2C;
+  border-radius: 50%;
+  box-sizing: border-box;
+  z-index: 2;
+}
+.ball-tube:active { transform: translate(2px, 2px); }
 .ball-tube.selected {
   border-color: #F9A825;
-  box-shadow: 3px 3px 0 #F9A825;
   background: #FFFDE7;
 }
+.ball-tube.selected::before { border-color: #F9A825; }
 
 .ball-slot {
   display: flex;

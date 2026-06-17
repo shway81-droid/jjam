@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>색 구슬 정렬</title>
   <link rel="stylesheet" href="../../shared/style.css?v=5">
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
   <section class="screen screen-intro active" id="introScreen">
@@ -28,7 +28,10 @@
           <circle cx="60" cy="72" r="8" fill="#1E88E5" stroke="#2C2C2C" stroke-width="2"/>
           <circle cx="60" cy="56" r="8" fill="#E53935" stroke="#2C2C2C" stroke-width="2"/>
           <rect x="80" y="30" width="22" height="68" rx="11" fill="#fff" stroke="#2C2C2C" stroke-width="3"/>
-          <path d="M84 22 L96 22 L91 34 L89 34 Z" fill="#43A047" stroke="#2C2C2C" stroke-width="2"/>
+          <!-- 윗입구 테(rim) -->
+          <ellipse cx="29" cy="30" rx="13" ry="4.5" fill="#fff" stroke="#2C2C2C" stroke-width="2.5"/>
+          <ellipse cx="60" cy="30" rx="13" ry="4.5" fill="#fff" stroke="#2C2C2C" stroke-width="2.5"/>
+          <ellipse cx="91" cy="30" rx="13" ry="4.5" fill="#fff" stroke="#2C2C2C" stroke-width="2.5"/>
         </svg>
       </div>
       <p class="intro-text">구슬을 옮겨 시험관🧪마다<br>같은 색만 모아요!</p>
@@ -72,6 +75,6 @@
   </section>
 
   <script src="../../shared/engine.js?v=12"></script>
-  <script src="game.js?v=2"></script>
+  <script src="game.js?v=3"></script>
 </body>
 </html>
