@@ -223,21 +223,40 @@ function ballBuildZones() {
 
 function ballGetZone(idx) { return ballZonesWrap.querySelector(`.zone[data-player="${idx}"]`); }
 
+// ─── 구슬 크기 계산 (가용 폭·높이에 맞춤 — 시험관이 잘리지 않도록) ──────
+function ballComputeBallSize(wrap, nTubes) {
+  const wrapW = wrap.clientWidth || 160;
+  const wrapH = wrap.clientHeight || 160;
+  const gap = 7;                 // 시험관 사이 간격(근사)
+  const tubePadX = 6;            // .ball-tube 좌우 padding(3+3) + 테두리 여유
+  const tubePadY = 8;            // .ball-tube 상하 padding(4+4)
+  const slotGap = 2;             // 슬롯 사이 gap
+  // 폭 기준: 모든 시험관이 한 줄에 들어가도록
+  const byW = (wrapW - 4 - gap * (nTubes - 1)) / nTubes - tubePadX;
+  // 높이 기준: 시험관 한 개에 BALL_CAP개 슬롯 + 간격
+  const byH = (wrapH - 4 - tubePadY - slotGap * (BALL_CAP - 1)) / BALL_CAP;
+  return Math.max(10, Math.min(byW, byH, 38));
+}
+
 // ─── 렌더링 ───────────────────────────────────────────────
 function ballRenderBoard(playerIdx) {
   const wrap = document.getElementById(`ball-tubes-${playerIdx}`);
   if (!wrap) return;
-  wrap.innerHTML = '';
   const tubes = ballTubes[playerIdx];
+  const ballSize = ballComputeBallSize(wrap, tubes.length);
+  wrap.innerHTML = '';
   tubes.forEach((tube, ti) => {
     const tubeEl = document.createElement('button');
     tubeEl.type = 'button';
     tubeEl.className = 'ball-tube';
+    tubeEl.style.width = (ballSize + 6) + 'px';
     if (ballSelected[playerIdx] === ti) tubeEl.classList.add('selected');
     // 빈 슬롯(위) → 채워진 구슬(아래) 순으로 렌더 (위에서 아래로)
     for (let s = BALL_CAP - 1; s >= 0; s--) {
       const slot = document.createElement('div');
       slot.className = 'ball-slot';
+      slot.style.width = ballSize + 'px';
+      slot.style.height = ballSize + 'px';
       if (s < tube.length) {
         const ball = document.createElement('div');
         ball.className = 'ball';
@@ -389,6 +408,10 @@ function ballLoadRound() {
   ballProblemStatus.textContent = '시험관마다 같은 색만 모아요!';
 
   for (let i = 0; i < ballPlayerCount; i++) ballRenderBoard(i);
+  // 레이아웃 확정 후 실제 가용 크기로 재렌더 (시험관 잘림 방지)
+  requestAnimationFrame(() => {
+    for (let i = 0; i < ballPlayerCount; i++) ballRenderBoard(i);
+  });
   ballStartCountdown();
 }
 
