@@ -919,6 +919,7 @@ const _GAME_CATEGORY_MAP = {
   'place-value': 'coop',
   'fraction-build': 'coop',
   'ball-sort': 'puzzle',
+  'times-pair': 'coop',
 };
 /* @end:category-map */
 

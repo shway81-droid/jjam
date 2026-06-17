@@ -79,5 +79,6 @@
 {"folder":"magic-square","name":"마방진","description":"가로·세로·대각선 합이 모두 같게 수를 채워요!","icon":"✨","color":"#F9A825","playTime":"1~2분","category":"puzzle","players":"2-4명"},
 {"folder":"place-value","name":"두 자리 수 만들기","description":"P1은 십의 자리, P2는 일의 자리를 골라 목표 수를 만들어요! 자릿값 협력 게임","icon":"🔟","color":"#00897B","playTime":"1~2분","category":"coop","players":"2명"},
 {"folder":"fraction-build","name":"분수 만들기","description":"P1은 색칠된 칸(분자), P2는 전체 칸(분모)을 골라 그림 분수를 함께 완성해요! 협력 분수 게임","icon":"🍕","color":"#EF6C00","playTime":"1~2분","category":"coop","players":"2명"},
-{"folder":"ball-sort","name":"색 구슬 정렬","description":"구슬을 옮겨 시험관마다 같은 색만 모아요! 가장 먼저 정렬하면 승리!","icon":"🧪","color":"#5E35B1","playTime":"1~2분","category":"puzzle","players":"2-4명"}
+{"folder":"ball-sort","name":"색 구슬 정렬","description":"구슬을 옮겨 시험관마다 같은 색만 모아요! 가장 먼저 정렬하면 승리!","icon":"🧪","color":"#5E35B1","playTime":"1~2분","category":"puzzle","players":"2-4명"},
+{"folder":"times-pair","name":"곱셈 짝꿍","description":"P1과 P2가 카드 한 장씩 골라 목표 곱을 맞춰요! 협력 곱셈 게임","icon":"✖️","color":"#8E24AA","playTime":"1~2분","category":"coop","players":"2명"}
 ]
