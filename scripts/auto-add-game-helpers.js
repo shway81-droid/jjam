@@ -125,7 +125,7 @@ if (cmd === 'reset-failures') {
 
 // 오늘 KST 기준 푸시된 Auto-add 커밋 수와 남은 게임 수 계산
 function todayPushedInfo() {
-  const DAILY_TARGET = 2;
+  const DAILY_TARGET = 4;
   let pushedToday = [];
   try {
     const raw = execSync('git log --format="%h|%aI|%s" -n 50', { cwd: ROOT, encoding: 'utf-8' });
@@ -182,7 +182,7 @@ if (cmd === 'preflight') {
   const action = blockedForToday
     ? 'abort: 오늘 누적 실패 3회 도달 → 그날 작업 중단'
     : pushed.alreadyComplete
-      ? 'skip: 오늘 이미 2개 모두 푸시됨 → 추가 작업 불필요'
+      ? `skip: 오늘 이미 ${pushed.todayPushedCount}개 모두 푸시됨 → 추가 작업 불필요`
       : `proceed: ${pushed.pendingGames}개 게임 제작 필요 (오늘 이미 ${pushed.todayPushedCount}개 푸시)`;
 
   console.log(JSON.stringify({

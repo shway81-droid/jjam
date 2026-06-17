@@ -1,7 +1,7 @@
 # 자동 게임 추가 — 절차서 (AUTO_MODE)
 
 > 매일 **10:00 KST** 데스크톱 루틴이 이 문서를 따라 새 게임을 자동 추가한다.
-> **하루 목표 2개. 완전 자동(사용자 승인 단계 없음). 대상 브랜치 `main`.**
+> **하루 목표 4개. 완전 자동(사용자 승인 단계 없음). 대상 브랜치 `main`.**
 > 데스크톱에 붙여넣는 트리거 프롬프트: `docs/AUTO_ROUTINE_PROMPT.md`
 > 골든 템플릿(복사 기준): `docs/PATTERNS.md`
 
@@ -39,11 +39,11 @@ git pull origin main      # 실패 시 그날 작업 중단
 | 조건 | 행동 |
 |---|---|
 | `shouldRun:false` + `blockedForToday:true` | 즉시 종료 (오늘 누적 실패 3회) |
-| `shouldRun:false` + `alreadyComplete:true` | 즉시 종료 (오늘 이미 2개 푸시) |
-| `shouldRun:true` | `pendingGames`(1 또는 2) 개수만큼 제작 |
+| `shouldRun:false` + `alreadyComplete:true` | 즉시 종료 (오늘 이미 4개 푸시) |
+| `shouldRun:true` | `pendingGames`(1~4) 개수만큼 제작 |
 
 > ⚠️ `pendingGames`를 변수로 기억하라. = "오늘 추가로 만들어야 하는 게임 수".
-> 1이면 1개만, 2면 2개를 연속 제작한다.
+> N이면 N개(1~4)를 서로 다른 카테고리로 연속 제작한다.
 
 ## 1. 게임 풀 생성·선택 (카테고리 균등)
 
@@ -136,7 +136,7 @@ node scripts/auto-add-game-helpers.js recent-failures
 node scripts/auto-add-game-helpers.js today-pushed-count
 ```
 
-- `todayPushedCount`가 `dailyTarget`(=2)에 도달했는가?
+- `todayPushedCount`가 `dailyTarget`(=4)에 도달했는가?
 - 부족 + `blockedForToday` 아님 → **다음 게임 제작 계속(절대 종료 금지)**.
 - 도달 또는 차단 → 종료.
 
@@ -148,7 +148,7 @@ node scripts/auto-add-game-helpers.js today-pushed-count
 [preflight] →
   blockedForToday → 종료
   alreadyComplete → 종료
-  else (pendingGames = 1 또는 2):
+  else (pendingGames = 1~4):
     반복: [풀 선택 → 제작 → 검증(verify + npm test + 브라우저) → 커밋 → push origin main]
     종료 직전: today-pushed-count 재확인
       → 부족 + 미차단 → 다음 게임 계속
@@ -171,4 +171,4 @@ node scripts/auto-add-game-helpers.js today-pushed-count
 
 별도 메시지 없이 끝낸다. 결과는 git 커밋 로그로만 확인:
 `git log --oneline | grep Auto-add` 의 오늘 자 커밋 수.
-일부 성공(1건)이면 다음날 `preflight`가 `pendingGames:1`로 자동 보강한다.
+일부 성공(4건 미만)이면 다음날 `preflight`가 모자란 수만큼 `pendingGames`로 자동 보강한다.

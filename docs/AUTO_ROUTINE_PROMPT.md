@@ -7,7 +7,7 @@
 ---
 
 ```text
-[자동 게임 추가 - 매일 10시 KST · 하루 목표 2개]
+[자동 게임 추가 - 매일 10시 KST · 하루 목표 4개]
 
 작업 디렉토리: C:/Users/User/Desktop/claude
 저장소: shway81-droid/jjam
@@ -36,8 +36,8 @@
    (네트워크 실패 시 2s·4s·8s·16s 백오프로 최대 4회 재시도)
 
 ## 반드시 지킬 불변식
-- 하루 목표 2개. 종료 직전 `node scripts/auto-add-game-helpers.js today-pushed-count`
-  로 재확인 — 2개 미만이고 blockedForToday 아니면 다음 게임 계속(절대 조기 종료 금지).
+- 하루 목표 4개. 종료 직전 `node scripts/auto-add-game-helpers.js today-pushed-count`
+  로 재확인 — 4개 미만이고 blockedForToday 아니면 다음 게임 계속(절대 조기 종료 금지).
 - `git pull origin main` 실패 시 그날 중단.
 - 결과는 항상 **main에 직접 푸시**한다. PR(드래프트 포함) 생성으로 대체 금지.
 - 커밋 제목은 반드시 "Auto-add:" 로 시작 (헬퍼가 이 프리픽스로 진행도 집계).
@@ -51,8 +51,8 @@
 
 ## 종료
 별도 메시지 없이 작업 끝. 결과는 git 커밋 로그로만 확인.
-성공: `git log --oneline | grep Auto-add` 오늘 자 2건.
-일부 성공: 1건 (다음날 preflight가 pendingGames:1로 자동 보강).
+성공: `git log --oneline | grep Auto-add` 오늘 자 4건.
+일부 성공: 4건 미만 (다음날 preflight가 모자란 수만큼 pendingGames로 자동 보강).
 ```
 
 ---
