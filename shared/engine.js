@@ -921,6 +921,7 @@ const _GAME_CATEGORY_MAP = {
   'ball-sort': 'puzzle',
   'times-pair': 'coop',
   'connect-four': 'brain',
+  'peg-jump': 'puzzle',
 };
 /* @end:category-map */
 
