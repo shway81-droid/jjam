@@ -920,6 +920,7 @@ const _GAME_CATEGORY_MAP = {
   'fraction-build': 'coop',
   'ball-sort': 'puzzle',
   'times-pair': 'coop',
+  'connect-four': 'brain',
 };
 /* @end:category-map */
 

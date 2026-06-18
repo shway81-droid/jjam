@@ -1,0 +1,9 @@
+{
+  "name": "네 줄 잇기",
+  "description": "번갈아 칸을 채워 같은 색 네 개를 먼저 이으면 승리!",
+  "icon": "🔴",
+  "color": "#1E88E5",
+  "playTime": "2~3분",
+  "category": "brain",
+  "players": "2명"
+}
