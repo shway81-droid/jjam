@@ -925,6 +925,10 @@ const _GAME_CATEGORY_MAP = {
   'ink-color': 'speed',
   'block-fit': 'puzzle',
   'again-tap': 'speed',
+  'num-path': 'puzzle',
+  'five-row': 'brain',
+  'fill-exact': 'coop',
+  'biggest-tap': 'speed',
 };
 /* @end:category-map */
 
