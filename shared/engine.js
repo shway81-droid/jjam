@@ -923,6 +923,7 @@ const _GAME_CATEGORY_MAP = {
   'connect-four': 'brain',
   'peg-jump': 'puzzle',
   'dir-combo': 'coop',
+  'ink-color': 'speed',
 };
 /* @end:category-map */
 
