@@ -261,8 +261,9 @@
   }
 
   function advanceZone(st) {
-    var next = nextItem(st.prevItem);
-    st.prevItem        = st.currentItem; // 직전 표시 아이템이 새 prev 기준
+    // 반복 여부는 "지금 화면에 떠 있는 아이콘" 기준 (1-back).
+    var next = nextItem(st.currentItem);
+    st.prevItem        = st.currentItem; // 직전 표시 아이템 기록(참고용)
     st.currentItem     = next.item;
     st.currentIsRepeat = next.isRepeat;
     st.handled         = false;
