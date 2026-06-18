@@ -924,8 +924,6 @@ const _GAME_CATEGORY_MAP = {
   'dir-combo': 'coop',
   'ink-color': 'speed',
   'block-fit': 'puzzle',
-  'flip-over': 'brain',
-  'attr-combo': 'coop',
   'again-tap': 'speed',
 };
 /* @end:category-map */
