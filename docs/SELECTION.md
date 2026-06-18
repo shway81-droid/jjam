@@ -113,5 +113,13 @@ skip-count·job-tool은 선별 당시 원작에 없던 신규 게임. 나머지 
 
 → 현재 80개. 분포: speed 14 / brain 12 / math 17 / knowledge 16 / coop 11 / puzzle 10
 
-> ⚠️ 자동 추가 루틴(`docs/AUTO_MODE.md`)은 이 문서의 1·2·3·4·5차 삭제 목록 + `GAME_ANTIPATTERNS.md` 0절을
+## 🚫 사용자 삭제 6차 (재추가 금지)
+
+자동 추가분 중 1종 삭제 — 폴더명이든 다른 이름이든 같은 메커니즘 재추가 금지:
+
+- puzzle: peg-jump(콩콩 점프 — 콩을 인접한 콩 너머 빈 칸으로 뛰어넘어 잡으며 마지막 한 알만 남기는 페그 솔리테어)
+
+→ 현재 85개. 분포: speed 15 / brain 13 / math 17 / knowledge 16 / coop 13 / puzzle 11
+
+> ⚠️ 자동 추가 루틴(`docs/AUTO_MODE.md`)은 이 문서의 1·2·3·4·5·6차 삭제 목록 + `GAME_ANTIPATTERNS.md` 0절을
 > 후보 제외(avoid) 기준으로 읽는다. 게임을 삭제하면 여기에 반드시 기록할 것 — 누락 시 루틴이 재생성한다.
