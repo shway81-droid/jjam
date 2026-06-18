@@ -84,5 +84,8 @@
 {"folder":"connect-four","name":"네 줄 잇기","description":"번갈아 칸을 채워 같은 색 네 개를 먼저 이으면 승리!","icon":"🔴","color":"#1E88E5","playTime":"2~3분","category":"brain","players":"2명"},
 {"folder":"dir-combo","name":"방향 콤비","description":"한 명은 좌우, 한 명은 상하! 둘이 함께 로켓을 조종해 깃발까지 가요","icon":"🚀","color":"#5E35B1","playTime":"1~2분","category":"coop","players":"2명"},
 {"folder":"ink-color","name":"색깔 술래","description":"글자 뜻은 함정! 글자가 '칠해진 색'을 빠르게 골라요","icon":"🌈","color":"#EC407A","playTime":"45초","category":"speed","players":"2-4명"},
-{"folder":"block-fit","name":"조각 채우기","description":"주어진 조각을 끼워 빈 판을 빈틈없이 채워요! 가장 먼저 채운 사람 승리!","icon":"🧩","color":"#26A69A","playTime":"1~2분","category":"puzzle","players":"2-4명"}
+{"folder":"block-fit","name":"조각 채우기","description":"주어진 조각을 끼워 빈 판을 빈틈없이 채워요! 가장 먼저 채운 사람 승리!","icon":"🧩","color":"#26A69A","playTime":"1~2분","category":"puzzle","players":"2-4명"},
+{"folder":"flip-over","name":"뒤집기","description":"돌을 놓아 상대 돌을 내 색으로 뒤집어요! 더 많이 차지한 사람 승리!","icon":"⚫","color":"#5C6BC0","playTime":"1~2분","category":"brain","players":"2명"},
+{"folder":"attr-combo","name":"짝꿍 모으기","description":"P1은 색, P2는 모양! 둘이 함께 주문 카드를 완성해요! 협력 게임","icon":"🎁","color":"#26C6DA","playTime":"1~2분","category":"coop","players":"2명"},
+{"folder":"again-tap","name":"또 나왔다","description":"조금 전에 나온 그림과 똑같은 그림이 또 나오면 재빨리 터치!","icon":"🔁","color":"#FF7043","playTime":"30초","category":"speed","players":"2-4명"}
 ]
