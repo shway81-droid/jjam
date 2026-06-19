@@ -139,5 +139,13 @@ skip-count·job-tool은 선별 당시 원작에 없던 신규 게임. 나머지 
 
 → 현재 97개. 분포: speed 17 / brain 16 / math 18 / knowledge 17 / coop 14 / puzzle 15
 
-> ⚠️ 자동 추가 루틴(`docs/AUTO_MODE.md`)은 이 문서의 1·2·3·4·5·6·7·8차 삭제 목록 + `GAME_ANTIPATTERNS.md` 0절을
+## 🚫 사용자 삭제 9차 (재추가 금지)
+
+직전 추가분(97→101개) 중 1종 삭제 — 폴더명이든 다른 이름이든 같은 메커니즘 재추가 금지:
+
+- puzzle: domino-fill(도미노 채우기 — 1×2 도미노로 빈 격자를 빈틈없이 덮는 도미노 타일링)
+
+→ 현재 100개. 분포: speed 17 / brain 17 / math 18 / knowledge 18 / coop 15 / puzzle 15
+
+> ⚠️ 자동 추가 루틴(`docs/AUTO_MODE.md`)은 이 문서의 1·2·3·4·5·6·7·8·9차 삭제 목록 + `GAME_ANTIPATTERNS.md` 0절을
 > 후보 제외(avoid) 기준으로 읽는다. 게임을 삭제하면 여기에 반드시 기록할 것 — 누락 시 루틴이 재생성한다.
