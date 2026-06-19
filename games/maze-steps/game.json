@@ -1,9 +1,0 @@
-{
-  "name": "미로 몇 칸?",
-  "description": "쥐가 치즈까지 가는 외길을 따라 몇 칸을 움직여야 하는지 세어 가장 먼저 골라요!",
-  "icon": "🐭",
-  "color": "#00897B",
-  "playTime": "1~2분",
-  "category": "puzzle",
-  "players": "2-4명"
-}
