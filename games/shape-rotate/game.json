@@ -1,0 +1,9 @@
+{
+  "name": "돌린 그림 찾기",
+  "description": "왼쪽 그림을 돌리면 어떤 모양일까요? 같은 그림을 가장 먼저 골라요!",
+  "icon": "🔄",
+  "color": "#EF5350",
+  "playTime": "30초",
+  "category": "brain",
+  "players": "2-4명"
+}
