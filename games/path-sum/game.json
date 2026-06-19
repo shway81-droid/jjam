@@ -1,0 +1,9 @@
+{
+  "name": "길 따라 더하기",
+  "description": "길을 따라 놓인 숫자를 모두 더하면 얼마일까요? 합을 가장 먼저 골라요!",
+  "icon": "🛤️",
+  "color": "#26A69A",
+  "playTime": "30초",
+  "category": "puzzle",
+  "players": "2-4명"
+}

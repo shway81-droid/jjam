@@ -933,6 +933,10 @@ const _GAME_CATEGORY_MAP = {
   'what-sound': 'knowledge',
   'maze-steps': 'puzzle',
   'share-equal': 'math',
+  'path-sum': 'puzzle',
+  'dice-net': 'puzzle',
+  'shape-rotate': 'brain',
+  'size-order': 'brain',
 };
 /* @end:category-map */
 
