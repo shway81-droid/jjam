@@ -931,6 +931,7 @@ const _GAME_CATEGORY_MAP = {
   'biggest-tap': 'speed',
   'step-path': 'brain',
   'what-sound': 'knowledge',
+  'maze-steps': 'puzzle',
 };
 /* @end:category-map */
 
