@@ -1,9 +1,0 @@
-{
-  "name": "도미노 채우기",
-  "description": "1×2 도미노를 놓아 빈 판을 빈틈없이 채워요! 가장 먼저 채운 사람 승리!",
-  "icon": "🧱",
-  "color": "#5E35B1",
-  "playTime": "1~2분",
-  "category": "puzzle",
-  "players": "2-4명"
-}
