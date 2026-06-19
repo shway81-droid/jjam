@@ -932,6 +932,7 @@ const _GAME_CATEGORY_MAP = {
   'step-path': 'brain',
   'what-sound': 'knowledge',
   'maze-steps': 'puzzle',
+  'share-equal': 'math',
 };
 /* @end:category-map */
 
