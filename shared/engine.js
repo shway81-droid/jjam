@@ -929,6 +929,7 @@ const _GAME_CATEGORY_MAP = {
   'five-row': 'brain',
   'fill-exact': 'coop',
   'biggest-tap': 'speed',
+  'step-path': 'brain',
 };
 /* @end:category-map */
 
