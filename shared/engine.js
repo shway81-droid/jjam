@@ -930,6 +930,7 @@ const _GAME_CATEGORY_MAP = {
   'fill-exact': 'coop',
   'biggest-tap': 'speed',
   'step-path': 'brain',
+  'what-sound': 'knowledge',
 };
 /* @end:category-map */
 
