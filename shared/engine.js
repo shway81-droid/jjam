@@ -935,6 +935,10 @@ const _GAME_CATEGORY_MAP = {
   'dice-net': 'puzzle',
   'shape-rotate': 'brain',
   'size-order': 'brain',
+  'honorific-quiz': 'knowledge',
+  'tic-tac-toe': 'brain',
+  'word-build': 'coop',
+  'domino-fill': 'puzzle',
 };
 /* @end:category-map */
 
