@@ -1,0 +1,9 @@
+{
+  "name": "함께 굴려라",
+  "description": "P1은 좌우, P2는 위아래! 둘이 힘을 합쳐 공을 골대까지 굴려요.",
+  "icon": "⚽",
+  "color": "#66BB6A",
+  "playTime": "40초",
+  "category": "coop",
+  "players": "2명"
+}

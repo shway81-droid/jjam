@@ -1,0 +1,520 @@
+/* games/roll-duo/game.js */
+
+(function () {
+  'use strict';
+
+  // ─── 미로 데이터 (5개, 점점 커짐) ─────────────────────────────────────────
+  // S=시작, G=골대, #=벽, O=구덩이, .=빈 칸
+  var MAZES = [
+    // 라운드 1: 5x5
+    [
+      "S.#..",
+      ".##.#",
+      "..#..",
+      "#.##.",
+      "#...G"
+    ],
+    // 라운드 2: 5열 x 6행
+    [
+      "S...#",
+      "##.#.",
+      "...#.",
+      ".#...",
+      ".#...",
+      "...#G"
+    ],
+    // 라운드 3: 6x6
+    [
+      "S..#.G",
+      "##.#.#",
+      "...#..",
+      ".#.#.#",
+      ".#...#",
+      "...#.."
+    ],
+    // 라운드 4: 6열 x 7행
+    [
+      "S..#..",
+      "##.##.",
+      "...O..",
+      ".#.##.",
+      ".#....",
+      ".##O.#",
+      "....G."
+    ],
+    // 라운드 5: 7x7
+    [
+      "S.###.G",
+      ".##.#..",
+      "...O...",
+      "##.#.##",
+      "#O.....",
+      ".#.##.#",
+      ".#..O.."
+    ]
+  ];
+
+  var TOTAL_ROUNDS = 5;
+  var ROUND_TIME = [30, 30, 35, 35, 40]; // 초
+
+  // ─── 타이머 관리 ─────────────────────────────────────────────────────────
+  var timers = [];
+  var roundInterval = null;
+
+  function later(fn, ms) {
+    var id = setTimeout(fn, ms);
+    timers.push(id);
+    return id;
+  }
+
+  function clearAllTimers() {
+    if (countdownInterval) { clearInterval(countdownInterval); countdownInterval = null; }
+    if (roundInterval) { clearInterval(roundInterval); roundInterval = null; }
+    timers.forEach(function (id) { clearTimeout(id); });
+    timers = [];
+  }
+
+  // ─── 화면 전환 ────────────────────────────────────────────────────────────
+  var screens = {
+    intro:     document.getElementById('introScreen'),
+    countdown: document.getElementById('countdownScreen'),
+    game:      document.getElementById('gameScreen'),
+    result:    document.getElementById('resultScreen')
+  };
+
+  function showScreen(name) {
+    Object.keys(screens).forEach(function (key) {
+      screens[key].classList.toggle('active', key === name);
+    });
+  }
+
+  var countdownInterval = null;
+  function startCountdown(onDone) {
+    var countdownNumber = document.getElementById('countdownNumber');
+    showScreen('countdown');
+    countdownInterval = runCountdown(countdownNumber, onDone);
+  }
+
+  // ─── 사운드 ──────────────────────────────────────────────────────────────
+  var sounds = createSoundManager({
+    move: function (ctx) {
+      var osc = ctx.createOscillator();
+      var gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(440, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(560, ctx.currentTime + 0.06);
+      gain.gain.setValueAtTime(0.15, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.09);
+    },
+    blocked: function (ctx) {
+      var osc = ctx.createOscillator();
+      var gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(180, ctx.currentTime);
+      gain.gain.setValueAtTime(0.12, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.13);
+    },
+    fall: function (ctx) {
+      var osc = ctx.createOscillator();
+      var gain = ctx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(320, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(80, ctx.currentTime + 0.45);
+      gain.gain.setValueAtTime(0.2, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.48);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.5);
+    },
+    goal: function (ctx) {
+      [659, 784, 988].forEach(function (freq, i) {
+        var osc = ctx.createOscillator();
+        var gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.value = freq;
+        var t = ctx.currentTime + i * 0.08;
+        gain.gain.setValueAtTime(0.22, t);
+        gain.gain.exponentialRampToValueAtTime(0.001, t + 0.2);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(t);
+        osc.stop(t + 0.22);
+      });
+    },
+    timeout: function (ctx) {
+      var osc = ctx.createOscillator();
+      var gain = ctx.createGain();
+      osc.type = 'square';
+      osc.frequency.setValueAtTime(330, ctx.currentTime);
+      osc.frequency.setValueAtTime(220, ctx.currentTime + 0.18);
+      gain.gain.setValueAtTime(0.16, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.42);
+    },
+    win: function (ctx) {
+      var notes = [523, 659, 784, 1047, 1319];
+      notes.forEach(function (freq, i) {
+        var osc = ctx.createOscillator();
+        var gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.value = freq;
+        var t = ctx.currentTime + i * 0.1;
+        gain.gain.setValueAtTime(0.22, t);
+        gain.gain.exponentialRampToValueAtTime(0.001, t + 0.38);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(t);
+        osc.stop(t + 0.42);
+      });
+    }
+  });
+
+  // ─── 사운드 버튼 ──────────────────────────────────────────────────────────
+  var soundIconIds = ['soundIconIntro', 'soundIconGame'];
+  var SVG_SOUND_ON  = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>';
+  var SVG_SOUND_OFF = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
+
+  function updateSoundIcons() {
+    var muted = sounds.isMuted();
+    soundIconIds.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.innerHTML = muted ? SVG_SOUND_OFF : SVG_SOUND_ON;
+    });
+  }
+  [
+    document.getElementById('soundToggleIntro'),
+    document.getElementById('soundToggleGame')
+  ].forEach(function (btn) {
+    if (!btn) return;
+    onTap(btn, function () {
+      sounds.toggleMute();
+      updateSoundIcons();
+    });
+  });
+  updateSoundIcons();
+
+  // ─── 게임 상태 ────────────────────────────────────────────────────────────
+  var currentRound;
+  var score;
+  var maze;            // 현재 미로 (문자열 배열)
+  var rows, cols;
+  var startPos;        // {r, c}
+  var goalPos;         // {r, c}
+  var ballPos;         // {r, c}
+  var locked;          // 라운드 전환 중 입력 차단
+  var timeLeft;
+  var roundTotal;
+
+  // ─── DOM ─────────────────────────────────────────────────────────────────
+  var mazeGrid     = document.getElementById('mazeGrid');
+  var roundNumEl   = document.getElementById('roundNum');
+  var roundScoreEl = document.getElementById('roundScore');
+  var bannerEl     = document.getElementById('banner');
+  var timerValEl   = document.getElementById('timerVal');
+  var timerBarEl   = document.getElementById('timerBar');
+  var resultTitle  = document.getElementById('resultTitle');
+  var resultSub    = document.getElementById('resultSub');
+  var resultIconWrap = document.getElementById('resultIconWrap');
+
+  var ballEl = null;
+
+  // ─── 미로 렌더링 ───────────────────────────────────────────────────────────
+  function buildMaze() {
+    maze = MAZES[currentRound];
+    rows = maze.length;
+    cols = maze[0].length;
+
+    // 시작/골대 위치 찾기
+    for (var r = 0; r < rows; r++) {
+      for (var c = 0; c < cols; c++) {
+        var ch = maze[r][c];
+        if (ch === 'S') startPos = { r: r, c: c };
+        if (ch === 'G') goalPos = { r: r, c: c };
+      }
+    }
+    ballPos = { r: startPos.r, c: startPos.c };
+
+    // 셀 크기 계산 (화면에 맞춤)
+    var maxDim = Math.max(rows, cols);
+    var cellSize = 'clamp(28px, ' + Math.floor(64 / maxDim) + 'vmin, 56px)';
+    mazeGrid.style.setProperty('--cell-size', cellSize);
+    mazeGrid.style.gridTemplateColumns = 'repeat(' + cols + ', var(--cell-size))';
+    mazeGrid.style.gridTemplateRows = 'repeat(' + rows + ', var(--cell-size))';
+
+    mazeGrid.innerHTML = '';
+    for (var r2 = 0; r2 < rows; r2++) {
+      for (var c2 = 0; c2 < cols; c2++) {
+        var cell = document.createElement('div');
+        cell.className = 'cell';
+        var t = maze[r2][c2];
+        if (t === '#') cell.classList.add('wall');
+        else if (t === 'O') cell.classList.add('hole');
+        else if (t === 'G') {
+          cell.classList.add('goal');
+          cell.textContent = '🥅';
+        }
+        mazeGrid.appendChild(cell);
+      }
+    }
+
+    // 공 생성
+    ballEl = document.createElement('div');
+    ballEl.className = 'ball';
+    ballEl.innerHTML = '<span class="ball-disc">⚽</span>';
+    mazeGrid.appendChild(ballEl);
+    positionBall();
+  }
+
+  function positionBall() {
+    // grid의 padding 안쪽 + gap 고려해 transform으로 배치
+    var pad = parseFloat(getComputedStyle(mazeGrid).paddingLeft) || 0;
+    var gap = parseFloat(getComputedStyle(mazeGrid).columnGap) || 0;
+    var firstCell = mazeGrid.querySelector('.cell');
+    var cs = firstCell ? firstCell.getBoundingClientRect().width : 40;
+    var x = pad + ballPos.c * (cs + gap);
+    var y = pad + ballPos.r * (cs + gap);
+    ballEl.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+  }
+
+  // ─── 이동 처리 ────────────────────────────────────────────────────────────
+  function move(dr, dc) {
+    if (locked) return;
+    var nr = ballPos.r + dr;
+    var nc = ballPos.c + dc;
+
+    // 격자 밖
+    if (nr < 0 || nc < 0 || nr >= rows || nc >= cols) {
+      blocked();
+      return;
+    }
+    var ch = maze[nr][nc];
+    // 벽
+    if (ch === '#') {
+      blocked();
+      return;
+    }
+    // 이동
+    ballPos.r = nr;
+    ballPos.c = nc;
+    positionBall();
+    sounds.play('move');
+    ballEl.classList.remove('bump');
+    void ballEl.offsetWidth;
+    ballEl.classList.add('bump');
+
+    // 구덩이 → 처음으로
+    if (ch === 'O') {
+      later(fallToStart, 130);
+      return;
+    }
+    // 골대 도착
+    if (ch === 'G') {
+      roundCleared();
+    }
+  }
+
+  function blocked() {
+    sounds.play('blocked');
+    ballEl.classList.remove('bump');
+    void ballEl.offsetWidth;
+    ballEl.classList.add('bump');
+  }
+
+  function fallToStart() {
+    sounds.play('fall');
+    mazeGrid.classList.remove('flash');
+    void mazeGrid.offsetWidth;
+    mazeGrid.classList.add('flash');
+    ballPos.r = startPos.r;
+    ballPos.c = startPos.c;
+    positionBall();
+    showBanner('앗! 구덩이! 처음으로', 'ng');
+    later(hideBanner, 900);
+  }
+
+  // ─── 라운드 성공 ─────────────────────────────────────────────────────────
+  function roundCleared() {
+    locked = true;
+    if (roundInterval) { clearInterval(roundInterval); roundInterval = null; }
+    score++;
+    updateScoreUI();
+    sounds.play('goal');
+    showBanner('🎉 골인! 성공!', 'ok');
+    later(advance, 1300);
+  }
+
+  // ─── 라운드 실패 (시간 초과) ──────────────────────────────────────────────
+  function roundFailed() {
+    locked = true;
+    if (roundInterval) { clearInterval(roundInterval); roundInterval = null; }
+    sounds.play('timeout');
+    showBanner('⏰ 시간 초과!', 'ng');
+    later(advance, 1300);
+  }
+
+  function advance() {
+    currentRound++;
+    if (currentRound >= TOTAL_ROUNDS) {
+      showResult();
+    } else {
+      nextRound();
+    }
+  }
+
+  // ─── 다음 라운드 ─────────────────────────────────────────────────────────
+  function nextRound() {
+    locked = false;
+    hideBanner();
+    buildMaze();
+    updateRoundUI();
+    startTimer();
+    // 셀 렌더 후 공 위치 재계산 (레이아웃 안정화)
+    later(positionBall, 50);
+  }
+
+  // ─── 타이머 ──────────────────────────────────────────────────────────────
+  function startTimer() {
+    roundTotal = ROUND_TIME[currentRound];
+    timeLeft = roundTotal;
+    updateTimerUI();
+    if (roundInterval) { clearInterval(roundInterval); }
+    roundInterval = setInterval(function () {
+      timeLeft--;
+      updateTimerUI();
+      if (timeLeft <= 0) {
+        clearInterval(roundInterval);
+        roundInterval = null;
+        roundFailed();
+      }
+    }, 1000);
+  }
+
+  function updateTimerUI() {
+    timerValEl.textContent = timeLeft;
+    var pct = Math.max(0, (timeLeft / roundTotal) * 100);
+    timerBarEl.style.width = pct + '%';
+    var low = timeLeft <= 5;
+    timerValEl.classList.toggle('low', low);
+    timerBarEl.classList.toggle('low', low);
+  }
+
+  // ─── UI 업데이트 ─────────────────────────────────────────────────────────
+  function updateRoundUI() {
+    roundNumEl.textContent = (currentRound + 1) + '/' + TOTAL_ROUNDS;
+  }
+  function updateScoreUI() {
+    roundScoreEl.textContent = '★ ' + score;
+  }
+  function showBanner(text, cls) {
+    bannerEl.textContent = text;
+    bannerEl.className = 'banner show ' + cls;
+  }
+  function hideBanner() {
+    bannerEl.classList.remove('show', 'ok', 'ng');
+    bannerEl.textContent = '';
+  }
+
+  // ─── 게임 초기화 ─────────────────────────────────────────────────────────
+  function initGame() {
+    clearAllTimers();
+    currentRound = 0;
+    score = 0;
+    locked = false;
+    updateScoreUI();
+    showScreen('game');
+    nextRound();
+  }
+
+  // ─── 결과 화면 ───────────────────────────────────────────────────────────
+  var SVG_TROPHY =
+    '<svg viewBox="0 0 80 80" width="80" height="80">' +
+      '<rect x="28" y="62" width="24" height="6" rx="3" fill="#FFA726"/>' +
+      '<rect x="22" y="68" width="36" height="6" rx="3" fill="#FFA726"/>' +
+      '<path d="M15 18 Q15 50 40 54 Q65 50 65 18 Z" fill="#FFD54F" stroke="#FFA726" stroke-width="2"/>' +
+      '<path d="M15 18 Q8 18 8 28 Q8 40 20 42 Q15 35 15 26 Z" fill="#FFA726"/>' +
+      '<path d="M65 18 Q72 18 72 28 Q72 40 60 42 Q65 35 65 26 Z" fill="#FFA726"/>' +
+      '<ellipse cx="40" cy="20" rx="22" ry="6" fill="#FFE082"/>' +
+      '<text x="40" y="42" text-anchor="middle" font-size="16" font-weight="900" fill="#E65100">WIN</text>' +
+    '</svg>';
+
+  var SVG_HAND =
+    '<svg viewBox="0 0 80 80" width="80" height="80">' +
+      '<circle cx="40" cy="40" r="32" fill="#FFE082" stroke="#2C2C2C" stroke-width="3"/>' +
+      '<text x="40" y="52" text-anchor="middle" font-size="32">🤝</text>' +
+    '</svg>';
+
+  var SVG_OK =
+    '<svg viewBox="0 0 80 80" width="80" height="80">' +
+      '<circle cx="40" cy="40" r="32" fill="#C8E6C9" stroke="#2C2C2C" stroke-width="3"/>' +
+      '<polyline points="24,42 36,54 58,30" fill="none" stroke="#1B5E20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>' +
+    '</svg>';
+
+  function showResult() {
+    clearAllTimers();
+    var title, sub, icon;
+    if (score === TOTAL_ROUNDS) {
+      title = score + '/' + TOTAL_ROUNDS;
+      sub = '완벽한 협력이에요! 👏';
+      icon = SVG_TROPHY;
+    } else if (score >= 3) {
+      title = score + '/' + TOTAL_ROUNDS;
+      sub = '훌륭한 팀워크! 다시 도전해봐요';
+      icon = SVG_OK;
+    } else {
+      title = score + '/' + TOTAL_ROUNDS;
+      sub = '조금 더 호흡을 맞춰봐요!';
+      icon = SVG_HAND;
+    }
+    resultTitle.textContent = title;
+    resultSub.textContent = sub;
+    resultIconWrap.innerHTML = icon;
+    sounds.play('win');
+    showScreen('result');
+  }
+
+  // ─── 컨트롤 버튼 (P1 좌우 / P2 위아래) ─────────────────────────────────────
+  onTap(document.getElementById('btnLeft'),  function () { move(0, -1); });
+  onTap(document.getElementById('btnRight'), function () { move(0, 1); });
+  onTap(document.getElementById('btnUp'),    function () { move(-1, 0); });
+  onTap(document.getElementById('btnDown'),  function () { move(1, 0); });
+
+  // ─── 버튼 이벤트 ─────────────────────────────────────────────────────────
+  onTap(document.getElementById('playBtn'), function () {
+    startCountdown(function () { initGame(); });
+  });
+  onTap(document.getElementById('retryBtn'), function () {
+    startCountdown(function () { initGame(); });
+  });
+  onTap(document.getElementById('homeBtn'), function () {
+    clearAllTimers();
+    goHome();
+  });
+  onTap(document.getElementById('backBtn'), function () {
+    clearAllTimers();
+    goHome();
+  });
+  onTap(document.getElementById('closeBtn'), function () {
+    clearAllTimers();
+    showScreen('intro');
+  });
+
+  // 화면 회전/리사이즈 시 공 위치 보정
+  window.addEventListener('resize', function () {
+    if (screens.game.classList.contains('active') && ballEl) {
+      positionBall();
+    }
+  });
+
+})();

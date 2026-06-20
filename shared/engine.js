@@ -940,6 +940,7 @@ const _GAME_CATEGORY_MAP = {
   'word-build': 'coop',
   'order-relay': 'coop',
   'mirror-fill': 'puzzle',
+  'roll-duo': 'coop',
 };
 /* @end:category-map */
 
