@@ -1,0 +1,9 @@
+{
+  "name": "대칭 채우기",
+  "description": "칸을 칠해 좌우가 똑같은 대칭 그림을 완성! 가장 먼저 맞춘 사람 승리!",
+  "icon": "🦋",
+  "color": "#AB47BC",
+  "playTime": "60초",
+  "category": "puzzle",
+  "players": "2-4명"
+}

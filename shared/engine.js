@@ -939,6 +939,7 @@ const _GAME_CATEGORY_MAP = {
   'tic-tac-toe': 'brain',
   'word-build': 'coop',
   'order-relay': 'coop',
+  'mirror-fill': 'puzzle',
 };
 /* @end:category-map */
 
