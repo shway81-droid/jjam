@@ -941,6 +941,7 @@ const _GAME_CATEGORY_MAP = {
   'order-relay': 'coop',
   'mirror-fill': 'puzzle',
   'roll-duo': 'coop',
+  'jump-path': 'puzzle',
 };
 /* @end:category-map */
 
