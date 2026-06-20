@@ -1,0 +1,9 @@
+{
+  "name": "차례차례 잇기",
+  "description": "1부터 차례대로! 두 사람 손에 나뉜 숫자를 순서대로 함께 이어요.",
+  "icon": "🔢",
+  "color": "#26C6DA",
+  "playTime": "40초",
+  "category": "coop",
+  "players": "2명"
+}

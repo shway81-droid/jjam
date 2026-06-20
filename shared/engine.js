@@ -938,6 +938,7 @@ const _GAME_CATEGORY_MAP = {
   'honorific-quiz': 'knowledge',
   'tic-tac-toe': 'brain',
   'word-build': 'coop',
+  'order-relay': 'coop',
 };
 /* @end:category-map */
 
