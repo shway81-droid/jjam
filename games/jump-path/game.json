@@ -1,9 +1,0 @@
-{
-  "name": "숫자 점프",
-  "description": "발판에 적힌 수만큼 폴짝! 정확히 점프해서 깃발까지 가요. 먼저 도착하면 승리!",
-  "icon": "🦘",
-  "color": "#FF7043",
-  "playTime": "60초",
-  "category": "puzzle",
-  "players": "2-4명"
-}
