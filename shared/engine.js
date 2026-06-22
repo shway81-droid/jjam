@@ -938,14 +938,9 @@ const _GAME_CATEGORY_MAP = {
   'honorific-quiz': 'knowledge',
   'tic-tac-toe': 'brain',
   'word-build': 'coop',
-  'order-relay': 'coop',
-  'mirror-fill': 'puzzle',
   'roll-duo': 'coop',
-  'jump-path': 'puzzle',
-  'same-diff': 'speed',
   'most-shape': 'brain',
   'clock-build': 'coop',
-  'dice-roll': 'puzzle',
 };
 /* @end:category-map */
 

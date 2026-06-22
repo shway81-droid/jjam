@@ -1,9 +1,0 @@
-{
-  "name": "같을까 다를까",
-  "description": "두 그림을 재빨리 비교! 똑같으면 '같다', 다르면 '다르다'를 먼저 눌러요",
-  "icon": "👀",
-  "color": "#7E57C2",
-  "playTime": "1분",
-  "category": "speed",
-  "players": "2-4명"
-}
