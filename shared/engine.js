@@ -944,6 +944,7 @@ const _GAME_CATEGORY_MAP = {
   'jump-path': 'puzzle',
   'same-diff': 'speed',
   'most-shape': 'brain',
+  'clock-build': 'coop',
 };
 /* @end:category-map */
 
