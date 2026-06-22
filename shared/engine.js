@@ -945,6 +945,7 @@ const _GAME_CATEGORY_MAP = {
   'same-diff': 'speed',
   'most-shape': 'brain',
   'clock-build': 'coop',
+  'dice-roll': 'puzzle',
 };
 /* @end:category-map */
 

@@ -1,0 +1,9 @@
+{
+  "name": "주사위 굴리기",
+  "description": "주사위를 굴려 깃발 칸까지! 윗면 숫자가 목표와 같게 도착하면 성공! 가장 먼저 맞추면 승리",
+  "icon": "🎲",
+  "color": "#F4511E",
+  "playTime": "1~2분",
+  "category": "puzzle",
+  "players": "2-4명"
+}
