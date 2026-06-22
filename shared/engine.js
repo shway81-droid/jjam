@@ -943,6 +943,7 @@ const _GAME_CATEGORY_MAP = {
   'roll-duo': 'coop',
   'jump-path': 'puzzle',
   'same-diff': 'speed',
+  'most-shape': 'brain',
 };
 /* @end:category-map */
 
