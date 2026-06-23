@@ -941,6 +941,7 @@ const _GAME_CATEGORY_MAP = {
   'roll-duo': 'coop',
   'most-shape': 'brain',
   'clock-build': 'coop',
+  'flip-arrow': 'speed',
 };
 /* @end:category-map */
 

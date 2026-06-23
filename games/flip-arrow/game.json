@@ -1,0 +1,9 @@
+{
+  "name": "거꾸로 화살표",
+  "description": "화살표가 가리키는 반대 방향을 빨리 눌러요! 헷갈리면 함정 30초 대결",
+  "icon": "🔄",
+  "color": "#FB8C00",
+  "playTime": "30초",
+  "category": "speed",
+  "players": "2-4명"
+}
