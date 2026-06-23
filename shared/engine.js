@@ -943,6 +943,7 @@ const _GAME_CATEGORY_MAP = {
   'clock-build': 'coop',
   'flip-arrow': 'speed',
   'skip-relay': 'coop',
+  'decalco': 'puzzle',
 };
 /* @end:category-map */
 
