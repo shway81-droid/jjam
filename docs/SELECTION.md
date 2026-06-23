@@ -147,5 +147,17 @@ skip-count·job-tool은 선별 당시 원작에 없던 신규 게임. 나머지 
 
 → 현재 100개. 분포: speed 17 / brain 17 / math 18 / knowledge 18 / coop 15 / puzzle 15
 
-> ⚠️ 자동 추가 루틴(`docs/AUTO_MODE.md`)은 이 문서의 1·2·3·4·5·6·7·8·9차 삭제 목록 + `GAME_ANTIPATTERNS.md` 0절을
+## 🚫 사용자 삭제 10차 (재추가 금지)
+
+직전 자동 추가분(2026-06-23, 104→107개) 중 3종 삭제 — 폴더명이든 다른 이름이든 같은 메커니즘 재추가 금지:
+
+- speed: flip-arrow(거꾸로 화살표 — 화살표가 가리키는 반대 방향을 누르는 반대방향 반응)
+- coop: skip-relay(뛰어 세기 짝꿍 — 규칙대로 다음 수를 둘이 번갈아 이어 세는 협력 뛰어세기 릴레이)
+- puzzle: neighbor-color(이웃 다른 색 — 8방향 이웃과 다른 색이 되도록 4색으로 칠하는 격자 4색 제약 만족 퍼즐)
+
+비고: 같은 날 추가한 decalco(데칼코마니 — 좌우 대칭 색칠)는 유지.
+
+→ 현재 104개. 분포: speed 17 / brain 18 / math 18 / knowledge 18 / coop 17 / puzzle 16
+
+> ⚠️ 자동 추가 루틴(`docs/AUTO_MODE.md`)은 이 문서의 1·2·3·4·5·6·7·8·9·10차 삭제 목록 + `GAME_ANTIPATTERNS.md` 0절을
 > 후보 제외(avoid) 기준으로 읽는다. 게임을 삭제하면 여기에 반드시 기록할 것 — 누락 시 루틴이 재생성한다.

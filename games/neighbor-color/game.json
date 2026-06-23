@@ -1,9 +1,0 @@
-{
-  "name": "이웃 다른 색",
-  "description": "맞닿은 이웃과 다른 색으로 모든 칸을 칠해요! 4색으로 먼저 완성한 사람 승리",
-  "icon": "🌈",
-  "color": "#AB47BC",
-  "playTime": "1~2분",
-  "category": "puzzle",
-  "players": "2-4명"
-}
