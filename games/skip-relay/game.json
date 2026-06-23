@@ -1,0 +1,9 @@
+{
+  "name": "뛰어 세기 짝꿍",
+  "description": "규칙대로 다음 수를 둘이 번갈아 이어요! 그 수를 가진 사람이 콕 협력 게임",
+  "icon": "🐸",
+  "color": "#43A047",
+  "playTime": "60초",
+  "category": "coop",
+  "players": "2명"
+}

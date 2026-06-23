@@ -942,6 +942,7 @@ const _GAME_CATEGORY_MAP = {
   'most-shape': 'brain',
   'clock-build': 'coop',
   'flip-arrow': 'speed',
+  'skip-relay': 'coop',
 };
 /* @end:category-map */
 
