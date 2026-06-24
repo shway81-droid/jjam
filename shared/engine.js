@@ -942,6 +942,10 @@ const _GAME_CATEGORY_MAP = {
   'most-shape': 'brain',
   'clock-build': 'coop',
   'decalco': 'puzzle',
+  'sum-pyramid': 'puzzle',
+  'sports-quiz': 'knowledge',
+  'multiple-react': 'speed',
+  'diff-pair': 'coop',
 };
 /* @end:category-map */
 

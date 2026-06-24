@@ -102,5 +102,9 @@
 {"folder":"roll-duo","name":"함께 굴려라","description":"P1은 좌우, P2는 위아래! 둘이 힘을 합쳐 공을 골대까지 굴려요.","icon":"⚽","color":"#66BB6A","playTime":"40초","category":"coop","players":"2명"},
 {"folder":"most-shape","name":"가장 많은 그림","description":"여러 그림이 흩어져 있어요! 어떤 그림이 가장 많은지 가장 먼저 찾아 골라요","icon":"📊","color":"#26A69A","playTime":"1분","category":"brain","players":"2-4명"},
 {"folder":"clock-build","name":"시계 함께 맞추기","description":"P1은 시(時), P2는 분(分)을 골라 목표 시계를 함께 완성해요! 시각 읽기 협력 게임","icon":"🕐","color":"#5C6BC0","playTime":"1~2분","category":"coop","players":"2명"},
-{"folder":"decalco","name":"데칼코마니","description":"왼쪽 무늬와 똑같이 오른쪽을 거울처럼 색칠해요! 먼저 완성한 사람 승리","icon":"🦋","color":"#26A69A","playTime":"1~2분","category":"puzzle","players":"2-4명"}
+{"folder":"decalco","name":"데칼코마니","description":"왼쪽 무늬와 똑같이 오른쪽을 거울처럼 색칠해요! 먼저 완성한 사람 승리","icon":"🦋","color":"#26A69A","playTime":"1~2분","category":"puzzle","players":"2-4명"},
+{"folder":"sum-pyramid","name":"덧셈 피라미드","description":"아래 두 칸의 합이 위 칸! 빈칸을 채워 피라미드를 완성해요!","icon":"🔺","color":"#00897B","playTime":"1~2분","category":"puzzle","players":"2-4명"},
+{"folder":"sports-quiz","name":"운동 종목 맞히기","description":"운동 그림을 보고 종목 이름을 가장 먼저 맞혀요!","icon":"⚽","color":"#26A69A","playTime":"1분","category":"knowledge","players":"2-4명"},
+{"folder":"multiple-react","name":"배수 반응","description":"수가 3의 배수인지 5의 배수인지 재빨리 판단해요!","icon":"🔢","color":"#7E57C2","playTime":"30초","category":"speed","players":"2-4명"},
+{"folder":"diff-pair","name":"빼기 짝꿍","description":"P1·P2가 카드 한 장씩 골라 두 수의 차가 목표가 되게 맞춰요!","icon":"➖","color":"#EF6C00","playTime":"1분","category":"coop","players":"2명"}
 ]
