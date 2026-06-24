@@ -1,0 +1,9 @@
+{
+  "name": "배수 반응",
+  "description": "수가 3의 배수인지 5의 배수인지 재빨리 판단해요!",
+  "icon": "🔢",
+  "color": "#7E57C2",
+  "playTime": "30초",
+  "category": "speed",
+  "players": "2-4명"
+}
