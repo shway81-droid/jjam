@@ -159,5 +159,17 @@ skip-count·job-tool은 선별 당시 원작에 없던 신규 게임. 나머지 
 
 → 현재 104개. 분포: speed 17 / brain 18 / math 18 / knowledge 18 / coop 17 / puzzle 16
 
-> ⚠️ 자동 추가 루틴(`docs/AUTO_MODE.md`)은 이 문서의 1·2·3·4·5·6·7·8·9·10차 삭제 목록 + `GAME_ANTIPATTERNS.md` 0절을
+## 🚫 사용자 삭제 11차 (재추가 금지)
+
+직전 자동 추가분(2026-06-24, 104→108개) 중 2종 삭제 — 폴더명이든 다른 이름이든 같은 메커니즘 재추가 금지:
+
+- knowledge: sports-quiz(운동 종목 맞히기 — 운동 경기 이모지를 보고 종목 이름을 4지선다로 맞히기)
+- speed: multiple-react(배수 반응 — 흐르는 수가 3의 배수/5의 배수/아님인지 빠르게 판단해 누르기)
+
+비고: 같은 날 추가한 sum-pyramid(덧셈 피라미드 — 아래 두 칸 합이 위 칸인 빈칸 채우기 퍼즐)·
+diff-pair(빼기 짝꿍 — 두 카드의 차가 목표가 되게 맞추는 협력)는 유지.
+
+→ 현재 106개. 분포: speed 17 / brain 18 / math 18 / knowledge 18 / coop 18 / puzzle 17
+
+> ⚠️ 자동 추가 루틴(`docs/AUTO_MODE.md`)은 이 문서의 1·2·3·4·5·6·7·8·9·10·11차 삭제 목록 + `GAME_ANTIPATTERNS.md` 0절을
 > 후보 제외(avoid) 기준으로 읽는다. 게임을 삭제하면 여기에 반드시 기록할 것 — 누락 시 루틴이 재생성한다.

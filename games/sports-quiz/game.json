@@ -1,9 +1,0 @@
-{
-  "name": "운동 종목 맞히기",
-  "description": "운동 그림을 보고 종목 이름을 가장 먼저 맞혀요!",
-  "icon": "⚽",
-  "color": "#26A69A",
-  "playTime": "1분",
-  "category": "knowledge",
-  "players": "2-4명"
-}
