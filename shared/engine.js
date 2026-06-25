@@ -944,6 +944,10 @@ const _GAME_CATEGORY_MAP = {
   'decalco': 'puzzle',
   'sum-pyramid': 'puzzle',
   'diff-pair': 'coop',
+  'compare-tf': 'speed',
+  'round-ten': 'math',
+  'idiom-quiz': 'knowledge',
+  'divide-pair': 'coop',
 };
 /* @end:category-map */
 
