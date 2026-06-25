@@ -316,9 +316,14 @@
     .num-cell {
       aspect-ratio:1; min-height:38px; display:flex; align-items:center; justify-content:center;
       border-radius:10px; border:2px solid #2C2C2C; background:#FFF8E1; color:#2C2C2C;
-      font-weight:900; font-size:1rem;
+      font-weight:900; font-size:1rem; cursor:pointer; -webkit-tap-highlight-color:transparent;
     }
     .num-cell.picked { background:#9e9e9e; color:rgba(255,255,255,0.9); opacity:0.55; }
+    .num-cell.excluded {
+      background:repeating-linear-gradient(45deg,#ded5bf,#ded5bf 5px,#cbc1a6 5px,#cbc1a6 10px);
+      color:#8a7d5f; border-style:dashed; text-decoration:line-through; opacity:0.9;
+    }
+    .board-hint { text-align:center; color:#FFF8E1; font-weight:700; font-size:0.82rem; opacity:0.85; margin-top:8px; }
 
     /* 넓은 화면: 게임 그리드(왼쪽) + 학생 뽑기 사이드 패널(오른쪽) 2-pane */
     @media (min-width: 1024px) {
@@ -481,6 +486,7 @@
               <button class="r-btn" id="changeTotal">인원 변경</button>
             </div>
             <div class="num-board" id="numBoard" aria-label="번호판"></div>
+            <div class="board-hint">번호를 누르면 제외돼요 (전학·결석) · 다시 누르면 복귀</div>
           </div>
         </div>
       </aside>
@@ -924,9 +930,10 @@
       var drawBtn = document.getElementById('drawBtn');
       var pickCountWrap = document.getElementById('pickCount');
 
-      var TOTAL_KEY = 'student-total', PICKED_KEY = 'student-picked';
+      var TOTAL_KEY = 'student-total', PICKED_KEY = 'student-picked', EXCLUDED_KEY = 'student-excluded';
       var total = 0;
       var picked = new Set();
+      var excluded = new Set();   // 전학·결석 등으로 추첨에서 빠진 번호 (영구·재배치 없음)
       var drawN = 2;
       var sTimer = null;
       var justReset = false;
@@ -936,37 +943,44 @@
           total = parseInt(localStorage.getItem(TOTAL_KEY), 10) || 0;
           var raw = JSON.parse(localStorage.getItem(PICKED_KEY) || '[]');
           picked = new Set((raw || []).filter(function(n) { return n >= 1 && n <= total; }));
-        } catch (e) { total = 0; picked = new Set(); }
+          var rawX = JSON.parse(localStorage.getItem(EXCLUDED_KEY) || '[]');
+          excluded = new Set((rawX || []).filter(function(n) { return n >= 1 && n <= total; }));
+        } catch (e) { total = 0; picked = new Set(); excluded = new Set(); }
       }
       function save() {
         try {
           localStorage.setItem(TOTAL_KEY, String(total));
           localStorage.setItem(PICKED_KEY, JSON.stringify(Array.from(picked)));
+          localStorage.setItem(EXCLUDED_KEY, JSON.stringify(Array.from(excluded)));
         } catch (e) {}
       }
+      function activeCount() { return total - excluded.size; }   // 실제 추첨 대상 인원
       function remainingNums() {
         var r = [];
-        for (var i = 1; i <= total; i++) if (!picked.has(i)) r.push(i);
+        for (var i = 1; i <= total; i++) if (!picked.has(i) && !excluded.has(i)) r.push(i);
         return r;
       }
       function renderBoard() {
         numBoard.innerHTML = '';
         for (var i = 1; i <= total; i++) {
           var c = document.createElement('div');
-          c.className = 'num-cell' + (picked.has(i) ? ' picked' : '');
+          c.className = 'num-cell' + (picked.has(i) ? ' picked' : '') + (excluded.has(i) ? ' excluded' : '');
+          c.dataset.n = i;
           c.textContent = i;
           numBoard.appendChild(c);
         }
       }
       function updateRemain() {
-        var rem = total - picked.size;
-        remainInfo.textContent = '남은 ' + rem + '명 / 전체 ' + total + '명' + (justReset ? ' · 🎉 한 바퀴 완료!' : '');
+        var rem = remainingNums().length;
+        var exTxt = excluded.size ? ' · 제외 ' + excluded.size + '명' : '';
+        remainInfo.textContent = '남은 ' + rem + '명 / 전체 ' + activeCount() + '명' + exTxt + (justReset ? ' · 🎉 한 바퀴 완료!' : '');
       }
       function updatePickCountButtons() {
+        var active = activeCount();
         var btns = pickCountWrap.querySelectorAll('.pcount-btn');
         btns.forEach(function(b) {
           var n = parseInt(b.dataset.n, 10);
-          b.disabled = n > total;
+          b.disabled = n > active;
           if (b.disabled) b.classList.remove('active');
         });
         if (!pickCountWrap.querySelector('.pcount-btn.active:not(:disabled)')) {
@@ -993,7 +1007,7 @@
         });
       }
       function draw() {
-        if (total < 2) return;
+        if (activeCount() < 1) return;
         var rem = remainingNums();
         if (rem.length === 0) { picked = new Set(); rem = remainingNums(); }
         var n = Math.min(drawN, rem.length);
@@ -1023,7 +1037,7 @@
             if (typeof playCymbal === 'function') playCymbal();
             if (typeof playApplause === 'function') playApplause(0.9);
             drawBtn.disabled = false;
-            if (picked.size >= total) { picked = new Set(); justReset = true; save(); } // 소진 → 자동 리셋
+            if (remainingNums().length === 0) { picked = new Set(); justReset = true; save(); } // 소진 → 자동 리셋
             renderBoard(); updateRemain();
           }
         }
@@ -1031,7 +1045,11 @@
       }
       function setTotal(n) {
         n = Math.max(2, Math.min(60, n || 0));
-        if (n !== total) { picked = new Set(); justReset = false; }
+        // 인원 변경 시 뽑기 진행(picked)·제외(excluded)는 유지하고 범위 밖 번호만 정리.
+        // → 전입생 추가(인원 +1) 시 진행 중이던 순환이 끊기지 않고, 새 번호만 "아직 안 뽑힘"으로 합류.
+        picked = new Set(Array.from(picked).filter(function(x) { return x <= n; }));
+        excluded = new Set(Array.from(excluded).filter(function(x) { return x <= n; }));
+        justReset = false;
         total = n; save(); showPickView();
       }
       // 패널 내용 초기화 — 페이지 로드 시 1회 (넓은 화면 상시 패널이 바로 채워지도록)
@@ -1072,6 +1090,17 @@
           b.classList.add('active');
           drawN = parseInt(b.dataset.n, 10);
         });
+      });
+      // 번호판 탭 → 제외(전학·결석)/복귀 토글. 다른 번호는 그대로 두어 번호 체계가 안 깨짐.
+      numBoard.addEventListener('click', function(e) {
+        var cell = e.target.closest ? e.target.closest('.num-cell') : null;
+        if (!cell) return;
+        var n = parseInt(cell.dataset.n, 10);
+        if (!(n >= 1 && n <= total)) return;
+        if (excluded.has(n)) { excluded.delete(n); }
+        else { excluded.add(n); picked.delete(n); }   // 제외하면 이미 뽑힌 표시도 해제(추첨에서 완전히 빠짐)
+        justReset = false; save();
+        updatePickCountButtons(); renderBoard(); updateRemain();
       });
       drawBtn.addEventListener('click', draw);
 
