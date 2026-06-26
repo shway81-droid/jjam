@@ -1,9 +1,0 @@
-{
-  "name": "양끝 집기",
-  "description": "줄 양쪽 끝에서 동전을 하나씩 가져가 합이 큰 사람이 이겨요! 전략 게임",
-  "icon": "🪙",
-  "color": "#F9A825",
-  "playTime": "1~2분",
-  "category": "brain",
-  "players": "2명"
-}
