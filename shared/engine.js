@@ -951,6 +951,7 @@ const _GAME_CATEGORY_MAP = {
   'middle-tap': 'speed',
   'ten-blocks': 'math',
   'pick-ends': 'brain',
+  'hop-path': 'puzzle',
 };
 /* @end:category-map */
 

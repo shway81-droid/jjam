@@ -1,0 +1,9 @@
+{
+  "name": "징검다리 폴짝",
+  "description": "칸에 적힌 수만큼 점프해 깃발까지! 가장 먼저 도착한 사람 승리!",
+  "icon": "🐸",
+  "color": "#43A047",
+  "playTime": "1~2분",
+  "category": "puzzle",
+  "players": "2-4명"
+}
