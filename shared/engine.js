@@ -949,6 +949,7 @@ const _GAME_CATEGORY_MAP = {
   'idiom-quiz': 'knowledge',
   'divide-pair': 'coop',
   'middle-tap': 'speed',
+  'ten-blocks': 'math',
 };
 /* @end:category-map */
 
