@@ -950,6 +950,7 @@ const _GAME_CATEGORY_MAP = {
   'divide-pair': 'coop',
   'middle-tap': 'speed',
   'ten-blocks': 'math',
+  'pick-ends': 'brain',
 };
 /* @end:category-map */
 
