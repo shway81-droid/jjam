@@ -1,0 +1,9 @@
+{
+  "name": "가두기 대결",
+  "description": "이동하면 지나온 칸이 막혀요! 상대를 먼저 가두면 이기는 전략 게임",
+  "icon": "🚧",
+  "color": "#5E35B1",
+  "playTime": "2~3분",
+  "category": "brain",
+  "players": "2명"
+}

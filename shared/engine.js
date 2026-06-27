@@ -953,6 +953,7 @@ const _GAME_CATEGORY_MAP = {
   'hanja-quiz': 'knowledge',
   'smallest-tap': 'speed',
   'swap-sort': 'puzzle',
+  'trap-game': 'brain',
 };
 /* @end:category-map */
 
