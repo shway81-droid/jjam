@@ -951,6 +951,7 @@ const _GAME_CATEGORY_MAP = {
   'middle-tap': 'speed',
   'ten-blocks': 'math',
   'hanja-quiz': 'knowledge',
+  'smallest-tap': 'speed',
 };
 /* @end:category-map */
 
