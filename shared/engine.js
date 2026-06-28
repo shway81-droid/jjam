@@ -954,6 +954,7 @@ const _GAME_CATEGORY_MAP = {
   'smallest-tap': 'speed',
   'swap-sort': 'puzzle',
   'trap-game': 'brain',
+  'native-word': 'knowledge',
 };
 /* @end:category-map */
 
