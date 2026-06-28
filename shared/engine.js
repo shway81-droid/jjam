@@ -955,7 +955,6 @@ const _GAME_CATEGORY_MAP = {
   'swap-sort': 'puzzle',
   'native-word': 'knowledge',
   'big-number': 'math',
-  'hex-link': 'brain',
   'place-combo': 'coop',
 };
 /* @end:category-map */
