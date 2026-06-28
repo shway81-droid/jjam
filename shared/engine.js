@@ -956,6 +956,7 @@ const _GAME_CATEGORY_MAP = {
   'trap-game': 'brain',
   'native-word': 'knowledge',
   'big-number': 'math',
+  'hex-link': 'brain',
 };
 /* @end:category-map */
 
