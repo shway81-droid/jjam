@@ -116,6 +116,6 @@
 {"folder":"swap-sort","name":"자리 바꿔 정렬","description":"이웃한 두 수를 톡 쳐서 자리를 바꿔요! 작은 수부터 차례로 정렬하면 승리!","icon":"🔀","color":"#5C6BC0","playTime":"1~2분","category":"puzzle","players":"2-4명"},
 {"folder":"native-word","name":"순우리말 뜻 맞히기","description":"예쁜 순우리말을 보고 알맞은 뜻을 골라요!","icon":"🌸","color":"#7E57C2","playTime":"1분","category":"knowledge","players":"2-4명"},
 {"folder":"big-number","name":"가장 큰 수 만들기","description":"숫자 카드로 만들 수 있는 가장 큰 수(또는 가장 작은 수)를 골라요!","icon":"🔢","color":"#EF6C00","playTime":"1분","category":"math","players":"2-4명"},
-{"folder":"hex-link","name":"가두기 대결","description":"이동하면 지나온 칸이 막혀요! 상대를 먼저 가두면 이기는 전략 게임","icon":"🚧","color":"#5E35B1","playTime":"2~3분","category":"brain","players":"2명"},
+{"folder":"hex-link","name":"맞은편 잇기","description":"내 색 돌로 양쪽 맞은편 변을 끊김 없이 먼저 이으면 이겨요!","icon":"🪢","color":"#00897B","playTime":"2~3분","category":"brain","players":"2명"},
 {"folder":"place-combo","name":"자릿값 합체","description":"P1은 십의 자리, P2는 일의 자리를 골라 목표 두 자리 수를 함께 만들어요! 협력 게임","icon":"🔟","color":"#00897B","playTime":"1~2분","category":"coop","players":"2명"}
 ]
