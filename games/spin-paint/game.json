@@ -1,9 +1,0 @@
-{
-  "name": "빙글 색칠",
-  "description": "왼쪽 무늬를 반 바퀴 돌리면? 점대칭(180°)으로 오른쪽을 색칠해 먼저 완성하면 승리!",
-  "icon": "🌀",
-  "color": "#7E57C2",
-  "playTime": "1~2분",
-  "category": "puzzle",
-  "players": "2-4명"
-}

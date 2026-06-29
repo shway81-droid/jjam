@@ -957,9 +957,7 @@ const _GAME_CATEGORY_MAP = {
   'big-number': 'math',
   'place-combo': 'coop',
   'avoid-triangle': 'brain',
-  'spin-paint': 'puzzle',
   'second-big': 'speed',
-  'decimal-build': 'coop',
 };
 /* @end:category-map */
 
