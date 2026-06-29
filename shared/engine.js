@@ -956,6 +956,7 @@ const _GAME_CATEGORY_MAP = {
   'native-word': 'knowledge',
   'big-number': 'math',
   'place-combo': 'coop',
+  'avoid-triangle': 'brain',
 };
 /* @end:category-map */
 
