@@ -959,6 +959,7 @@ const _GAME_CATEGORY_MAP = {
   'avoid-triangle': 'brain',
   'spin-paint': 'puzzle',
   'second-big': 'speed',
+  'decimal-build': 'coop',
 };
 /* @end:category-map */
 
