@@ -959,9 +959,7 @@ const _GAME_CATEGORY_MAP = {
   'avoid-triangle': 'brain',
   'second-big': 'speed',
   'lonely-find': 'brain',
-  'group-count': 'math',
   'shape-overlay': 'puzzle',
-  'batchim-build': 'coop',
 };
 /* @end:category-map */
 

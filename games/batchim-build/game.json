@@ -1,9 +1,0 @@
-{
-  "name": "받침 합체",
-  "description": "P1은 기본 글자, P2는 받침을 골라 완성 글자를 함께 만들어요! 받침 협력 게임",
-  "icon": "🧱",
-  "color": "#26A69A",
-  "playTime": "1~2분",
-  "category": "coop",
-  "players": "2명"
-}
