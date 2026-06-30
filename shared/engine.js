@@ -958,6 +958,7 @@ const _GAME_CATEGORY_MAP = {
   'place-combo': 'coop',
   'avoid-triangle': 'brain',
   'second-big': 'speed',
+  'lonely-find': 'brain',
 };
 /* @end:category-map */
 
