@@ -120,5 +120,6 @@
 {"folder":"avoid-triangle","name":"삼각형 피하기","description":"번갈아 선을 칠하다 내 색 삼각형을 먼저 만들면 져요! 상대를 몰아넣는 두뇌 전략 게임","icon":"📐","color":"#00897B","playTime":"1~2분","category":"brain","players":"2명"},
 {"folder":"second-big","name":"두 번째로 큰 수","description":"여러 수 중에서 가장 큰 수 말고 '두 번째로 큰 수'를 가장 먼저 찾아 터치!","icon":"🥈","color":"#5C6BC0","playTime":"30초","category":"speed","players":"2-4명"},
 {"folder":"lonely-find","name":"외톨이 찾기","description":"모두 짝이 둘씩 있는데 딱 하나만 짝이 없어요! 짝 없는 외톨이 그림을 가장 먼저 찾아요","icon":"🔍","color":"#7E57C2","playTime":"1분","category":"brain","players":"2-4명"},
-{"folder":"group-count","name":"묶어 세기","description":"똑같은 묶음이 몇 개! 모두 몇 개인지 곱셈으로 가장 먼저 찾아요","icon":"📦","color":"#FB8C00","playTime":"1분","category":"math","players":"2-4명"}
+{"folder":"group-count","name":"묶어 세기","description":"똑같은 묶음이 몇 개! 모두 몇 개인지 곱셈으로 가장 먼저 찾아요","icon":"📦","color":"#FB8C00","playTime":"1분","category":"math","players":"2-4명"},
+{"folder":"shape-overlay","name":"겹쳐 보기","description":"투명한 두 그림판을 겹치면 색칠된 칸은? 합친 모양을 가장 먼저 골라요","icon":"🟪","color":"#7E57C2","playTime":"1분","category":"puzzle","players":"2-4명"}
 ]
