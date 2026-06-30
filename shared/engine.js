@@ -961,6 +961,7 @@ const _GAME_CATEGORY_MAP = {
   'lonely-find': 'brain',
   'group-count': 'math',
   'shape-overlay': 'puzzle',
+  'batchim-build': 'coop',
 };
 /* @end:category-map */
 
