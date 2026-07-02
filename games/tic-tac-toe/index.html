@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>삼목 빙고</title>
+  <link rel="stylesheet" href="../../shared/style.css?v=5">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 화면 1: 인트로 -->
+  <section class="screen screen-intro active" id="introScreen">
+    <header class="game-header">
+      <button class="icon-btn" id="backBtn" aria-label="뒤로가기">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <h1 class="game-title">삼목 빙고</h1>
+      <button class="sound-toggle" id="soundToggleIntro" aria-label="사운드 토글">
+        <svg id="soundIconIntro" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        </svg>
+      </button>
+    </header>
+
+    <div class="intro-body">
+      <!-- 삼목(틱택토) 보드 일러스트 -->
+      <div class="intro-preview" aria-hidden="true">
+        <svg viewBox="0 0 150 150" width="150" height="150">
+          <!-- 보드 판 -->
+          <rect x="8" y="8" width="134" height="134" rx="12" fill="#00897B" stroke="#00695C" stroke-width="3"/>
+          <!-- 3x3 칸 -->
+          <!-- Row 1 -->
+          <circle cx="40" cy="40" r="17" fill="#FFF8E1"/>
+          <circle cx="75" cy="40" r="17" fill="#29B6F6" stroke="#0288D1" stroke-width="2"/>
+          <circle cx="110" cy="40" r="17" fill="#FFF8E1"/>
+          <!-- Row 2 -->
+          <circle cx="40" cy="75" r="17" fill="#EF5350" stroke="#C62828" stroke-width="2"/>
+          <circle cx="75" cy="75" r="17" fill="#29B6F6" stroke="#0288D1" stroke-width="2"/>
+          <circle cx="110" cy="75" r="17" fill="#FFF8E1"/>
+          <!-- Row 3 -->
+          <circle cx="40" cy="110" r="17" fill="#EF5350" stroke="#C62828" stroke-width="2"/>
+          <circle cx="75" cy="110" r="17" fill="#FFF8E1"/>
+          <circle cx="110" cy="110" r="17" fill="#29B6F6" stroke="#0288D1" stroke-width="2"/>
+        </svg>
+      </div>
+
+      <p class="intro-text">세 개를 먼저 이어라!</p>
+      <div class="intro-rules">
+        <div class="rule-item">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#29B6F6" stroke-width="2.5" stroke-linecap="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          <span>번갈아 빈 칸을 골라 같은 색 원을 놓아요</span>
+        </div>
+        <div class="rule-item">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#FFA726" stroke-width="2.5" stroke-linecap="round">
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+            <polyline points="16 7 22 7 22 13"/>
+          </svg>
+          <span>가로·세로·대각선 세 개를 이으면 승리!</span>
+        </div>
+        <div class="rule-item">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#EF5350" stroke-width="2.5" stroke-linecap="round">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+          <span>아홉 칸이 다 차도 못 이으면 무승부!</span>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary btn-play" id="playBtn">PLAY</button>
+  </section>
+
+  <!-- 화면 1-5: 카운트다운 -->
+  <section class="screen screen-countdown" id="countdownScreen">
+    <div class="countdown-number" id="countdownNumber">3</div>
+  </section>
+
+  <!-- 화면 2: 게임 플레이 -->
+  <section class="screen screen-game" id="gameScreen">
+    <header class="game-header">
+      <button class="icon-btn" id="closeBtn" aria-label="홈으로">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+
+      <!-- 턴 인디케이터 배너 -->
+      <div class="turn-banner" id="turnBanner">
+        <div class="turn-dot" id="turnDot"></div>
+        <span class="turn-text" id="turnText">P1의 차례</span>
+      </div>
+
+      <button class="sound-toggle" id="soundToggleGame" aria-label="사운드 토글">
+        <svg id="soundIconGame" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- 보드 영역 -->
+    <div class="board-area" id="boardArea">
+      <!-- 칸 그리드 (3x3) -->
+      <div class="board-grid" id="boardGrid">
+        <!-- JS로 생성 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 화면 3: 결과 -->
+  <section class="screen screen-result" id="resultScreen">
+    <header class="game-header result-header">
+      <div></div>
+      <h2 class="result-header-title">게임 종료!</h2>
+      <div></div>
+    </header>
+
+    <div class="result-body">
+      <!-- SVG 트로피 -->
+      <div class="result-icon-wrap" id="resultIconWrap">
+        <svg viewBox="0 0 80 80" width="80" height="80" id="resultIcon">
+          <rect x="28" y="62" width="24" height="6" rx="3" fill="#FFA726"/>
+          <rect x="22" y="68" width="36" height="6" rx="3" fill="#FFA726"/>
+          <path d="M15 18 Q15 50 40 54 Q65 50 65 18 Z" fill="#FFD54F" stroke="#FFA726" stroke-width="2"/>
+          <path d="M15 18 Q8 18 8 28 Q8 40 20 42 Q15 35 15 26 Z" fill="#FFA726"/>
+          <path d="M65 18 Q72 18 72 28 Q72 40 60 42 Q65 35 65 26 Z" fill="#FFA726"/>
+          <ellipse cx="40" cy="20" rx="22" ry="6" fill="#FFE082"/>
+          <text x="40" y="40" text-anchor="middle" font-size="18" font-weight="900" fill="#E65100">1</text>
+        </svg>
+      </div>
+      <h2 class="result-title" id="resultTitle">P1 승리!</h2>
+      <p class="result-sub" id="resultSub">세 개를 이었어요!</p>
+    </div>
+
+    <div class="result-actions">
+      <button class="btn btn-primary" id="retryBtn">다시하기</button>
+      <button class="btn btn-secondary" id="homeBtn">홈으로</button>
+    </div>
+  </section>
+
+  <script src="../../shared/engine.js?v=12"></script>
+  <script src="game.js"></script>
+
+</body>
+</html>

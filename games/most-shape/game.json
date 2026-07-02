@@ -1,0 +1,9 @@
+{
+  "name": "가장 많은 그림",
+  "description": "여러 그림이 흩어져 있어요! 어떤 그림이 가장 많은지 가장 먼저 찾아 골라요",
+  "icon": "📊",
+  "color": "#26A69A",
+  "playTime": "1분",
+  "category": "brain",
+  "players": "2-4명"
+}
