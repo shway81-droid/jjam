@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <meta name="description" content="교실 전자칠판에서 바로 시작하는 초등 미니게임 78개. 룰렛 버튼 하나로 게임을 골라줍니다. 설치·로그인 없음, 오프라인 동작.">
+  <meta name="description" content="교실 전자칠판에서 바로 시작하는 초등 미니게임 125개. 룰렛 버튼 하나로 게임을 골라줍니다. 설치·로그인 없음, 오프라인 동작.">
   <meta name="keywords" content="짬짬이 교실, 초등학교, 미니게임, 전자칠판 게임, 자투리 시간, 보드게임, 무료 게임">
   <meta name="author" content="짬짬이 교실">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="짬짬이 교실 — 자투리 시간 미니게임 테이블">
-  <meta property="og:description" content="룰렛 버튼 하나면 게임이 정해집니다. 전자칠판 최적화 초등 미니게임 78개.">
+  <meta property="og:description" content="룰렛 버튼 하나면 게임이 정해집니다. 전자칠판 최적화 초등 미니게임 125개.">
   <meta property="og:url" content="https://shway81-droid.github.io/jjam/">
   <meta property="og:image" content="https://shway81-droid.github.io/jjam/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -20,7 +20,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="짬짬이 교실 — 자투리 시간 미니게임 테이블">
-  <meta name="twitter:description" content="룰렛 버튼 하나면 게임이 정해집니다. 전자칠판 최적화 초등 미니게임 78개.">
+  <meta name="twitter:description" content="룰렛 버튼 하나면 게임이 정해집니다. 전자칠판 최적화 초등 미니게임 125개.">
   <meta name="twitter:image" content="https://shway81-droid.github.io/jjam/og-image.png">
   <title>짬짬이 교실 — 자투리 시간 미니게임</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -105,6 +105,43 @@
     }
     .cat-btn:active { transform: translateY(4px); box-shadow: 0 1px 0 rgba(0,0,0,0.4); }
     .cat-btn.active { background: #FFC83D; box-shadow: 0 5px 0 #E8A50C; }
+
+    /* ── 게임 이름 검색 (카테고리 필터와 같은 줄 오른쪽 끝) ── */
+    .cat-search {
+      display: flex; align-items: center; gap: 6px;
+      padding: 0 10px 0 14px;
+      border-radius: 999px;
+      border: 3px solid #2C2C2C;
+      background: #FFF8E1;
+      box-shadow: 0 5px 0 rgba(0,0,0,0.4);
+    }
+    .cat-search:focus-within { background: #fff; }
+    .cat-search-icon { font-size: 1rem; }
+    .cat-search-input {
+      /* 고정 폭 — 포커스 시 확장은 1280px에서 필터 줄이 두 줄로 밀리는 점프를 만들어 안 씀 */
+      width: 150px; border: 0; background: transparent; outline: none;
+      font-family: inherit; font-size: 1.02rem; font-weight: 900; color: #2C2C2C;
+      padding: 12px 0;
+    }
+    .cat-search-input::placeholder { color: #8a7d5f; font-weight: 700; }
+    .cat-search-input::-webkit-search-cancel-button { display: none; }
+    .cat-search-clear {
+      width: 26px; height: 26px; border-radius: 50%;
+      border: 2px solid #2C2C2C; background: #FFC83D; color: #2C2C2C;
+      font-size: 0.8rem; font-weight: 900; line-height: 1; padding: 0; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 1px 1px 0 #2C2C2C; -webkit-tap-highlight-color: transparent;
+    }
+    .cat-search-clear[hidden] { display: none; }
+
+    /* 검색·필터 결과 0개 안내 */
+    .grid-empty { text-align: center; padding: 46px 0; }
+    .grid-empty[hidden] { display: none; }
+    .grid-empty-face { font-size: 3rem; margin-bottom: 12px; }
+    .grid-empty-msg {
+      color: #FFF8E1; font-weight: 900; font-size: 1.2rem;
+      text-shadow: 0 2px 0 rgba(0,0,0,0.3); margin-bottom: 18px;
+    }
 
     /* ── 게임 타일 그리드 ── */
     .game-grid {
@@ -438,6 +475,12 @@
       <button class="cat-btn" data-cat="knowledge">📚 지식</button>
       <button class="cat-btn" data-cat="coop">🤝 협력</button>
       <button class="cat-btn" data-cat="puzzle">🧩 퍼즐</button>
+      <div class="cat-search" id="catSearch">
+        <span class="cat-search-icon" aria-hidden="true">🔍</span>
+        <input class="cat-search-input" id="searchInput" type="search" placeholder="게임 찾기"
+               aria-label="게임 이름 검색 (초성 검색 가능)" autocomplete="off">
+        <button class="cat-search-clear" id="searchClear" aria-label="검색 지우기" hidden>✕</button>
+      </div>
     </nav>
 
     <!-- 즐겨찾기 (⭐) — 상단 가로 띠. 즐겨찾기 없으면 자동 숨김 -->
@@ -449,6 +492,13 @@
     <!-- 게임 그리드 + 학생 뽑기 (넓은 화면: 우측 사이드 패널 / 좁은 화면: 팝업) -->
     <div class="launcher-main">
       <main class="game-grid" id="gameGrid" aria-label="게임 목록"></main>
+
+      <!-- 검색·필터 결과가 0개일 때 -->
+      <div class="grid-empty" id="gridEmpty" hidden>
+        <div class="grid-empty-face">🔍</div>
+        <div class="grid-empty-msg">검색과 필터에 맞는 게임이 없어요</div>
+        <button class="r-btn r-btn-again" id="searchReset">🔄 검색·필터 초기화</button>
+      </div>
 
       <aside class="student-panel" id="studentPanel" role="region" aria-label="학생 뽑기">
         <div class="student-card">
@@ -650,10 +700,12 @@
 
     // ═══ DOM ═══
     var grid = document.getElementById('gameGrid');
+    var gridEmpty = document.getElementById('gridEmpty');
     var catBtns = document.querySelectorAll('#catFilter .cat-btn');
     var soundToggle = document.getElementById('soundToggle');
     var allGames = [];
     var currentCat = 'all';
+    var currentQuery = '';   // 정규화(소문자·공백 제거)된 검색어
 
     // ═══ 사운드 토글 (기본 ON) ═══
     // 저장소는 engine.js 헬퍼(_read/_writeSoundMuted)로 통일 — localStorage 영구화 +
@@ -776,6 +828,7 @@
         a.href = 'games/' + game.folder + '/index.html';
         a.setAttribute('aria-label', game.name + ' 게임 시작');
         a.dataset.cat = game.category || 'brain';
+        a.dataset.name = game.name;
         var players = game.players || '2-4명';
         a.innerHTML =
           '<div class="game-card-thumb" style="--thumb-color:' + pastelColor(game.color) + '">' +
@@ -795,13 +848,35 @@
       renderFavRow();
     }
 
-    // ═══ 필터 (카테고리) ═══
+    // ═══ 필터 (카테고리 + 이름 검색) ═══
+    // 초성 검색: 검색어가 전부 초성(ㄱ~ㅎ)이면 게임 이름의 초성열과 비교 ("ㅍㅅ" → "풍선 터트리기")
+    var CHO_LIST = 'ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ';
+    function normText(s) { return String(s).toLowerCase().replace(/\s+/g, ''); }
+    function toChoseong(s) {
+      var out = '';
+      for (var i = 0; i < s.length; i++) {
+        var c = s.charCodeAt(i);
+        out += (c >= 0xAC00 && c <= 0xD7A3) ? CHO_LIST.charAt(Math.floor((c - 0xAC00) / 588)) : s.charAt(i);
+      }
+      return out;
+    }
+    function matchesQuery(name, q) {
+      if (!q) return true;
+      var n = normText(name);
+      if (n.indexOf(q) >= 0) return true;
+      return /^[ㄱ-ㅎ]+$/.test(q) && toChoseong(n).indexOf(q) >= 0;
+    }
+
     function applyFilters() {
       var cards = grid.querySelectorAll('.game-card');
+      var visible = 0;
       cards.forEach(function(card) {
         var catOk = (currentCat === 'all') || (card.dataset.cat === currentCat);
-        card.classList.toggle('hidden', !catOk);
+        var show = catOk && matchesQuery(card.dataset.name || '', currentQuery);
+        card.classList.toggle('hidden', !show);
+        if (show) visible++;
       });
+      if (gridEmpty) gridEmpty.hidden = !(visible === 0 && cards.length > 0);
     }
     catBtns.forEach(function(btn) {
       btn.addEventListener('click', function() {
@@ -811,6 +886,31 @@
         applyFilters();
       });
     });
+
+    // ═══ 이름 검색 입력 ═══
+    (function() {
+      var input = document.getElementById('searchInput');
+      var clearBtn = document.getElementById('searchClear');
+      var resetBtn = document.getElementById('searchReset');
+      if (!input) return;
+      function setQuery(v) {
+        currentQuery = normText(v);
+        clearBtn.hidden = currentQuery === '';
+        applyFilters();
+      }
+      input.addEventListener('input', function() { setQuery(input.value); });
+      // 전자칠판 화면 키보드: 엔터로 키보드 내리고 결과 보기
+      input.addEventListener('keydown', function(e) { if (e.key === 'Enter') input.blur(); });
+      clearBtn.addEventListener('click', function() {
+        input.value = ''; setQuery(''); input.focus();
+      });
+      if (resetBtn) resetBtn.addEventListener('click', function() {
+        input.value = ''; currentQuery = ''; clearBtn.hidden = true;
+        currentCat = 'all';
+        catBtns.forEach(function(b) { b.classList.toggle('active', b.dataset.cat === 'all'); });
+        applyFilters();
+      });
+    })();
 
     // ═══ 퀵스타트 룰렛 ═══
     var overlay = document.getElementById('rouletteOverlay');
@@ -827,11 +927,12 @@
     var lastPool = [];
     var lastPickFolder = null;
 
-    // 룰렛 풀: 현재 선택된 카테고리의 게임 (전체면 50개 전부)
+    // 룰렛 풀: 현재 보이는 게임 (카테고리 필터 + 이름 검색과 동일 조건)
     function buildPool() {
       return allGames.filter(function(g) {
         var cat = g.category || 'brain';
-        return currentCat === 'all' || cat === currentCat;
+        var catOk = currentCat === 'all' || cat === currentCat;
+        return catOk && matchesQuery(g.name, currentQuery);
       });
     }
 
