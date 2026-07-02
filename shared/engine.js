@@ -962,7 +962,6 @@ const _GAME_CATEGORY_MAP = {
   'shape-overlay': 'puzzle',
   'time-add': 'math',
   'greeting-quiz': 'knowledge',
-  'range-tap': 'speed',
   'num-rule': 'brain',
 };
 /* @end:category-map */

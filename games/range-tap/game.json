@@ -1,9 +1,0 @@
-{
-  "name": "사이 수 찾기",
-  "description": "가운데 수가 두 수 사이에 있는지 빠르게 판단해요!",
-  "icon": "🎯",
-  "color": "#EC407A",
-  "playTime": "1분",
-  "category": "speed",
-  "players": "2-4명"
-}
