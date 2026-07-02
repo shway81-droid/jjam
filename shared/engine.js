@@ -961,6 +961,7 @@ const _GAME_CATEGORY_MAP = {
   'lonely-find': 'brain',
   'shape-overlay': 'puzzle',
   'time-add': 'math',
+  'greeting-quiz': 'knowledge',
 };
 /* @end:category-map */
 
