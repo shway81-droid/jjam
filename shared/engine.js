@@ -960,6 +960,7 @@ const _GAME_CATEGORY_MAP = {
   'second-big': 'speed',
   'lonely-find': 'brain',
   'shape-overlay': 'puzzle',
+  'time-add': 'math',
 };
 /* @end:category-map */
 
