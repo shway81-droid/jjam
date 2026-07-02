@@ -1,11 +1,14 @@
 #!/usr/bin/env node
 /**
- * 파생 메타데이터 생성기 — game.json을 단일 소스로 삼아 아래 세 가지를 자동 생성한다.
+ * 파생 메타데이터 생성기 — game.json을 단일 소스로 삼아 아래를 자동 생성한다.
  *   - shared/engine.js  : _GAME_CATEGORY_MAP (게임 페이지 BGM 카테고리 감지용, @generated 마커)
  *   - index.html        : FALLBACK_GAMES (meta.json fetch 실패 시 오프라인 폴백, @generated 마커)
  *   - games/meta.json   : 전 게임 메타 통합본 (런처가 런타임에 1요청으로 받음, 마커 없는 전체 파일)
+ *   - 게임 수 표기       : index.html 메타태그·manifest.json·README.md의 "N개/N종"과
+ *                          README 카테고리 분포 줄 (자동 추가/삭제로 총수가 계속 변하므로 함께 동기화)
  *
- * 마커 있는 두 블록은 @generated:NAME … @end:NAME 사이를, meta.json은 파일 전체를 덮어쓴다.
+ * 마커 있는 두 블록은 @generated:NAME … @end:NAME 사이를, meta.json은 파일 전체를,
+ * 게임 수 표기는 정해진 문구 패턴만 정규식으로 치환한다.
  *
  * 사용법:
  *   node scripts/gen-metadata.js            # 생성(파일 갱신)
@@ -102,6 +105,51 @@ for (const t of targets) {
   } else {
     fs.writeFileSync(p, metaJson);
     console.log('  ↻ games/meta.json 갱신');
+  }
+}
+
+// ── 생성 4: 사람이 읽는 게임 수 표기 (index.html 메타태그 · manifest.json · README.md) ──
+{
+  const total = games.length;
+  const catCount = {};
+  for (const g of games) catCount[g.category] = (catCount[g.category] || 0) + 1;
+  const distLine =
+    `⚡반응속도 ${catCount.speed || 0} · 🧠두뇌 ${catCount.brain || 0} · 📐수학 ${catCount.math || 0}` +
+    ` · 📚지식 ${catCount.knowledge || 0} · 🤝협력 ${catCount.coop || 0} · 🧩퍼즐 ${catCount.puzzle || 0}`;
+
+  const countTargets = [
+    { file: 'index.html', name: '게임 수 표기', subs: [
+      [/미니게임 \d+개/g, `미니게임 ${total}개`],
+    ]},
+    { file: 'manifest.json', name: '게임 수 표기', subs: [
+      [/미니게임 \d+개/g, `미니게임 ${total}개`],
+    ]},
+    { file: 'README.md', name: '게임 수·분포 표기', subs: [
+      [/초등 미니게임 \d+종/g, `초등 미니게임 ${total}종`],
+      [/게임을 \d+종으로 늘리고/g, `게임을 ${total}종으로 늘리고`],
+      [/## 게임 \d+종/g, `## 게임 ${total}종`],
+      [/\*\*\d+종\*\* \(중복/g, `**${total}종** (중복`],
+      [/⚡반응속도 \d+ · 🧠두뇌 \d+ · 📐수학 \d+ · 📚지식 \d+ · 🤝협력 \d+ · 🧩퍼즐 \d+/g, distLine],
+    ]},
+  ];
+
+  for (const t of countTargets) {
+    const p = path.join(ROOT, t.file);
+    const before = fs.readFileSync(p, 'utf-8');
+    let after = before;
+    for (const [re, rep] of t.subs) {
+      if (!re.test(after)) throw new Error(`${t.file}: 게임 수 표기 패턴을 찾을 수 없음 — ${re}`);
+      after = after.replace(re, rep);
+    }
+    if (before === after) {
+      console.log(`  = ${t.file} (${t.name}) 동기화됨`);
+    } else if (CHECK) {
+      drift = true;
+      console.log(`  ✗ ${t.file} (${t.name}) 가 game.json과 불일치 — \`npm run gen\` 실행 필요`);
+    } else {
+      fs.writeFileSync(p, after);
+      console.log(`  ↻ ${t.file} (${t.name}) 갱신`);
+    }
   }
 }
 
