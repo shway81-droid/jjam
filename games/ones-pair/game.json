@@ -1,0 +1,9 @@
+{
+  "name": "끝수 짝꿍",
+  "description": "P1·P2가 카드를 골라 두 수를 더한 값의 일의 자리를 목표에 맞춰요!",
+  "icon": "🔢",
+  "color": "#00897B",
+  "playTime": "1분",
+  "category": "coop",
+  "players": "2명"
+}
