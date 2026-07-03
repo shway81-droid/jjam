@@ -964,6 +964,7 @@ const _GAME_CATEGORY_MAP = {
   'greeting-quiz': 'knowledge',
   'num-rule': 'brain',
   'ladder-climb': 'puzzle',
+  'ten-friend': 'speed',
 };
 /* @end:category-map */
 
