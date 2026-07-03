@@ -963,6 +963,7 @@ const _GAME_CATEGORY_MAP = {
   'time-add': 'math',
   'greeting-quiz': 'knowledge',
   'num-rule': 'brain',
+  'ladder-climb': 'puzzle',
 };
 /* @end:category-map */
 
