@@ -126,6 +126,5 @@
 {"folder":"num-rule","name":"숫자 규칙","description":"수의 배열 규칙을 찾아 다음에 올 수를 맞혀요!","icon":"🔢","color":"#5C6BC0","playTime":"1분","category":"brain","players":"2-4명"},
 {"folder":"ladder-climb","name":"사다리 타기","description":"사다리를 따라 내려가면 어디에 도착할까요? 가장 먼저 골라요!","icon":"🪜","color":"#EC407A","playTime":"1분","category":"puzzle","players":"2-4명"},
 {"folder":"ten-friend","name":"10 친구","description":"더해서 10이 되는 짝꿍 수를 재빨리 눌러요!","icon":"🔟","color":"#26A69A","playTime":"1분","category":"speed","players":"2-4명"},
-{"folder":"num-riddle","name":"숫자 수수께끼","description":"힌트를 모두 만족하는 수를 찾아요! 조건 추리 게임","icon":"🔍","color":"#8E44AD","playTime":"1분","category":"brain","players":"2-4명"},
-{"folder":"ones-pair","name":"끝수 짝꿍","description":"P1·P2가 카드를 골라 두 수를 더한 값의 일의 자리를 목표에 맞춰요!","icon":"🔢","color":"#00897B","playTime":"1분","category":"coop","players":"2명"}
+{"folder":"num-riddle","name":"숫자 수수께끼","description":"힌트를 모두 만족하는 수를 찾아요! 조건 추리 게임","icon":"🔍","color":"#8E44AD","playTime":"1분","category":"brain","players":"2-4명"}
 ]
