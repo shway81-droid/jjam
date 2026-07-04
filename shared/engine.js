@@ -969,6 +969,7 @@ const _GAME_CATEGORY_MAP = {
   'change-money': 'math',
   'body-quiz': 'knowledge',
   'op-combo': 'coop',
+  'calc-maze': 'puzzle',
 };
 /* @end:category-map */
 
