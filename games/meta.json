@@ -128,5 +128,6 @@
 {"folder":"ten-friend","name":"10 친구","description":"더해서 10이 되는 짝꿍 수를 재빨리 눌러요!","icon":"🔟","color":"#26A69A","playTime":"1분","category":"speed","players":"2-4명"},
 {"folder":"num-riddle","name":"숫자 수수께끼","description":"힌트를 모두 만족하는 수를 찾아요! 조건 추리 게임","icon":"🔍","color":"#8E44AD","playTime":"1분","category":"brain","players":"2-4명"},
 {"folder":"change-money","name":"거스름돈","description":"돈을 내고 물건을 사면 거스름돈은 얼마일까요? 가장 먼저 골라요!","icon":"💰","color":"#8D6E63","playTime":"1분","category":"math","players":"2-4명"},
-{"folder":"body-quiz","name":"우리 몸 퀴즈","description":"설명을 읽고 알맞은 우리 몸의 부분을 가장 먼저 골라요!","icon":"🧍","color":"#EF9A9A","playTime":"1분","category":"knowledge","players":"2-4명"}
+{"folder":"body-quiz","name":"우리 몸 퀴즈","description":"설명을 읽고 알맞은 우리 몸의 부분을 가장 먼저 골라요!","icon":"🧍","color":"#EF9A9A","playTime":"1분","category":"knowledge","players":"2-4명"},
+{"folder":"op-combo","name":"연산 콤비","description":"P1은 연산 기호, P2는 숫자를 골라 목표 수를 함께 만들어요! 협력 연산 게임","icon":"🧮","color":"#5C6BC0","playTime":"1~2분","category":"coop","players":"2명"}
 ]

@@ -968,6 +968,7 @@ const _GAME_CATEGORY_MAP = {
   'num-riddle': 'brain',
   'change-money': 'math',
   'body-quiz': 'knowledge',
+  'op-combo': 'coop',
 };
 /* @end:category-map */
 
