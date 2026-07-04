@@ -967,6 +967,7 @@ const _GAME_CATEGORY_MAP = {
   'ten-friend': 'speed',
   'num-riddle': 'brain',
   'change-money': 'math',
+  'body-quiz': 'knowledge',
 };
 /* @end:category-map */
 
