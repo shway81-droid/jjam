@@ -966,6 +966,7 @@ const _GAME_CATEGORY_MAP = {
   'ladder-climb': 'puzzle',
   'ten-friend': 'speed',
   'num-riddle': 'brain',
+  'change-money': 'math',
 };
 /* @end:category-map */
 

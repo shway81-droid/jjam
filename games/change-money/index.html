@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>거스름돈</title>
+  <link rel="stylesheet" href="../../shared/style.css?v=5">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 화면 1: 인트로 -->
+  <section class="screen screen-intro active" id="introScreen">
+    <header class="game-header">
+      <button class="icon-btn" id="backBtn" aria-label="뒤로가기">←</button>
+      <h1 class="game-title">거스름돈</h1>
+      <button class="sound-toggle" id="soundToggleIntro" aria-label="사운드 토글">🔊</button>
+    </header>
+
+    <div class="intro-body">
+      <div class="intro-illustration" aria-hidden="true">
+        <svg viewBox="0 0 170 80" width="170" height="80">
+          <!-- 낸 돈: 지폐 -->
+          <rect x="6" y="24" width="52" height="34" rx="6" fill="#C8E6C9" stroke="#2C2C2C" stroke-width="3"/>
+          <circle cx="32" cy="41" r="9" fill="none" stroke="#2E7D32" stroke-width="2.5"/>
+          <text x="32" y="45" text-anchor="middle" font-size="10" font-weight="900" fill="#2E7D32" font-family="sans-serif">1000</text>
+          <!-- 화살표 -->
+          <text x="80" y="46" text-anchor="middle" font-size="20" font-weight="900" fill="#8D6E63" font-family="sans-serif">→</text>
+          <!-- 거스름돈: 동전 -->
+          <circle cx="118" cy="41" r="15" fill="#FFD54F" stroke="#2C2C2C" stroke-width="3"/>
+          <text x="118" y="46" text-anchor="middle" font-size="12" font-weight="900" fill="#8D6E00" font-family="sans-serif">?원</text>
+          <circle cx="146" cy="47" r="11" fill="#FFE082" stroke="#2C2C2C" stroke-width="3"/>
+          <text x="146" y="51" text-anchor="middle" font-size="8" font-weight="900" fill="#8D6E00" font-family="sans-serif">100</text>
+        </svg>
+      </div>
+      <p class="intro-text">낸 돈에서 물건값을 빼면<br>거스름돈이 얼마일까요?</p>
+      <p class="intro-subtext">오답 시 -1점 감점! · 10라운드 승부</p>
+
+      <div class="select-label">인원 선택</div>
+      <div class="player-select-row">
+        <button class="player-btn active" data-count="2">2명</button>
+        <button class="player-btn" data-count="3">3명</button>
+        <button class="player-btn" data-count="4">4명</button>
+      </div>
+    </div>
+
+    <button class="btn btn-primary btn-play" id="playBtn">PLAY</button>
+  </section>
+
+  <!-- 화면 1-5: 카운트다운 -->
+  <section class="screen screen-countdown" id="countdownScreen">
+    <div class="countdown-number" id="countdownNumber">3</div>
+  </section>
+
+  <!-- 화면 2: 게임 플레이 -->
+  <section class="screen screen-game" id="gameScreen">
+
+    <!-- 상단 문제 패널 -->
+    <div class="top-bar" id="problemPanel">
+      <div class="top-bar-meta">
+        <div class="question-counter" id="questionCounter">1 / 10</div>
+        <div class="problem-timer" id="problemTimer">10</div>
+      </div>
+      <div class="word-display" id="wordDisplay"></div>
+      <div class="problem-status" id="problemStatus"></div>
+      <button class="icon-btn close-btn" id="closeBtn" aria-label="홈으로">✕</button>
+    </div>
+
+    <div class="zones-wrap" id="zonesWrap"></div>
+    <div class="score-bar" id="scoreBar"></div>
+  </section>
+
+  <!-- 화면 3: 결과 -->
+  <section class="screen screen-result" id="resultScreen">
+    <header class="result-header">
+      <h2 class="result-title" id="resultTitle">게임 종료!</h2>
+    </header>
+    <div class="result-winner" id="resultWinner"></div>
+
+    <div class="result-table-wrap">
+      <table class="result-table" id="resultTable">
+        <thead id="resultTableHead"></thead>
+        <tbody id="resultTableBody"></tbody>
+      </table>
+    </div>
+
+    <div class="total-row" id="totalRow"></div>
+
+    <div class="result-actions">
+      <button class="btn btn-primary" id="retryBtn">다시하기</button>
+      <button class="btn btn-secondary" id="homeBtn">홈으로</button>
+    </div>
+  </section>
+
+  <script src="../../shared/engine.js?v=12"></script>
+  <script src="game.js"></script>
+</body>
+</html>
