@@ -131,8 +131,6 @@
 {"folder":"body-quiz","name":"우리 몸 퀴즈","description":"설명을 읽고 알맞은 우리 몸의 부분을 가장 먼저 골라요!","icon":"🧍","color":"#EF9A9A","playTime":"1분","category":"knowledge","players":"2-4명"},
 {"folder":"op-combo","name":"연산 콤비","description":"P1은 연산 기호, P2는 숫자를 골라 목표 수를 함께 만들어요! 협력 연산 게임","icon":"🧮","color":"#5C6BC0","playTime":"1~2분","category":"coop","players":"2명"},
 {"folder":"calc-maze","name":"계산 미로","description":"오른쪽·아래로만 지나며 칸의 연산을 차례로 적용해 목표 수를 만드는 길을 가장 먼저 찾아요!","icon":"🧮","color":"#26A69A","playTime":"1~2분","category":"puzzle","players":"2-4명"},
-{"folder":"angle-pair","name":"각도 짝꿍","description":"P1과 P2가 각 조각을 하나씩 골라 목표 각도를 함께 채워요! 협력 각도 게임","icon":"📐","color":"#7E57C2","playTime":"1~2분","category":"coop","players":"2명"},
 {"folder":"near-tap","name":"가까운 수","description":"목표 수에 가장 가까운 수를 가장 먼저 찾아 터치!","icon":"🎯","color":"#26C6DA","playTime":"30초","category":"speed","players":"2-4명"},
-{"folder":"space-quiz","name":"우주 퀴즈","description":"행성·별·달! 우주에 관한 문제를 가장 먼저 맞혀보세요!","icon":"🪐","color":"#5C6BC0","playTime":"1~2분","category":"knowledge","players":"2-4명"},
-{"folder":"same-value","name":"같은 값 찾기","description":"주어진 수와 계산 결과가 같은 식을 가장 먼저 찾아 터치!","icon":"⚖️","color":"#8D6E63","playTime":"1~2분","category":"brain","players":"2-4명"}
+{"folder":"space-quiz","name":"우주 퀴즈","description":"행성·별·달! 우주에 관한 문제를 가장 먼저 맞혀보세요!","icon":"🪐","color":"#5C6BC0","playTime":"1~2분","category":"knowledge","players":"2-4명"}
 ]

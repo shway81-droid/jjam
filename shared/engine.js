@@ -970,10 +970,8 @@ const _GAME_CATEGORY_MAP = {
   'body-quiz': 'knowledge',
   'op-combo': 'coop',
   'calc-maze': 'puzzle',
-  'angle-pair': 'coop',
   'near-tap': 'speed',
   'space-quiz': 'knowledge',
-  'same-value': 'brain',
 };
 /* @end:category-map */
 
