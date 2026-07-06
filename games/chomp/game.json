@@ -1,9 +1,0 @@
-{
-  "name": "초콜릿 게임",
-  "description": "독 초콜릿을 상대가 먹게 만드는 전략 게임!",
-  "icon": "🍫",
-  "color": "#795548",
-  "playTime": "2~3분",
-  "category": "brain",
-  "players": "2명"
-}

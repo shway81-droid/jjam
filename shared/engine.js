@@ -972,9 +972,6 @@ const _GAME_CATEGORY_MAP = {
   'calc-maze': 'puzzle',
   'near-tap': 'speed',
   'space-quiz': 'knowledge',
-  'ruler-read': 'math',
-  'chomp': 'brain',
-  'calendar-read': 'math',
 };
 /* @end:category-map */
 
