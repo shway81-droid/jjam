@@ -973,6 +973,7 @@ const _GAME_CATEGORY_MAP = {
   'near-tap': 'speed',
   'space-quiz': 'knowledge',
   'ruler-read': 'math',
+  'chomp': 'brain',
 };
 /* @end:category-map */
 

@@ -133,5 +133,6 @@
 {"folder":"calc-maze","name":"계산 미로","description":"오른쪽·아래로만 지나며 칸의 연산을 차례로 적용해 목표 수를 만드는 길을 가장 먼저 찾아요!","icon":"🧮","color":"#26A69A","playTime":"1~2분","category":"puzzle","players":"2-4명"},
 {"folder":"near-tap","name":"가까운 수","description":"목표 수에 가장 가까운 수를 가장 먼저 찾아 터치!","icon":"🎯","color":"#26C6DA","playTime":"30초","category":"speed","players":"2-4명"},
 {"folder":"space-quiz","name":"우주 퀴즈","description":"행성·별·달! 우주에 관한 문제를 가장 먼저 맞혀보세요!","icon":"🪐","color":"#5C6BC0","playTime":"1~2분","category":"knowledge","players":"2-4명"},
-{"folder":"ruler-read","name":"자로 재기","description":"자를 보고 막대의 길이를 맞혀요!","icon":"📏","color":"#5C6BC0","playTime":"1분","category":"math","players":"2-4명"}
+{"folder":"ruler-read","name":"자로 재기","description":"자를 보고 막대의 길이를 맞혀요!","icon":"📏","color":"#5C6BC0","playTime":"1분","category":"math","players":"2-4명"},
+{"folder":"chomp","name":"초콜릿 게임","description":"독 초콜릿을 상대가 먹게 만드는 전략 게임!","icon":"🍫","color":"#795548","playTime":"2~3분","category":"brain","players":"2명"}
 ]
