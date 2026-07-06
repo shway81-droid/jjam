@@ -974,6 +974,7 @@ const _GAME_CATEGORY_MAP = {
   'space-quiz': 'knowledge',
   'ruler-read': 'math',
   'chomp': 'brain',
+  'calendar-read': 'math',
 };
 /* @end:category-map */
 
