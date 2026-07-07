@@ -972,6 +972,10 @@ const _GAME_CATEGORY_MAP = {
   'calc-maze': 'puzzle',
   'near-tap': 'speed',
   'space-quiz': 'knowledge',
+  'remainder-quiz': 'math',
+  'world-quiz': 'knowledge',
+  'angle-type': 'math',
+  'calc-flash': 'speed',
 };
 /* @end:category-map */
 
