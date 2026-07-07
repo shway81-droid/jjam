@@ -1,0 +1,9 @@
+{
+  "name": "번개 계산",
+  "description": "계산 값이 목표 수와 같은 풍선만 빠르게 터트려요!",
+  "icon": "⚡",
+  "color": "#FBC02D",
+  "playTime": "30초",
+  "category": "speed",
+  "players": "2-4명"
+}
