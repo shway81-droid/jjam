@@ -977,6 +977,7 @@ const _GAME_CATEGORY_MAP = {
   'angle-type': 'math',
   'dice-roll': 'puzzle',
   'three-mill': 'brain',
+  'science-quiz': 'knowledge',
 };
 /* @end:category-map */
 

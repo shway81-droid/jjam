@@ -137,5 +137,6 @@
 {"folder":"world-quiz","name":"세계 여러 나라","description":"세계 여러 나라에 관한 문제를 가장 먼저 맞혀보세요!","icon":"🌍","color":"#42A5F5","playTime":"1~2분","category":"knowledge","players":"2-4명"},
 {"folder":"angle-type","name":"각의 종류","description":"각을 보고 예각·직각·둔각·평각을 가장 먼저 골라요!","icon":"📐","color":"#EF6C00","playTime":"1~2분","category":"math","players":"2-4명"},
 {"folder":"dice-roll","name":"주사위 굴리기","description":"주사위를 방향대로 굴리면 마지막 윗면은? 머릿속으로 굴려 가장 먼저 맞혀요!","icon":"🎲","color":"#7E57C2","playTime":"1~2분","category":"puzzle","players":"2-4명"},
-{"folder":"three-mill","name":"세 알 고누","description":"말 세 개를 놓고 이웃 칸으로 옮겨 한 줄을 먼저 만들면 승리! 번갈아 두는 전략 게임","icon":"🔵","color":"#5E35B1","playTime":"1~2분","category":"brain","players":"2명"}
+{"folder":"three-mill","name":"세 알 고누","description":"말 세 개를 놓고 이웃 칸으로 옮겨 한 줄을 먼저 만들면 승리! 번갈아 두는 전략 게임","icon":"🔵","color":"#5E35B1","playTime":"1~2분","category":"brain","players":"2명"},
+{"folder":"science-quiz","name":"과학 퀴즈","description":"물질·힘·빛·자연! 생활 속 과학 문제를 가장 먼저 맞혀보세요!","icon":"🔬","color":"#26A69A","playTime":"1~2분","category":"knowledge","players":"2-4명"}
 ]

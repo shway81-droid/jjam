@@ -1,0 +1,9 @@
+{
+  "name": "과학 퀴즈",
+  "description": "물질·힘·빛·자연! 생활 속 과학 문제를 가장 먼저 맞혀보세요!",
+  "icon": "🔬",
+  "color": "#26A69A",
+  "playTime": "1~2분",
+  "category": "knowledge",
+  "players": "2-4명"
+}
