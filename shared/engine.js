@@ -975,7 +975,6 @@ const _GAME_CATEGORY_MAP = {
   'remainder-quiz': 'math',
   'world-quiz': 'knowledge',
   'angle-type': 'math',
-  'calc-flash': 'speed',
 };
 /* @end:category-map */
 
