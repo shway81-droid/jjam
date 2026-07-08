@@ -1,9 +1,0 @@
-{
-  "name": "세 알 고누",
-  "description": "말 세 개를 놓고 이웃 칸으로 옮겨 한 줄을 먼저 만들면 승리! 번갈아 두는 전략 게임",
-  "icon": "🔵",
-  "color": "#5E35B1",
-  "playTime": "1~2분",
-  "category": "brain",
-  "players": "2명"
-}

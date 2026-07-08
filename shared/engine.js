@@ -975,8 +975,6 @@ const _GAME_CATEGORY_MAP = {
   'remainder-quiz': 'math',
   'world-quiz': 'knowledge',
   'angle-type': 'math',
-  'dice-roll': 'puzzle',
-  'three-mill': 'brain',
   'science-quiz': 'knowledge',
   'times-quiz': 'math',
 };
