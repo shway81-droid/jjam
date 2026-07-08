@@ -1,0 +1,9 @@
+{
+  "name": "주사위 굴리기",
+  "description": "주사위를 방향대로 굴리면 마지막 윗면은? 머릿속으로 굴려 가장 먼저 맞혀요!",
+  "icon": "🎲",
+  "color": "#7E57C2",
+  "playTime": "1~2분",
+  "category": "puzzle",
+  "players": "2-4명"
+}
