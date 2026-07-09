@@ -1,9 +1,0 @@
-{
-  "name": "한붓그리기",
-  "description": "붓을 떼지 않고 모든 선을 한 번씩! 초록 점에서 시작해 도형을 가장 먼저 완성하면 승리!",
-  "icon": "✏️",
-  "color": "#7E57C2",
-  "playTime": "2~3분",
-  "category": "puzzle",
-  "players": "2-4명"
-}

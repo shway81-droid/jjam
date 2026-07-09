@@ -978,9 +978,7 @@ const _GAME_CATEGORY_MAP = {
   'science-quiz': 'knowledge',
   'times-quiz': 'math',
   'dino-quiz': 'knowledge',
-  'perimeter-quiz': 'math',
   'analogy-quiz': 'brain',
-  'one-stroke': 'puzzle',
 };
 /* @end:category-map */
 

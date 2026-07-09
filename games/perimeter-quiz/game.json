@@ -1,9 +1,0 @@
-{
-  "name": "둘레 구하기",
-  "description": "도형의 모든 변의 길이를 더하면? 정사각형·직사각형·삼각형의 둘레를 가장 먼저 구해요!",
-  "icon": "📐",
-  "color": "#26A69A",
-  "playTime": "1~2분",
-  "category": "math",
-  "players": "2-4명"
-}
