@@ -1,0 +1,9 @@
+{
+  "name": "공룡 퀴즈",
+  "description": "공룡의 이름·특징·먹이! 공룡에 관한 문제를 가장 먼저 맞혀보세요!",
+  "icon": "🦕",
+  "color": "#66BB6A",
+  "playTime": "1~2분",
+  "category": "knowledge",
+  "players": "2-4명"
+}

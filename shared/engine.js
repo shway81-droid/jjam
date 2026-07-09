@@ -977,6 +977,7 @@ const _GAME_CATEGORY_MAP = {
   'angle-type': 'math',
   'science-quiz': 'knowledge',
   'times-quiz': 'math',
+  'dino-quiz': 'knowledge',
 };
 /* @end:category-map */
 
