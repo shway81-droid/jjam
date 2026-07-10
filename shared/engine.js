@@ -980,6 +980,7 @@ const _GAME_CATEGORY_MAP = {
   'dino-quiz': 'knowledge',
   'analogy-quiz': 'brain',
   'arrow-trick': 'speed',
+  'reverse-tictactoe': 'brain',
 };
 /* @end:category-map */
 
