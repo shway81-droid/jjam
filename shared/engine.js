@@ -982,6 +982,7 @@ const _GAME_CATEGORY_MAP = {
   'arrow-trick': 'speed',
   'reverse-tictactoe': 'brain',
   'midpoint-pair': 'coop',
+  'block-pop': 'puzzle',
 };
 /* @end:category-map */
 
