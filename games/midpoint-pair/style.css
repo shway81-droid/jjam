@@ -1,0 +1,469 @@
+/* games/midpoint-pair/style.css */
+
+/* ── Countdown screen ─────────────────────────────────────── */
+.screen-countdown {
+  justify-content: center;
+  align-items: center;
+  background: #FFF8E1;
+}
+.countdown-number {
+  color: #00ACC1;
+}
+
+body {
+  background: #FFF8E1;
+  overflow: hidden;
+}
+
+/* === 공통 헤더 === */
+.game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  flex-shrink: 0;
+}
+
+/* === 인트로 화면 === */
+.screen-intro {
+  justify-content: space-between;
+  background: var(--bg);
+}
+.intro-body {
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.intro-preview {
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,0.15));
+}
+.intro-text {
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-align: center;
+  color: var(--text);
+}
+.badge-2p {
+  display: inline-block;
+  background: #00ACC1;
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  box-shadow: 3px 3px 0 #2C2C2C;
+}
+.intro-rules {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+  max-width: 340px;
+}
+.rule-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: #FFFFFF;
+  border-radius: 14px;
+  border: 3px solid #2C2C2C;
+  padding: 10px var(--space-md);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text);
+  min-height: 44px;
+  box-shadow: 3px 3px 0 #2C2C2C;
+}
+.rule-item svg { flex-shrink: 0; }
+
+.btn-play {
+  width: 80%;
+  max-width: 300px;
+  padding: var(--space-md) var(--space-xl);
+  font-size: 1.3rem;
+  margin-bottom: var(--space-xl);
+  background: #00ACC1;
+}
+
+/* === 게임 화면 === */
+.screen-game {
+  background: #FFF8E1;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+/* 라운드 배너 */
+.round-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: #FFFFFF;
+  border-radius: 99px;
+  border: 3px solid #2C2C2C;
+  padding: 4px 14px;
+  box-shadow: 3px 3px 0 #2C2C2C;
+}
+.round-label { font-size: 0.78rem; font-weight: 700; color: #555; }
+.round-num { font-size: 1rem; font-weight: 900; color: #2C2C2C; }
+.round-score { font-size: 0.9rem; font-weight: 900; color: #F9A825; margin-left: 4px; }
+
+/* === 목표 영역 === */
+.target-area {
+  width: 100%;
+  padding: var(--space-sm) var(--space-lg);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.goal-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+.goal-label {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #2C2C2C;
+}
+.goal-val {
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: #2C2C2C;
+  background: #FFD54F;
+  border: 3px solid #2C2C2C;
+  border-radius: 12px;
+  padding: 0 12px;
+  box-shadow: 3px 3px 0 #2C2C2C;
+  line-height: 1.25;
+}
+.goal-hint {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #00838F;
+}
+
+/* === 수직선 === */
+.numline {
+  position: relative;
+  width: 100%;
+  height: 76px;
+  margin: 2px 0;
+}
+.nl-track {
+  position: absolute;
+  left: 0; right: 0; top: 36px;
+  height: 4px;
+  background: #2C2C2C;
+  border-radius: 2px;
+}
+.nl-ticks { position: absolute; inset: 0; }
+.nl-tick {
+  position: absolute;
+  top: 31px;
+  width: 2px;
+  height: 14px;
+  background: #90A4AE;
+  transform: translateX(-50%);
+}
+.nl-tick.major {
+  top: 28px;
+  height: 20px;
+  width: 3px;
+  background: #2C2C2C;
+}
+.nl-tick-label {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: #455A64;
+}
+
+/* 목표 별 (수직선 위) */
+.nl-target {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+  pointer-events: none;
+}
+.nl-target-star {
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #F9A825;
+  text-shadow: 0 1px 0 #2C2C2C;
+}
+.nl-target::after {
+  content: '';
+  width: 3px;
+  height: 12px;
+  background: #F9A825;
+}
+
+/* 플레이어 마커 (수직선 아래) */
+.nl-marker {
+  position: absolute;
+  top: 44px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: left 0.25s ease, opacity 0.2s ease;
+  z-index: 4;
+  pointer-events: none;
+}
+.nl-marker.show {
+  opacity: 1;
+  visibility: visible;
+  animation: pinDrop 0.3s ease-out;
+}
+.nl-pin {
+  width: 0; height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 12px solid #1565C0;
+}
+.nl-marker.p2 .nl-pin { border-bottom-color: #C62828; }
+.nl-mval {
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: #fff;
+  background: #1565C0;
+  border-radius: 8px;
+  padding: 0 6px;
+  margin-top: 2px;
+}
+.nl-marker.p2 .nl-mval { background: #C62828; }
+.nl-marker.ok .nl-pin { border-bottom-color: #2E7D32; }
+.nl-marker.ok .nl-mval { background: #2E7D32; }
+@keyframes pinDrop {
+  0%   { transform: translateX(-50%) translateY(-8px); opacity: 0; }
+  100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+
+/* 거리 표시 행 */
+.dist-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+.dist-chip {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #2C2C2C;
+  background: #fff;
+  border: 3px solid #2C2C2C;
+  border-radius: 10px;
+  padding: 2px 10px;
+  box-shadow: 2px 2px 0 #2C2C2C;
+}
+.dist-chip.p1 { background: #B3E5FC; }
+.dist-chip.p2 { background: #FFCDD2; }
+.dist-chip b { font-size: 1.05rem; }
+.dist-eq {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #607D8B;
+  min-width: 26px;
+  text-align: center;
+}
+.dist-eq.match { color: #2E7D32; }
+.dist-eq.mismatch { color: #C62828; }
+
+/* 결과 배너 */
+.banner {
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 900;
+  padding: 4px 16px;
+  border-radius: 20px;
+  border: 3px solid transparent;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  box-sizing: border-box;
+  text-align: center;
+  word-break: keep-all;
+}
+.banner.show { opacity: 1; }
+.banner.ok {
+  color: #1B5E20;
+  background: #C8E6C9;
+  border-color: #2C2C2C;
+  box-shadow: 3px 3px 0 #2C2C2C;
+}
+.banner.ng {
+  color: #B71C1C;
+  background: #FFCDD2;
+  border-color: #2C2C2C;
+  box-shadow: 3px 3px 0 #2C2C2C;
+}
+
+/* === 보드 영역 === */
+.boards {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 8px 12px 14px;
+  min-height: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid #2C2C2C;
+  border-radius: 18px;
+  padding: 10px 8px 14px;
+  box-shadow: 4px 4px 0 #2C2C2C;
+  overflow: hidden;
+}
+.board.p1 { background: #B3E5FC; }
+.board.p2 { background: #FFCDD2; }
+.board-label {
+  font-size: 0.92rem;
+  font-weight: 900;
+  color: #2C2C2C;
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+
+/* === 카드 그리드 === */
+.card-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+  margin-top: auto;
+  align-content: end;
+}
+.num-card {
+  background: #FFFFFF;
+  border: 3px solid #2C2C2C;
+  border-radius: 14px;
+  font-family: var(--font-family);
+  font-size: clamp(1.7rem, 6.5vw, 2.4rem);
+  font-weight: 900;
+  color: #2C2C2C;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: 3px 3px 0 #2C2C2C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+  user-select: none;
+}
+.num-card:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #2C2C2C;
+}
+.num-card.selected {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #2C2C2C;
+  background: #FFD54F;
+}
+.num-card.correct {
+  background: #66BB6A !important;
+  color: #FFFFFF;
+  animation: pop-correct 0.35s ease-out;
+}
+.num-card.wrong {
+  background: #EF5350 !important;
+  color: #FFFFFF;
+  animation: shake-wrong 0.35s ease-out;
+}
+.num-card:disabled { pointer-events: none; }
+
+@keyframes pop-correct {
+  0%   { transform: translate(2px, 2px) scale(1); }
+  40%  { transform: translate(2px, 2px) scale(1.18); }
+  100% { transform: translate(2px, 2px) scale(1); }
+}
+@keyframes shake-wrong {
+  0%, 100% { transform: translate(2px, 2px); }
+  25%      { transform: translate(-6px, 2px); }
+  75%      { transform: translate(10px, 2px); }
+}
+.boards.locked .num-card { pointer-events: none; }
+
+/* === 결과 화면 === */
+.screen-result {
+  justify-content: flex-start;
+  align-items: center;
+  background: var(--bg);
+}
+.result-header { flex-shrink: 0; }
+.result-header-title { font-size: 1.2rem; font-weight: 800; }
+.result-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  text-align: center;
+  padding: var(--space-xl) var(--space-lg);
+  flex: 1;
+  justify-content: center;
+}
+.result-icon-wrap {
+  animation: resultBounce 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes resultBounce {
+  0%   { transform: scale(0.2); opacity: 0; }
+  70%  { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.result-title {
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: #2C2C2C;
+  animation: fadeSlideUp 0.4s ease 0.15s both;
+}
+.result-sub {
+  font-size: 1.05rem;
+  color: var(--text-sub);
+  font-weight: 700;
+  animation: fadeSlideUp 0.4s ease 0.25s both;
+}
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.result-actions {
+  display: flex;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg) var(--space-xl);
+  flex-shrink: 0;
+  width: 100%;
+  justify-content: center;
+}
+.btn-secondary { box-shadow: none; }
+
+.sound-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

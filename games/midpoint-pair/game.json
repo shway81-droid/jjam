@@ -1,0 +1,9 @@
+{
+  "name": "수직선 짝꿍",
+  "description": "P1·P2가 수를 하나씩 골라 목표가 딱 한가운데(같은 거리)에 오게 맞춰요! 협력 수직선 게임",
+  "icon": "📏",
+  "color": "#00ACC1",
+  "playTime": "1~2분",
+  "category": "coop",
+  "players": "2명"
+}

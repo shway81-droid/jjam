@@ -981,6 +981,7 @@ const _GAME_CATEGORY_MAP = {
   'analogy-quiz': 'brain',
   'arrow-trick': 'speed',
   'reverse-tictactoe': 'brain',
+  'midpoint-pair': 'coop',
 };
 /* @end:category-map */
 
