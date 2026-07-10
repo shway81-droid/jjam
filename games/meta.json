@@ -140,8 +140,5 @@
 {"folder":"times-quiz","name":"구구단","description":"2단부터 9단까지! 곱셈 답을 가장 먼저 맞혀보세요!","icon":"✖️","color":"#FF7043","playTime":"1~2분","category":"math","players":"2-4명"},
 {"folder":"dino-quiz","name":"공룡 퀴즈","description":"공룡의 이름·특징·먹이! 공룡에 관한 문제를 가장 먼저 맞혀보세요!","icon":"🦕","color":"#66BB6A","playTime":"1~2분","category":"knowledge","players":"2-4명"},
 {"folder":"analogy-quiz","name":"짝꿍 유추","description":"'A는 B, 그럼 C는?' 앞의 두 낱말 관계를 보고 빈칸의 짝꿍을 가장 먼저 찾아요!","icon":"🧩","color":"#AB47BC","playTime":"1~2분","category":"brain","players":"2-4명"},
-{"folder":"arrow-trick","name":"화살표 술래","description":"글자는 함정! 화살표가 가리키는 방향을 빠르게 눌러요","icon":"🔀","color":"#FB8C00","playTime":"1분","category":"speed","players":"2-4명"},
-{"folder":"reverse-tictactoe","name":"거꾸로 삼목","description":"세 칸을 이으면 지는 반대로 삼목! 상대가 먼저 잇게 몰아붙여요","icon":"🚫","color":"#7E57C2","playTime":"1~2분","category":"brain","players":"2명"},
-{"folder":"midpoint-pair","name":"수직선 짝꿍","description":"P1·P2가 수를 하나씩 골라 목표가 딱 한가운데(같은 거리)에 오게 맞춰요! 협력 수직선 게임","icon":"📏","color":"#00ACC1","playTime":"1~2분","category":"coop","players":"2명"},
 {"folder":"block-pop","name":"뭉치 터트리기","description":"붙어있는 같은 색 2개 이상을 톡! 블록이 무너져 내려요. 가장 많이 없앤 사람 승리!","icon":"💥","color":"#EC407A","playTime":"1분","category":"puzzle","players":"2-4명"}
 ]

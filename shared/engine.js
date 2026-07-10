@@ -979,9 +979,6 @@ const _GAME_CATEGORY_MAP = {
   'times-quiz': 'math',
   'dino-quiz': 'knowledge',
   'analogy-quiz': 'brain',
-  'arrow-trick': 'speed',
-  'reverse-tictactoe': 'brain',
-  'midpoint-pair': 'coop',
   'block-pop': 'puzzle',
 };
 /* @end:category-map */
