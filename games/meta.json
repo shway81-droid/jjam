@@ -142,5 +142,6 @@
 {"folder":"analogy-quiz","name":"짝꿍 유추","description":"'A는 B, 그럼 C는?' 앞의 두 낱말 관계를 보고 빈칸의 짝꿍을 가장 먼저 찾아요!","icon":"🧩","color":"#AB47BC","playTime":"1~2분","category":"brain","players":"2-4명"},
 {"folder":"block-pop","name":"뭉치 터트리기","description":"붙어있는 같은 색 2개 이상을 톡! 블록이 무너져 내려요. 가장 많이 없앤 사람 승리!","icon":"💥","color":"#EC407A","playTime":"1분","category":"puzzle","players":"2-4명"},
 {"folder":"divisor-quiz","name":"약수 콕","description":"약수 콕 — 주어진 수의 약수가 아닌 수를 가장 먼저 찾아 터치!","icon":"🧮","color":"#7E57C0","playTime":"30초","category":"math","players":"2-4명"},
-{"folder":"wrong-calc","name":"틀린 셈 찾기","description":"틀린 셈 찾기 — 네 식 중에서 계산이 틀린 식을 가장 먼저 찾아 터치!","icon":"🔎","color":"#EF5350","playTime":"30초","category":"brain","players":"2-4명"}
+{"folder":"wrong-calc","name":"틀린 셈 찾기","description":"틀린 셈 찾기 — 네 식 중에서 계산이 틀린 식을 가장 먼저 찾아 터치!","icon":"🔎","color":"#EF5350","playTime":"30초","category":"brain","players":"2-4명"},
+{"folder":"decimal-size","name":"소수 크기","description":"소수 크기 — 네 소수 중 가장 큰(또는 가장 작은) 소수를 가장 먼저 찾아 터치!","icon":"🔟","color":"#26A69A","playTime":"30초","category":"math","players":"2-4명"}
 ]
