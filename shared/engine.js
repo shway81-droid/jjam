@@ -981,6 +981,7 @@ const _GAME_CATEGORY_MAP = {
   'analogy-quiz': 'brain',
   'block-pop': 'puzzle',
   'divisor-quiz': 'math',
+  'wrong-calc': 'brain',
 };
 /* @end:category-map */
 
