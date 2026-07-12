@@ -984,6 +984,7 @@ const _GAME_CATEGORY_MAP = {
   'wrong-calc': 'brain',
   'decimal-size': 'math',
   'hero-quiz': 'knowledge',
+  'unit-convert': 'math',
 };
 /* @end:category-map */
 
