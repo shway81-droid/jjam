@@ -1,0 +1,9 @@
+{
+  "name": "자릿수 합",
+  "description": "각 자리 숫자를 모두 더하면 얼마일까요?",
+  "icon": "🔢",
+  "color": "#7E57C2",
+  "playTime": "1분",
+  "category": "math",
+  "players": "2-4명"
+}

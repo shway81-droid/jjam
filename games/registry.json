@@ -145,5 +145,6 @@
   "wrong-calc",
   "decimal-size",
   "hero-quiz",
-  "unit-convert"
+  "unit-convert",
+  "digit-sum"
 ]
