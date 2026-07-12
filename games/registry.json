@@ -146,5 +146,6 @@
   "decimal-size",
   "hero-quiz",
   "unit-convert",
-  "digit-sum"
+  "digit-sum",
+  "missing-op"
 ]
