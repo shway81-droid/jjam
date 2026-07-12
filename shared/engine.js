@@ -987,6 +987,7 @@ const _GAME_CATEGORY_MAP = {
   'unit-convert': 'math',
   'digit-sum': 'math',
   'missing-op': 'math',
+  'landmark-quiz': 'knowledge',
 };
 /* @end:category-map */
 

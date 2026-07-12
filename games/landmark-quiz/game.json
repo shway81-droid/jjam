@@ -1,0 +1,9 @@
+{
+  "name": "세계 명소",
+  "description": "설명을 보고 세계의 유명한 명소를 맞혀요!",
+  "icon": "🗼",
+  "color": "#5C6BC0",
+  "playTime": "1분",
+  "category": "knowledge",
+  "players": "2-4명"
+}
