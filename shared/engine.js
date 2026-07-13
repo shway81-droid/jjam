@@ -984,6 +984,7 @@ const _GAME_CATEGORY_MAP = {
   'unit-convert': 'math',
   'division-quiz': 'math',
   'biggest-even': 'speed',
+  'who-lies': 'brain',
 };
 /* @end:category-map */
 

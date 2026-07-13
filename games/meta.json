@@ -144,5 +144,6 @@
 {"folder":"hero-quiz","name":"위인 퀴즈","description":"위인 퀴즈 — 우리나라와 세계 위인! 설명을 읽고 알맞은 위인을 가장 먼저 맞혀보세요!","icon":"🏛️","color":"#8D6E63","playTime":"1~2분","category":"knowledge","players":"2-4명"},
 {"folder":"unit-convert","name":"단위 바꾸기","description":"길이 단위(mm·cm·m)를 알맞게 바꿔요!","icon":"📏","color":"#26A69A","playTime":"1분","category":"math","players":"2-4명"},
 {"folder":"division-quiz","name":"나눗셈 몫","description":"나눗셈 식을 보고 몫이 얼마인지 가장 먼저 골라요!","icon":"➗","color":"#00897B","playTime":"1~2분","category":"math","players":"2-4명"},
-{"folder":"biggest-even","name":"가장 큰 짝수","description":"여러 수 중에서 가장 큰 '짝수'를 가장 먼저 찾아 터치! 제일 큰 수가 홀수면 함정이에요.","icon":"🔢","color":"#7E57C2","playTime":"30초","category":"speed","players":"2-4명"}
+{"folder":"biggest-even","name":"가장 큰 짝수","description":"여러 수 중에서 가장 큰 '짝수'를 가장 먼저 찾아 터치! 제일 큰 수가 홀수면 함정이에요.","icon":"🔢","color":"#7E57C2","playTime":"30초","category":"speed","players":"2-4명"},
+{"folder":"who-lies","name":"누가 거짓말?","description":"친구들의 말 중 한 명만 거짓말! 앞뒤가 맞는 거짓말쟁이를 가장 먼저 찾아요!","icon":"🕵️","color":"#8E44AD","playTime":"1~2분","category":"brain","players":"2-4명"}
 ]
