@@ -985,6 +985,7 @@ const _GAME_CATEGORY_MAP = {
   'division-quiz': 'math',
   'who-lies': 'brain',
   'idiom-expr': 'knowledge',
+  'instrument-quiz': 'knowledge',
 };
 /* @end:category-map */
 
