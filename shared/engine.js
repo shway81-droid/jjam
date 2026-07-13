@@ -980,14 +980,8 @@ const _GAME_CATEGORY_MAP = {
   'dino-quiz': 'knowledge',
   'analogy-quiz': 'brain',
   'block-pop': 'puzzle',
-  'divisor-quiz': 'math',
-  'wrong-calc': 'brain',
-  'decimal-size': 'math',
   'hero-quiz': 'knowledge',
   'unit-convert': 'math',
-  'digit-sum': 'math',
-  'missing-op': 'math',
-  'landmark-quiz': 'knowledge',
 };
 /* @end:category-map */
 
