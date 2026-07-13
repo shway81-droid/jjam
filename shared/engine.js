@@ -982,6 +982,7 @@ const _GAME_CATEGORY_MAP = {
   'block-pop': 'puzzle',
   'hero-quiz': 'knowledge',
   'unit-convert': 'math',
+  'division-quiz': 'math',
 };
 /* @end:category-map */
 
