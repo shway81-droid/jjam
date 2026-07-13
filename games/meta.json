@@ -144,7 +144,6 @@
 {"folder":"hero-quiz","name":"위인 퀴즈","description":"위인 퀴즈 — 우리나라와 세계 위인! 설명을 읽고 알맞은 위인을 가장 먼저 맞혀보세요!","icon":"🏛️","color":"#8D6E63","playTime":"1~2분","category":"knowledge","players":"2-4명"},
 {"folder":"unit-convert","name":"단위 바꾸기","description":"길이 단위(mm·cm·m)를 알맞게 바꿔요!","icon":"📏","color":"#26A69A","playTime":"1분","category":"math","players":"2-4명"},
 {"folder":"division-quiz","name":"나눗셈 몫","description":"나눗셈 식을 보고 몫이 얼마인지 가장 먼저 골라요!","icon":"➗","color":"#00897B","playTime":"1~2분","category":"math","players":"2-4명"},
-{"folder":"who-lies","name":"누가 거짓말?","description":"친구들의 말 중 한 명만 거짓말! 앞뒤가 맞는 거짓말쟁이를 가장 먼저 찾아요!","icon":"🕵️","color":"#8E44AD","playTime":"1~2분","category":"brain","players":"2-4명"},
 {"folder":"idiom-expr","name":"관용구 뜻","description":"몸으로 익히는 우리말 관용구! 뜻을 가장 먼저 골라요!","icon":"💬","color":"#6D4C41","playTime":"1분","category":"knowledge","players":"2-4명"},
 {"folder":"instrument-quiz","name":"악기 종류","description":"악기를 보고 현악기·관악기·타악기·건반악기 중 어떤 종류인지 가장 먼저 골라요!","icon":"🎵","color":"#EC407A","playTime":"1~2분","category":"knowledge","players":"2-4명"}
 ]
