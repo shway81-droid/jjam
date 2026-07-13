@@ -1,0 +1,9 @@
+{
+  "name": "가장 큰 짝수",
+  "description": "여러 수 중에서 가장 큰 '짝수'를 가장 먼저 찾아 터치! 제일 큰 수가 홀수면 함정이에요.",
+  "icon": "🔢",
+  "color": "#7E57C2",
+  "playTime": "30초",
+  "category": "speed",
+  "players": "2-4명"
+}
