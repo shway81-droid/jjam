@@ -955,7 +955,6 @@ const _GAME_CATEGORY_MAP = {
   'swap-sort': 'puzzle',
   'native-word': 'knowledge',
   'big-number': 'math',
-  'place-combo': 'coop',
   'avoid-triangle': 'brain',
   'second-big': 'speed',
   'lonely-find': 'brain',
