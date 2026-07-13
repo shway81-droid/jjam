@@ -983,7 +983,6 @@ const _GAME_CATEGORY_MAP = {
   'hero-quiz': 'knowledge',
   'unit-convert': 'math',
   'division-quiz': 'math',
-  'biggest-even': 'speed',
   'who-lies': 'brain',
   'idiom-expr': 'knowledge',
 };
