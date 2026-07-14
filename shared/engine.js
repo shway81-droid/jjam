@@ -987,7 +987,6 @@ const _GAME_CATEGORY_MAP = {
   'holiday-quiz': 'knowledge',
   'read-number': 'math',
   'ordinal-tap': 'math',
-  'carpet-duel': 'brain',
 };
 /* @end:category-map */
 
