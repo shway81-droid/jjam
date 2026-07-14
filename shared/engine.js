@@ -984,6 +984,7 @@ const _GAME_CATEGORY_MAP = {
   'division-quiz': 'math',
   'idiom-expr': 'knowledge',
   'instrument-quiz': 'knowledge',
+  'holiday-quiz': 'knowledge',
 };
 /* @end:category-map */
 
