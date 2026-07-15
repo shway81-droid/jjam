@@ -989,6 +989,7 @@ const _GAME_CATEGORY_MAP = {
   'ordinal-tap': 'math',
   'heavy-order': 'brain',
   'fruit-code': 'brain',
+  'symmetry-find': 'puzzle',
 };
 /* @end:category-map */
 
