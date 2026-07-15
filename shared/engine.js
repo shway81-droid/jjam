@@ -988,6 +988,7 @@ const _GAME_CATEGORY_MAP = {
   'read-number': 'math',
   'ordinal-tap': 'math',
   'heavy-order': 'brain',
+  'fruit-code': 'brain',
 };
 /* @end:category-map */
 

@@ -148,5 +148,6 @@
 {"folder":"holiday-quiz","name":"우리 명절","description":"설명을 보고 우리나라 전통 명절을 맞혀보세요!","icon":"🎎","color":"#D84315","playTime":"1분","category":"knowledge","players":"2-4명"},
 {"folder":"read-number","name":"수 읽기","description":"우리말로 읽은 네 자리 수를 숫자로 골라요!","icon":"🔢","color":"#00897B","playTime":"1분","category":"math","players":"2-4명"},
 {"folder":"ordinal-tap","name":"몇째일까","description":"한 줄로 선 그림에서 왼쪽부터 몇째인지 찾아 골라요!","icon":"🔟","color":"#5E35B1","playTime":"1분","category":"math","players":"2-4명"},
-{"folder":"heavy-order","name":"무거운 순서","description":"저울로 잰 힌트를 이어 생각해 가장 무거운(가벼운) 것을 가장 먼저 찾아요! 이행추론 게임","icon":"⚖️","color":"#8D6E63","playTime":"1~2분","category":"brain","players":"2-4명"}
+{"folder":"heavy-order","name":"무거운 순서","description":"저울로 잰 힌트를 이어 생각해 가장 무거운(가벼운) 것을 가장 먼저 찾아요! 이행추론 게임","icon":"⚖️","color":"#8D6E63","playTime":"1~2분","category":"brain","players":"2-4명"},
+{"folder":"fruit-code","name":"과일 암호","description":"과일에 숨은 숫자를 알아내 식을 계산해요! 가장 먼저 답을 찾는 대입 추론 게임","icon":"🍎","color":"#EF5350","playTime":"1~2분","category":"brain","players":"2-4명"}
 ]
