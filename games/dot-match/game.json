@@ -1,0 +1,9 @@
+{
+  "name": "점 세어 콕",
+  "description": "점이 몇 개? 목표 수와 점 개수가 똑같은 카드를 가장 먼저 찾아 콕! 빠른 수 세기 게임",
+  "icon": "🔴",
+  "color": "#FF7043",
+  "playTime": "1분",
+  "category": "speed",
+  "players": "2-4명"
+}

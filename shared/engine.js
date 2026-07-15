@@ -990,6 +990,7 @@ const _GAME_CATEGORY_MAP = {
   'heavy-order': 'brain',
   'fruit-code': 'brain',
   'symmetry-find': 'puzzle',
+  'dot-match': 'speed',
 };
 /* @end:category-map */
 

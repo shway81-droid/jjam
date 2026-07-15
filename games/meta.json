@@ -150,5 +150,6 @@
 {"folder":"ordinal-tap","name":"몇째일까","description":"한 줄로 선 그림에서 왼쪽부터 몇째인지 찾아 골라요!","icon":"🔟","color":"#5E35B1","playTime":"1분","category":"math","players":"2-4명"},
 {"folder":"heavy-order","name":"무거운 순서","description":"저울로 잰 힌트를 이어 생각해 가장 무거운(가벼운) 것을 가장 먼저 찾아요! 이행추론 게임","icon":"⚖️","color":"#8D6E63","playTime":"1~2분","category":"brain","players":"2-4명"},
 {"folder":"fruit-code","name":"과일 암호","description":"과일에 숨은 숫자를 알아내 식을 계산해요! 가장 먼저 답을 찾는 대입 추론 게임","icon":"🍎","color":"#EF5350","playTime":"1~2분","category":"brain","players":"2-4명"},
-{"folder":"symmetry-find","name":"대칭 무늬 찾기","description":"접으면 딱 맞는 대칭 무늬는 어느 것? 좌우·상하 대칭인 무늬를 가장 먼저 찾아요!","icon":"🦋","color":"#26A69A","playTime":"1~2분","category":"puzzle","players":"2-4명"}
+{"folder":"symmetry-find","name":"대칭 무늬 찾기","description":"접으면 딱 맞는 대칭 무늬는 어느 것? 좌우·상하 대칭인 무늬를 가장 먼저 찾아요!","icon":"🦋","color":"#26A69A","playTime":"1~2분","category":"puzzle","players":"2-4명"},
+{"folder":"dot-match","name":"점 세어 콕","description":"점이 몇 개? 목표 수와 점 개수가 똑같은 카드를 가장 먼저 찾아 콕! 빠른 수 세기 게임","icon":"🔴","color":"#FF7043","playTime":"1분","category":"speed","players":"2-4명"}
 ]
