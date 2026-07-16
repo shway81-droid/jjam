@@ -1001,6 +1001,8 @@ const _GAME_CATEGORY_MAP = {
   'korea-geo': 'knowledge',
   'korea-culture': 'knowledge',
   'world-hero': 'knowledge',
+  'clothing-quiz': 'knowledge',
+  'stationery-quiz': 'knowledge',
 };
 /* @end:category-map */
 
