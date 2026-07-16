@@ -352,5 +352,15 @@ biggest-tap·smallest-tap·second-big·middle-tap·near-tap으로 포화됨. 여
 비고: 같은 날 자동 추가한 우리 명절(holiday-quiz)·수 읽기(read-number)·몇째일까(ordinal-tap)는 유지.
 → 현재 144개. 분포: speed 23 / brain 22 / math 30 / knowledge 31 / coop 20 / puzzle 22
 
-> ⚠️ 자동 추가 루틴(`docs/AUTO_MODE.md`)은 이 문서의 1·2·3·4·5·6·7·8·9·10·11·12·13·14·15·16·17·18·19·20·21·22·23·24·25·26·27·28·29차 삭제 목록 + `GAME_ANTIPATTERNS.md` 0절을
+## 🚫 사용자 삭제 30차 (재추가 금지)
+직전 자동 추가분(2026-07-15) 중 2종 삭제 — 폴더명이든 다른 이름이든 같은 메커니즘 재추가 금지:
+- brain: heavy-order(무거운 순서 — 저울로 잰 무게 힌트 A>B·B>C·C>D 를 이어 가장 무거운/가벼운 것을 고르는 이행추론)
+- brain: fruit-code(과일 암호 — 과일마다 숨은 숫자를 대입해 식을 계산하는 대입/치환 연산)
+
+⚠️ **일반화:** "여러 비교 힌트(무게·키·개수·나이 등 A>B>C)를 이어 가장 큰/작은 것을 고르는" 이행추론(transitive ordering) 계열, 그리고 "그림·기호=숫자 대입 후 식을 계산"하는 치환 연산(fruit/emoji algebra) 계열 전반이 이 축으로 보고 재추가 금지.
+
+비고: 같은 날 자동 추가한 대칭 무늬 찾기(symmetry-find, puzzle)·점 세어 콕(dot-match, speed)은 유지.
+→ 현재 151개. 분포: speed 24 / brain 23 / math 30 / knowledge 31 / coop 20 / puzzle 23
+
+> ⚠️ 자동 추가 루틴(`docs/AUTO_MODE.md`)은 이 문서의 1·2·3·4·5·6·7·8·9·10·11·12·13·14·15·16·17·18·19·20·21·22·23·24·25·26·27·28·29·30차 삭제 목록 + `GAME_ANTIPATTERNS.md` 0절을
 > 후보 제외(avoid) 기준으로 읽는다. 게임을 삭제하면 여기에 반드시 기록할 것 — 누락 시 루틴이 재생성한다.
