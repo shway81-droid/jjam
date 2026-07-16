@@ -488,3 +488,11 @@
   transform: translateX(-50%) !important;
   max-width: 90%;
 }
+
+/* ── Enlarged question emoji (this game) ─────────────────── */
+.problem-expr .q-emoji {
+  font-size: 4.6rem;
+  line-height: 1.05;
+  display: block;
+  margin-bottom: 6px;
+}
