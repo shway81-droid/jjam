@@ -1,0 +1,9 @@
+{
+  "name": "어디 살까?",
+  "description": "동물이 주로 어디에 사는지 가장 먼저 맞혀요! 동물의 사는 곳 상식 게임",
+  "icon": "🐾",
+  "color": "#78909C",
+  "playTime": "1~2분",
+  "category": "knowledge",
+  "players": "2-4명"
+}

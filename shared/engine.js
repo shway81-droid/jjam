@@ -1003,6 +1003,8 @@ const _GAME_CATEGORY_MAP = {
   'world-hero': 'knowledge',
   'clothing-quiz': 'knowledge',
   'stationery-quiz': 'knowledge',
+  'folktale-quiz': 'knowledge',
+  'habitat-quiz': 'knowledge',
 };
 /* @end:category-map */
 
