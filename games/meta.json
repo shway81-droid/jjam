@@ -151,5 +151,7 @@
 {"folder":"symmetry-find","name":"대칭 무늬 찾기","description":"접으면 딱 맞는 대칭 무늬는 어느 것? 좌우·상하 대칭인 무늬를 가장 먼저 찾아요!","icon":"🦋","color":"#26A69A","playTime":"1~2분","category":"puzzle","players":"2-4명"},
 {"folder":"dot-match","name":"점 세어 콕","description":"점이 몇 개? 목표 수와 점 개수가 똑같은 카드를 가장 먼저 찾아 콕! 빠른 수 세기 게임","icon":"🔴","color":"#FF7043","playTime":"1분","category":"speed","players":"2-4명"},
 {"folder":"vehicle-quiz","name":"무슨 탈것?","description":"탈것 그림을 보고 이름을 가장 먼저 맞혀요! 여러 탈것을 익히는 상식 게임","icon":"🚗","color":"#42A5F5","playTime":"1~2분","category":"knowledge","players":"2-4명"},
-{"folder":"food-name","name":"무슨 먹거리?","description":"과일과 채소 그림을 보고 이름을 가장 먼저 맞혀요! 먹거리 이름 익히기 게임","icon":"🍎","color":"#EC407A","playTime":"1~2분","category":"knowledge","players":"2-4명"}
+{"folder":"food-name","name":"무슨 먹거리?","description":"과일과 채소 그림을 보고 이름을 가장 먼저 맞혀요! 먹거리 이름 익히기 게임","icon":"🍎","color":"#EC407A","playTime":"1~2분","category":"knowledge","players":"2-4명"},
+{"folder":"plant-quiz","name":"무슨 식물?","description":"설명을 듣고 어떤 꽃·나무·풀인지 가장 먼저 맞혀요! 식물 상식 게임","icon":"🌷","color":"#66BB6A","playTime":"1~2분","category":"knowledge","players":"2-4명"},
+{"folder":"hero-figure","name":"위인 퀴즈","description":"설명을 듣고 우리 역사 속 위인을 가장 먼저 맞혀요! 인물 상식 게임","icon":"🦸","color":"#FFA726","playTime":"1~2분","category":"knowledge","players":"2-4명"}
 ]

@@ -991,6 +991,8 @@ const _GAME_CATEGORY_MAP = {
   'dot-match': 'speed',
   'vehicle-quiz': 'knowledge',
   'food-name': 'knowledge',
+  'plant-quiz': 'knowledge',
+  'hero-figure': 'knowledge',
 };
 /* @end:category-map */
 
