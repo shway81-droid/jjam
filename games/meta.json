@@ -166,7 +166,6 @@
 {"folder":"stationery-quiz","name":"무슨 학용품?","description":"학용품 그림을 보고 이름을 가장 먼저 맞혀요! 생활 낱말 익히기 게임","icon":"✏️","color":"#FBC02D","playTime":"1~2분","category":"knowledge","players":"2-4명"},
 {"folder":"folktale-quiz","name":"옛이야기 퀴즈","description":"줄거리를 듣고 어떤 전래동화(옛이야기)인지 가장 먼저 맞혀요! 우리 옛이야기 상식 게임","icon":"📖","color":"#A1887F","playTime":"1~2분","category":"knowledge","players":"2-4명"},
 {"folder":"habitat-quiz","name":"어디 살까?","description":"동물이 주로 어디에 사는지 가장 먼저 맞혀요! 동물의 사는 곳 상식 게임","icon":"🐾","color":"#78909C","playTime":"1~2분","category":"knowledge","players":"2-4명"},
-{"folder":"food-world","name":"무슨 음식?","description":"세계 여러 음식 그림을 보고 이름을 가장 먼저 맞혀요! 음식 이름 익히기 게임","icon":"🍕","color":"#FF7043","playTime":"1~2분","category":"knowledge","players":"2-4명"},
 {"folder":"household-quiz","name":"무슨 물건?","description":"집안 물건 그림을 보고 이름을 가장 먼저 맞혀요! 생활 낱말 익히기 게임","icon":"🏠","color":"#90A4AE","playTime":"1~2분","category":"knowledge","players":"2-4명"},
 {"folder":"drink-snack","name":"무슨 음료·간식?","description":"음료와 간식 그림을 보고 이름을 가장 먼저 맞혀요! 생활 낱말 익히기 게임","icon":"🥤","color":"#FFB300","playTime":"1~2분","category":"knowledge","players":"2-4명"},
 {"folder":"aesop-quiz","name":"이솝 우화","description":"줄거리를 듣고 어떤 이솝 우화인지 가장 먼저 맞혀요! 세계 우화 상식 게임","icon":"🦊","color":"#6D4C41","playTime":"1~2분","category":"knowledge","players":"2-4명"},
