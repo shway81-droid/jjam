@@ -161,6 +161,5 @@
 {"folder":"weather-quiz","name":"무슨 날씨?","description":"설명을 듣고 어떤 날씨인지 가장 먼저 맞혀요! 날씨·자연 현상 상식 게임","icon":"⛅","color":"#4FC3F7","playTime":"1~2분","category":"knowledge","players":"2-4명"},
 {"folder":"korea-geo","name":"우리나라 어디?","description":"설명을 듣고 우리나라의 도시·산·강·명소를 가장 먼저 맞혀요! 우리 지리 상식 게임","icon":"🗺️","color":"#3949AB","playTime":"1~2분","category":"knowledge","players":"2-4명"},
 {"folder":"korea-culture","name":"우리 문화","description":"설명을 듣고 우리나라 전통 문화·놀이·상징을 가장 먼저 맞혀요! 전통 문화 상식 게임","icon":"🎎","color":"#8E24AA","playTime":"1~2분","category":"knowledge","players":"2-4명"},
-{"folder":"shape-name","name":"무슨 도형?","description":"도형 그림을 보고 이름을 가장 먼저 맞혀요! 평면도형 이름 익히기 게임","icon":"🔷","color":"#7E57C2","playTime":"1~2분","category":"math","players":"2-4명"},
 {"folder":"world-hero","name":"세계 위인","description":"설명을 듣고 세계의 위인을 가장 먼저 맞혀요! 세계 인물 상식 게임","icon":"🌍","color":"#26A69A","playTime":"1~2분","category":"knowledge","players":"2-4명"}
 ]

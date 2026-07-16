@@ -1000,7 +1000,6 @@ const _GAME_CATEGORY_MAP = {
   'weather-quiz': 'knowledge',
   'korea-geo': 'knowledge',
   'korea-culture': 'knowledge',
-  'shape-name': 'math',
   'world-hero': 'knowledge',
 };
 /* @end:category-map */
