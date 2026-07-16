@@ -31,6 +31,27 @@ engine.js가 제공하는 헬퍼를 재사용한다: `runCountdown`, `createTime
   오답이 정답으로도 성립하면 `avoid` 로직으로 제외(GAME_ANTIPATTERNS B-2).
 - **인원:** 보통 `"2-4명"`.
 
+### A-그림형 — 이모지 그림을 보여주고 이름 맞히기 (필수 규칙)
+
+`무슨 탈것?`·`무슨 먹거리?`·`무슨 동물?`처럼 **문제로 이모지 그림을 보여주고 이름을 고르게 하는**
+퀴즈는, 문제 이모지를 **반드시 큰 글씨로** 렌더한다(작게 텍스트에 섞으면 그림이 안 보임).
+
+- 문제 문자열을 `<span class='q-emoji'>🚗</span><br>이 탈것의 이름은?` 형태의 **HTML**로 만들고,
+  `problemExpr.innerHTML = currentQuestion.q;`로 렌더한다(`textContent` 아님).
+- 게임 자체 `style.css`에 아래 규칙을 넣는다(공용 `shared/style.css`는 수정 금지):
+
+```css
+.problem-expr .q-emoji {
+  font-size: 4.6rem;   /* 기본 글씨의 약 4배 — 그림이 크게 보이게 */
+  line-height: 1.05;
+  display: block;      /* 이모지를 자체 줄에, 그 아래 질문 텍스트 */
+  margin-bottom: 6px;
+}
+```
+
+- 데이터는 `{ 이모지, 이름 }` 쌍으로 두고 오답 3개는 다른 이름들에서 서로 중복 없이 고른다.
+- **설명형(그림 없이 글로만 묻는) 퀴즈**는 이 규칙과 무관 — 기존대로 `textContent` 사용.
+
 ## 패턴 B — 반응속도 / 타이밍 탭 (speed)
 
 존별로 빠르게 터치·반응하되 **판단 요소 내장**(비교·홀짝·누적합·속성 조합 등).
