@@ -1001,6 +1001,7 @@ const _GAME_CATEGORY_MAP = {
   'korea-geo': 'knowledge',
   'korea-culture': 'knowledge',
   'shape-name': 'math',
+  'world-hero': 'knowledge',
 };
 /* @end:category-map */
 
