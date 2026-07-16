@@ -995,6 +995,9 @@ const _GAME_CATEGORY_MAP = {
   'hero-figure': 'knowledge',
   'sea-life': 'knowledge',
   'korean-food': 'knowledge',
+  'animal-quiz': 'knowledge',
+  'insect-quiz': 'knowledge',
+  'weather-quiz': 'knowledge',
 };
 /* @end:category-map */
 

@@ -155,5 +155,8 @@
 {"folder":"plant-quiz","name":"무슨 식물?","description":"설명을 듣고 어떤 꽃·나무·풀인지 가장 먼저 맞혀요! 식물 상식 게임","icon":"🌷","color":"#66BB6A","playTime":"1~2분","category":"knowledge","players":"2-4명"},
 {"folder":"hero-figure","name":"위인 퀴즈","description":"설명을 듣고 우리 역사 속 위인을 가장 먼저 맞혀요! 인물 상식 게임","icon":"🦸","color":"#FFA726","playTime":"1~2분","category":"knowledge","players":"2-4명"},
 {"folder":"sea-life","name":"바다 친구","description":"설명을 듣고 어떤 바다 생물인지 가장 먼저 맞혀요! 바다 동물 상식 게임","icon":"🐙","color":"#29B6F6","playTime":"1~2분","category":"knowledge","players":"2-4명"},
-{"folder":"korean-food","name":"무슨 우리 음식?","description":"설명을 듣고 어떤 우리나라 음식인지 가장 먼저 맞혀요! 전통 음식 상식 게임","icon":"🍚","color":"#FB8C00","playTime":"1~2분","category":"knowledge","players":"2-4명"}
+{"folder":"korean-food","name":"무슨 우리 음식?","description":"설명을 듣고 어떤 우리나라 음식인지 가장 먼저 맞혀요! 전통 음식 상식 게임","icon":"🍚","color":"#FB8C00","playTime":"1~2분","category":"knowledge","players":"2-4명"},
+{"folder":"animal-quiz","name":"무슨 동물?","description":"동물 그림을 보고 이름을 가장 먼저 맞혀요! 여러 동물을 익히는 상식 게임","icon":"🦁","color":"#8D6E63","playTime":"1~2분","category":"knowledge","players":"2-4명"},
+{"folder":"insect-quiz","name":"무슨 곤충?","description":"설명을 듣고 어떤 곤충인지 가장 먼저 맞혀요! 곤충 상식 게임","icon":"🐞","color":"#7CB342","playTime":"1~2분","category":"knowledge","players":"2-4명"},
+{"folder":"weather-quiz","name":"무슨 날씨?","description":"설명을 듣고 어떤 날씨인지 가장 먼저 맞혀요! 날씨·자연 현상 상식 게임","icon":"⛅","color":"#4FC3F7","playTime":"1~2분","category":"knowledge","players":"2-4명"}
 ]
