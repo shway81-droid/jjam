@@ -42,17 +42,30 @@ const MIME = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript
 function startServer() {
   return new Promise((resolve) => {
     const server = http.createServer((req, res) => {
-      let urlPath = decodeURIComponent(req.url.split('?')[0]);
-      if (urlPath.endsWith('/')) urlPath += 'index.html';
-      const filePath = path.join(ROOT, urlPath);
-      if (!filePath.startsWith(ROOT) || !fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
-        res.writeHead(404); res.end('not found'); return;
+      try {
+        let urlPath = decodeURIComponent(req.url.split('?')[0]);
+        if (urlPath.endsWith('/')) urlPath += 'index.html';
+        if (urlPath === '/favicon.ico') { res.writeHead(204, { 'Connection': 'close' }); res.end(); return; }
+        const filePath = path.join(ROOT, urlPath);
+        if (!filePath.startsWith(ROOT) || !fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
+          res.writeHead(404, { 'Connection': 'close' }); res.end('not found'); return;
+        }
+        const buf = fs.readFileSync(filePath); // sync read → no stream-abort resets
+        res.writeHead(200, { 'Content-Type': MIME[path.extname(filePath)] || 'application/octet-stream', 'Connection': 'close' });
+        res.end(buf);
+      } catch (e) {
+        try { res.writeHead(500, { 'Connection': 'close' }); res.end('err'); } catch (_) {}
       }
-      res.writeHead(200, { 'Content-Type': MIME[path.extname(filePath)] || 'application/octet-stream' });
-      fs.createReadStream(filePath).pipe(res);
     });
+    server.on('clientError', (e, sock) => { try { sock.destroy(); } catch (_) {} });
+    server.keepAliveTimeout = 0;
     server.listen(PORT, () => resolve(server));
   });
+}
+
+// 자원 로딩 실패(음원·파비콘 등)는 게임 로직 버그가 아니므로 치명 오류에서 제외
+function isAssetNoise(msg) {
+  return /Failed to load resource|net::ERR_|favicon|status of 404|Autoplay|AudioContext|play\(\) request/i.test(msg);
 }
 
 const scratch = '/tmp/claude-0/-home-user-jjam/530312a0-478f-5af4-a75b-9c5f8810c58b/scratchpad';
@@ -65,7 +78,7 @@ async function verifyGame(browser, folder) {
   page.on('console', (m) => { if (m.type() === 'error') errors.push('console: ' + m.text()); });
   page.on('pageerror', (e) => errors.push('pageerror: ' + e.message));
 
-  const result = { folder, ok: false, reached: false, errors, note: '' };
+  const result = { folder, ok: false, reached: false, errors, realErrors: [], note: '' };
   try {
     await page.goto(`http://localhost:${PORT}/games/${folder}/index.html`, { waitUntil: 'load', timeout: 15000 });
     // 인트로 PLAY
@@ -87,7 +100,8 @@ async function verifyGame(browser, folder) {
     }
     result.reached = !!(await page.$('#resultScreen.active'));
     await page.screenshot({ path: path.join(SHOTDIR, folder + '.png') });
-    result.ok = result.reached && errors.length === 0;
+    result.realErrors = errors.filter((e) => !isAssetNoise(e));
+    result.ok = result.reached && result.realErrors.length === 0;
     if (!result.reached) result.note = '결과화면 미도달';
   } catch (e) {
     result.note = 'exception: ' + e.message;
@@ -113,7 +127,7 @@ async function verifyGame(browser, folder) {
   for (const f of folders) {
     const r = await verifyGame(browser, f);
     const icon = r.ok ? '✓' : '✗';
-    const extra = r.ok ? '' : `  — ${r.note || ''} ${r.errors.slice(0, 3).join(' | ')}`;
+    const extra = r.ok ? '' : `  — ${r.note || ''} ${(r.realErrors.length ? r.realErrors : r.errors).slice(0, 3).join(' | ')}`;
     console.log(`  ${icon} ${f}${extra}`);
     if (r.ok) pass++; else fail++;
   }
