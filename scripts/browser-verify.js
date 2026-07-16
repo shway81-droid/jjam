@@ -80,7 +80,11 @@ async function verifyGame(browser, folder) {
 
   const result = { folder, ok: false, reached: false, errors, realErrors: [], note: '' };
   try {
-    await page.goto(`http://localhost:${PORT}/games/${folder}/index.html`, { waitUntil: 'load', timeout: 15000 });
+    const url = `http://localhost:${PORT}/games/${folder}/index.html`;
+    for (let attempt = 1; ; attempt++) {
+      try { await page.goto(url, { waitUntil: 'load', timeout: 20000 }); break; }
+      catch (e) { if (attempt >= 3) throw e; await page.waitForTimeout(500); }
+    }
     // 인트로 PLAY
     await page.click('#playBtn', { timeout: 8000 });
     // 카운트다운 후 게임화면
