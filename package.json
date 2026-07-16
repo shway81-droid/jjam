@@ -8,5 +8,8 @@
     "verify": "node scripts/verify-all.js",
     "test": "node scripts/gen-metadata.js --check && node scripts/verify-all.js"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "playwright": "^1.61.1"
+  }
 }

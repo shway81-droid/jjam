@@ -7,3 +7,5 @@ _original/
 
 # BGM 미리듣기 (선택용 임시 파일)
 bgm-preview/
+
+node_modules/
