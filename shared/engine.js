@@ -1005,6 +1005,15 @@ const _GAME_CATEGORY_MAP = {
   'stationery-quiz': 'knowledge',
   'folktale-quiz': 'knowledge',
   'habitat-quiz': 'knowledge',
+  'food-world': 'knowledge',
+  'household-quiz': 'knowledge',
+  'drink-snack': 'knowledge',
+  'aesop-quiz': 'knowledge',
+  'fairytale-quiz': 'knowledge',
+  'food-country': 'knowledge',
+  'job-do': 'knowledge',
+  'korea-history': 'knowledge',
+  'riddle-quiz': 'knowledge',
 };
 /* @end:category-map */
 
