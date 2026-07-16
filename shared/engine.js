@@ -998,6 +998,8 @@ const _GAME_CATEGORY_MAP = {
   'animal-quiz': 'knowledge',
   'insect-quiz': 'knowledge',
   'weather-quiz': 'knowledge',
+  'korea-geo': 'knowledge',
+  'korea-culture': 'knowledge',
 };
 /* @end:category-map */
 
