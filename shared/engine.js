@@ -989,6 +989,8 @@ const _GAME_CATEGORY_MAP = {
   'ordinal-tap': 'math',
   'symmetry-find': 'puzzle',
   'dot-match': 'speed',
+  'vehicle-quiz': 'knowledge',
+  'food-name': 'knowledge',
 };
 /* @end:category-map */
 
