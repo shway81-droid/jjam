@@ -1013,6 +1013,11 @@ const _GAME_CATEGORY_MAP = {
   'job-do': 'knowledge',
   'korea-history': 'knowledge',
   'riddle-quiz': 'knowledge',
+  'bird-quiz': 'knowledge',
+  'building-quiz': 'knowledge',
+  'tool-quiz': 'knowledge',
+  'science-life': 'knowledge',
+  'world-culture': 'knowledge',
 };
 /* @end:category-map */
 
