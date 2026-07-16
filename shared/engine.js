@@ -993,6 +993,8 @@ const _GAME_CATEGORY_MAP = {
   'food-name': 'knowledge',
   'plant-quiz': 'knowledge',
   'hero-figure': 'knowledge',
+  'sea-life': 'knowledge',
+  'korean-food': 'knowledge',
 };
 /* @end:category-map */
 
