@@ -1021,6 +1021,7 @@ const _GAME_CATEGORY_MAP = {
   'body-part-quiz': 'knowledge',
   'tech-device': 'knowledge',
   'feeling-quiz': 'knowledge',
+  'kitchen-tool': 'knowledge',
 };
 /* @end:category-map */
 
