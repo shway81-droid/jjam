@@ -1019,6 +1019,7 @@ const _GAME_CATEGORY_MAP = {
   'science-life': 'knowledge',
   'world-culture': 'knowledge',
   'body-part-quiz': 'knowledge',
+  'tech-device': 'knowledge',
 };
 /* @end:category-map */
 

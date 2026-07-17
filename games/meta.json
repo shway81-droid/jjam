@@ -179,5 +179,6 @@
 {"folder":"tool-quiz","name":"무슨 도구?","description":"도구 그림을 보고 이름을 가장 먼저 맞혀요! 여러 연장을 익히는 상식 게임","icon":"🔧","color":"#607D8B","playTime":"1~2분","category":"knowledge","players":"2-4명"},
 {"folder":"science-life","name":"동식물 한살이","description":"동물과 식물이 자라는 과정을 가장 먼저 맞혀요! 한살이 과학 상식 게임","icon":"🌱","color":"#43A047","playTime":"1~2분","category":"knowledge","players":"2-4명"},
 {"folder":"world-culture","name":"세계 문화","description":"세계 여러 나라의 옷·춤·집·축제를 가장 먼저 맞혀요! 세계 문화 상식 게임","icon":"🌐","color":"#00897B","playTime":"1~2분","category":"knowledge","players":"2-4명"},
-{"folder":"body-part-quiz","name":"무슨 몸의 부분?","description":"몸의 부분 그림을 보고 이름을 가장 먼저 맞혀요! 우리 몸 이름을 익히는 상식 게임","icon":"🦴","color":"#EF5350","playTime":"1~2분","category":"knowledge","players":"2-4명"}
+{"folder":"body-part-quiz","name":"무슨 몸의 부분?","description":"몸의 부분 그림을 보고 이름을 가장 먼저 맞혀요! 우리 몸 이름을 익히는 상식 게임","icon":"🦴","color":"#EF5350","playTime":"1~2분","category":"knowledge","players":"2-4명"},
+{"folder":"tech-device","name":"무슨 기기?","description":"디지털 기기 그림을 보고 이름을 가장 먼저 맞혀요! 여러 전자 기기를 익히는 상식 게임","icon":"💻","color":"#5C6BC0","playTime":"1~2분","category":"knowledge","players":"2-4명"}
 ]
