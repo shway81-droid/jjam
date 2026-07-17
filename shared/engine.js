@@ -1020,6 +1020,7 @@ const _GAME_CATEGORY_MAP = {
   'world-culture': 'knowledge',
   'body-part-quiz': 'knowledge',
   'tech-device': 'knowledge',
+  'feeling-quiz': 'knowledge',
 };
 /* @end:category-map */
 

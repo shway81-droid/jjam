@@ -1,0 +1,9 @@
+{
+  "name": "무슨 기분?",
+  "description": "표정 그림을 보고 어떤 기분인지 가장 먼저 맞혀요! 감정 이름을 익히는 상식 게임",
+  "icon": "😊",
+  "color": "#FFA726",
+  "playTime": "1~2분",
+  "category": "knowledge",
+  "players": "2-4명"
+}
