@@ -1018,6 +1018,7 @@ const _GAME_CATEGORY_MAP = {
   'tool-quiz': 'knowledge',
   'science-life': 'knowledge',
   'world-culture': 'knowledge',
+  'body-part-quiz': 'knowledge',
 };
 /* @end:category-map */
 
