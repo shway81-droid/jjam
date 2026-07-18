@@ -183,5 +183,6 @@
 {"folder":"tech-device","name":"무슨 기기?","description":"디지털 기기 그림을 보고 이름을 가장 먼저 맞혀요! 여러 전자 기기를 익히는 상식 게임","icon":"💻","color":"#5C6BC0","playTime":"1~2분","category":"knowledge","players":"2-4명"},
 {"folder":"feeling-quiz","name":"무슨 기분?","description":"표정 그림을 보고 어떤 기분인지 가장 먼저 맞혀요! 감정 이름을 익히는 상식 게임","icon":"😊","color":"#FFA726","playTime":"1~2분","category":"knowledge","players":"2-4명"},
 {"folder":"kitchen-tool","name":"무슨 주방 도구?","description":"주방 도구 그림을 보고 이름을 가장 먼저 맞혀요! 조리 도구와 식기를 익히는 상식 게임","icon":"🍳","color":"#26A69A","playTime":"1~2분","category":"knowledge","players":"2-4명"},
-{"folder":"safety-quiz","name":"안전 상식 퀴즈","description":"안전한 생활 규칙을 묻는 문제를 보고 정답을 가장 먼저 맞혀요! 안전 상식 게임","icon":"🦺","color":"#EF5350","playTime":"1~2분","category":"knowledge","players":"2-4명"}
+{"folder":"safety-quiz","name":"안전 상식 퀴즈","description":"안전한 생활 규칙을 묻는 문제를 보고 정답을 가장 먼저 맞혀요! 안전 상식 게임","icon":"🦺","color":"#EF5350","playTime":"1~2분","category":"knowledge","players":"2-4명"},
+{"folder":"family-quiz","name":"가족과 친척","description":"가족과 친척을 부르는 말을 묻는 문제를 보고 정답을 가장 먼저 맞혀요! 가족 호칭 상식 게임","icon":"👨‍👩‍👧‍👦","color":"#FFA726","playTime":"1~2분","category":"knowledge","players":"2-4명"}
 ]

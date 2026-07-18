@@ -1023,6 +1023,7 @@ const _GAME_CATEGORY_MAP = {
   'feeling-quiz': 'knowledge',
   'kitchen-tool': 'knowledge',
   'safety-quiz': 'knowledge',
+  'family-quiz': 'knowledge',
 };
 /* @end:category-map */
 
