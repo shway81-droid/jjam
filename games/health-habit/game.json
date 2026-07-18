@@ -1,0 +1,9 @@
+{
+  "name": "건강한 생활 퀴즈",
+  "description": "몸을 튼튼하게 하는 건강 습관을 묻는 문제를 보고 정답을 가장 먼저 맞혀요! 건강 상식 게임",
+  "icon": "💪",
+  "color": "#66BB6A",
+  "playTime": "1~2분",
+  "category": "knowledge",
+  "players": "2-4명"
+}
