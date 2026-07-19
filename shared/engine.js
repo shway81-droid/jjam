@@ -1028,6 +1028,7 @@ const _GAME_CATEGORY_MAP = {
   'landform-quiz': 'knowledge',
   'direction-quiz': 'knowledge',
   'heritage-quiz': 'knowledge',
+  'plant-part-quiz': 'knowledge',
 };
 /* @end:category-map */
 
