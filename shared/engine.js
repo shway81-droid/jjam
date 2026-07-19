@@ -1033,6 +1033,7 @@ const _GAME_CATEGORY_MAP = {
   'nationalday-quiz': 'knowledge',
   'continent-quiz': 'knowledge',
   'zodiac-quiz': 'knowledge',
+  'punctuation-quiz': 'knowledge',
 };
 /* @end:category-map */
 
