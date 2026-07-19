@@ -1037,6 +1037,7 @@ const _GAME_CATEGORY_MAP = {
   'water-state-quiz': 'knowledge',
   'average-quiz': 'math',
   'multiply-quiz': 'math',
+  'rainbow-quiz': 'knowledge',
 };
 /* @end:category-map */
 
