@@ -18,7 +18,7 @@ const PLAYER_CONFIG = [
 // ── Question pool ────────────────────────────────────────────
 // 4지선다: 문제 대상 → 보기 4개(정답 1 + 오답 3, 서로 중복 없음).
 const QUESTION_POOL = [
-  { q: "<span class='q-emoji'>🥤</span><br>이것의 이름은?", a: "음료수", o: ["주스", "사탕", "컵케이크"] },
+  { q: "<span class='q-emoji'>🥤</span><br>이것의 이름은?", a: "음료수", o: ["팝콘", "사탕", "컵케이크"] },
   { q: "<span class='q-emoji'>☕</span><br>이것의 이름은?", a: "커피", o: ["우유", "음료수", "쿠키"] },
   { q: "<span class='q-emoji'>🧃</span><br>이것의 이름은?", a: "주스", o: ["쿠키", "아이스크림", "우유"] },
   { q: "<span class='q-emoji'>🍵</span><br>이것의 이름은?", a: "차", o: ["쿠키", "음료수", "주스"] },

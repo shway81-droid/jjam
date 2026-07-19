@@ -37,7 +37,7 @@ const QUESTION_POOL = [
   { q: "<span class='q-emoji'>🚁</span><br>이 탈것의 이름은?", a: "헬리콥터", o: ["기차", "케이블카", "여객선"] },
   { q: "<span class='q-emoji'>🚀</span><br>이 탈것의 이름은?", a: "로켓", o: ["케이블카", "승합차", "트럭"] },
   { q: "<span class='q-emoji'>⛵</span><br>이 탈것의 이름은?", a: "돛단배", o: ["곤돌라", "지하철", "전차"] },
-  { q: "<span class='q-emoji'>🛳️</span><br>이 탈것의 이름은?", a: "여객선", o: ["케이블카", "트럭", "배"] },
+  { q: "<span class='q-emoji'>🛳️</span><br>이 탈것의 이름은?", a: "여객선", o: ["케이블카", "트럭", "잠수함"] },
   { q: "<span class='q-emoji'>🚢</span><br>이 탈것의 이름은?", a: "배", o: ["고속열차", "지프차", "곤돌라"] },
   { q: "<span class='q-emoji'>🚡</span><br>이 탈것의 이름은?", a: "케이블카", o: ["구급차", "고속열차", "지프차"] },
   { q: "<span class='q-emoji'>🏎️</span><br>이 탈것의 이름은?", a: "경주용차", o: ["소방차", "오토바이", "헬리콥터"] },
@@ -47,7 +47,7 @@ const QUESTION_POOL = [
   { q: "<span class='q-emoji'>🛶</span><br>이 탈것의 이름은?", a: "카누", o: ["자전거", "곤돌라", "대형트럭"] },
   { q: "<span class='q-emoji'>🚤</span><br>이 탈것의 이름은?", a: "모터보트", o: ["고속열차", "스쿠터", "오토바이"] },
   { q: "<span class='q-emoji'>🚛</span><br>이 탈것의 이름은?", a: "대형트럭", o: ["트랙터", "고속열차", "스쿠터"] },
-  { q: "<span class='q-emoji'>🚠</span><br>이 탈것의 이름은?", a: "곤돌라", o: ["대형트럭", "여객선", "케이블카"] },
+  { q: "<span class='q-emoji'>🚠</span><br>이 탈것의 이름은?", a: "곤돌라", o: ["대형트럭", "여객선", "지하철"] },
 ];
 
 // ── Sound Manager ────────────────────────────────────────────
