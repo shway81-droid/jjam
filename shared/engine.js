@@ -1031,6 +1031,7 @@ const _GAME_CATEGORY_MAP = {
   'plant-part-quiz': 'knowledge',
   'sense-quiz': 'knowledge',
   'nationalday-quiz': 'knowledge',
+  'continent-quiz': 'knowledge',
 };
 /* @end:category-map */
 
