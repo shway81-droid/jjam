@@ -1,0 +1,9 @@
+{
+  "name": "무슨 건물?",
+  "description": "건물 그림을 보고 이름을 가장 먼저 맞혀요! 여러 건물을 익히는 상식 게임",
+  "icon": "🏢",
+  "color": "#78909C",
+  "playTime": "1~2분",
+  "category": "knowledge",
+  "players": "2-4명"
+}

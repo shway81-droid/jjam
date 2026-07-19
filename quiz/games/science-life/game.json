@@ -1,0 +1,9 @@
+{
+  "name": "동식물 한살이",
+  "description": "동물과 식물이 자라는 과정을 가장 먼저 맞혀요! 한살이 과학 상식 게임",
+  "icon": "🌱",
+  "color": "#43A047",
+  "playTime": "1~2분",
+  "category": "knowledge",
+  "players": "2-4명"
+}

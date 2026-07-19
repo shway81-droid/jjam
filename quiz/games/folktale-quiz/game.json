@@ -1,0 +1,9 @@
+{
+  "name": "옛이야기 퀴즈",
+  "description": "줄거리를 듣고 어떤 전래동화(옛이야기)인지 가장 먼저 맞혀요! 우리 옛이야기 상식 게임",
+  "icon": "📖",
+  "color": "#A1887F",
+  "playTime": "1~2분",
+  "category": "knowledge",
+  "players": "2-4명"
+}

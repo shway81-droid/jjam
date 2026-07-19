@@ -1,0 +1,9 @@
+{
+  "name": "무슨 기기?",
+  "description": "디지털 기기 그림을 보고 이름을 가장 먼저 맞혀요! 여러 전자 기기를 익히는 상식 게임",
+  "icon": "💻",
+  "color": "#5C6BC0",
+  "playTime": "1~2분",
+  "category": "knowledge",
+  "players": "2-4명"
+}

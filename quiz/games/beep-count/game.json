@@ -1,0 +1,9 @@
+{
+  "name": "소리 세기",
+  "description": "삑 소리가 몇 번 울렸는지 세서 맞혀요!",
+  "icon": "👂",
+  "color": "#F4511E",
+  "playTime": "1분",
+  "category": "speed",
+  "players": "2-4명"
+}

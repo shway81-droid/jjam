@@ -1,0 +1,9 @@
+{
+  "name": "겹쳐 보기",
+  "description": "투명한 두 그림판을 겹치면 색칠된 칸은? 합친 모양을 가장 먼저 골라요",
+  "icon": "🟪",
+  "color": "#7E57C2",
+  "playTime": "1분",
+  "category": "puzzle",
+  "players": "2-4명"
+}
