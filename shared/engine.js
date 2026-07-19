@@ -1029,6 +1029,7 @@ const _GAME_CATEGORY_MAP = {
   'economy-quiz': 'knowledge',
   'manner-quiz': 'knowledge',
   'landform-quiz': 'knowledge',
+  'gesture-quiz': 'knowledge',
 };
 /* @end:category-map */
 
