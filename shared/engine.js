@@ -1037,6 +1037,7 @@ const _GAME_CATEGORY_MAP = {
   'rainbow-quiz': 'knowledge',
   'province-quiz': 'knowledge',
   'vertex-quiz': 'math',
+  'sentence-type-quiz': 'knowledge',
 };
 /* @end:category-map */
 
