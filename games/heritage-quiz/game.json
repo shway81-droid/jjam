@@ -1,0 +1,9 @@
+{
+  "name": "우리 문화재",
+  "description": "우리나라 문화재를 묻는 문제를 보고 정답을 가장 먼저 맞혀요! 문화재 상식 게임",
+  "icon": "🏯",
+  "color": "#A1887F",
+  "playTime": "1~2분",
+  "category": "knowledge",
+  "players": "2-4명"
+}

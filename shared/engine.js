@@ -1027,6 +1027,7 @@ const _GAME_CATEGORY_MAP = {
   'manner-quiz': 'knowledge',
   'landform-quiz': 'knowledge',
   'direction-quiz': 'knowledge',
+  'heritage-quiz': 'knowledge',
 };
 /* @end:category-map */
 
