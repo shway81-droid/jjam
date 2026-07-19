@@ -1,0 +1,9 @@
+{
+  "name": "나라 인사말",
+  "description": "여러 나라의 인사말을 듣고 어느 나라인지 맞혀요!",
+  "icon": "👋",
+  "color": "#26A69A",
+  "playTime": "1분",
+  "category": "knowledge",
+  "players": "2-4명"
+}

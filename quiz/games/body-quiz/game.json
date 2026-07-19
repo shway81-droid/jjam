@@ -1,0 +1,9 @@
+{
+  "name": "우리 몸 퀴즈",
+  "description": "설명을 읽고 알맞은 우리 몸의 부분을 가장 먼저 골라요!",
+  "icon": "🧍",
+  "color": "#EF9A9A",
+  "playTime": "1분",
+  "category": "knowledge",
+  "players": "2-4명"
+}

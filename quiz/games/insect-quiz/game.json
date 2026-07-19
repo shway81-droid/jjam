@@ -1,0 +1,9 @@
+{
+  "name": "무슨 곤충?",
+  "description": "설명을 듣고 어떤 곤충인지 가장 먼저 맞혀요! 곤충 상식 게임",
+  "icon": "🐞",
+  "color": "#7CB342",
+  "playTime": "1~2분",
+  "category": "knowledge",
+  "players": "2-4명"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "수수께끼",
+  "description": "수수께끼를 듣고 답을 가장 먼저 맞혀요! 생각을 키우는 수수께끼 게임",
+  "icon": "❓",
+  "color": "#673AB7",
+  "playTime": "1~2분",
+  "category": "knowledge",
+  "players": "2-4명"
+}

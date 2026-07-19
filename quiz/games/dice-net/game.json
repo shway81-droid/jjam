@@ -1,0 +1,9 @@
+{
+  "name": "주사위 전개도",
+  "description": "주사위는 마주 보는 면의 합이 7! 펼친 그림의 빈 면에 들어갈 수를 가장 먼저 골라요!",
+  "icon": "🎲",
+  "color": "#7E57C2",
+  "playTime": "30초",
+  "category": "puzzle",
+  "players": "2-4명"
+}
