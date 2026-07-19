@@ -489,6 +489,14 @@
   max-width: 90%;
 }
 
+/* ── 2-player mode: move center panel to top so the big picture emoji
+      doesn't cover the inner answer buttons (keep narrow width so the
+      corner score chips stay visible) ── */
+.screen-game:has(.zones-wrap.p2) .problem-panel {
+  top: 12px !important;
+  transform: translateX(-50%) !important;
+}
+
 /* ── Enlarged question emoji (picture quiz) ──────────────── */
 .problem-expr .q-emoji {
   font-size: 4.6rem;
