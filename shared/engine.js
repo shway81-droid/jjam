@@ -1032,6 +1032,7 @@ const _GAME_CATEGORY_MAP = {
   'sense-quiz': 'knowledge',
   'nationalday-quiz': 'knowledge',
   'continent-quiz': 'knowledge',
+  'zodiac-quiz': 'knowledge',
 };
 /* @end:category-map */
 
