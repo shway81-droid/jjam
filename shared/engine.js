@@ -1035,6 +1035,7 @@ const _GAME_CATEGORY_MAP = {
   'zodiac-quiz': 'knowledge',
   'punctuation-quiz': 'knowledge',
   'water-state-quiz': 'knowledge',
+  'average-quiz': 'math',
 };
 /* @end:category-map */
 
