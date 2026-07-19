@@ -1030,6 +1030,7 @@ const _GAME_CATEGORY_MAP = {
   'heritage-quiz': 'knowledge',
   'plant-part-quiz': 'knowledge',
   'sense-quiz': 'knowledge',
+  'nationalday-quiz': 'knowledge',
 };
 /* @end:category-map */
 
