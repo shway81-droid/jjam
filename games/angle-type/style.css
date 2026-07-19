@@ -528,3 +528,10 @@
   transform: translateX(-50%) !important;
   max-width: 90%;
 }
+
+/* ── 2-player mode: move center panel to top so it doesn't cover the inner
+      answer buttons (keep narrow width so corner score chips stay visible) ── */
+.screen-game:has(.zones-wrap.p2) .problem-panel {
+  top: 12px !important;
+  transform: translateX(-50%) !important;
+}
