@@ -1,0 +1,9 @@
+{
+  "name": "무슨 도?",
+  "description": "우리나라의 도(행정구역)를 묻는 문제를 보고 정답을 가장 먼저 맞혀요! 우리 지리 상식 게임",
+  "icon": "🗺️",
+  "color": "#26A69A",
+  "playTime": "1~2분",
+  "category": "knowledge",
+  "players": "2-4명"
+}
