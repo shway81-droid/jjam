@@ -1,9 +1,0 @@
-{
-  "name": "명작 동화",
-  "description": "줄거리를 듣고 어떤 명작 동화인지 가장 먼저 맞혀요! 세계 동화 상식 게임",
-  "icon": "🏰",
-  "color": "#BA68C8",
-  "playTime": "1~2분",
-  "category": "knowledge",
-  "players": "2-4명"
-}

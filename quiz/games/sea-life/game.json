@@ -1,9 +1,0 @@
-{
-  "name": "바다 친구",
-  "description": "설명을 듣고 어떤 바다 생물인지 가장 먼저 맞혀요! 바다 동물 상식 게임",
-  "icon": "🐙",
-  "color": "#29B6F6",
-  "playTime": "1~2분",
-  "category": "knowledge",
-  "players": "2-4명"
-}
