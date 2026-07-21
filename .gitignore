@@ -1,0 +1,11 @@
+# 참고용 원본 저장소 클론 (배포 불필요)
+_original/
+
+# 로컬 도구 설정 (settings.json만 커밋 — 자동 루틴 권한 규칙 공유)
+.claude/*
+!.claude/settings.json
+
+# BGM 미리듣기 (선택용 임시 파일)
+bgm-preview/
+
+node_modules/

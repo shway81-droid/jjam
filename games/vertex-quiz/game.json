@@ -1,0 +1,9 @@
+{
+  "name": "변과 꼭짓점",
+  "description": "도형의 변과 꼭짓점 개수를 세는 문제를 보고 정답을 가장 먼저 맞혀요! 도형 구성요소 게임",
+  "icon": "📐",
+  "color": "#5C6BC0",
+  "playTime": "1~2분",
+  "category": "math",
+  "players": "2-4명"
+}

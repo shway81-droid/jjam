@@ -1,0 +1,20 @@
+{
+  "name": "짬짬이 게임",
+  "short_name": "짬짬이 게임",
+  "description": "전자칠판으로 즐기는 자투리 시간 초등 미니게임 105개",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#152447",
+  "theme_color": "#152447",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["education", "games", "kids"]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "수 읽기",
+  "description": "우리말로 읽은 네 자리 수를 숫자로 골라요!",
+  "icon": "🔢",
+  "color": "#00897B",
+  "playTime": "1분",
+  "category": "math",
+  "players": "2-4명"
+}
