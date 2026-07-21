@@ -1,5 +1,4 @@
 /* shared/style.css */
-@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 :root {
   /* Colors */
   --bg: #FFFFFF;
@@ -163,7 +162,7 @@ html {
 .hud-glass .hud-score-badge .score-val {
   font-size: 1.1rem;
   font-weight: 800;
-  color: #FFD54F;
+  color: #FFB703;
 }
 
 .hud-glass .hud-timer-wrap {
@@ -250,7 +249,7 @@ html {
 .result-modern .result-score-value {
   font-size: 2.2rem;
   font-weight: 900;
-  background: linear-gradient(135deg, #FFD54F, #FF8F00);
+  background: linear-gradient(135deg, #FFB703, #FF8F00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -424,7 +423,7 @@ html {
   background:
     radial-gradient(circle at 18% 12%, rgba(255,193,7,0.12) 0, transparent 35%),
     radial-gradient(circle at 82% 88%, rgba(124,77,255,0.12) 0, transparent 40%),
-    #FFF8F0 !important;
+    #F5F7FA !important;
   position: relative;
 }
 .screen-intro::before {
@@ -439,37 +438,37 @@ html {
 
 .game-header {
   background: #fff !important;
-  border-bottom: 3px solid #2C2C2C !important;
-  box-shadow: 0 4px 0 #2C2C2C !important;
+  border-bottom: 3px solid #1C2333 !important;
+  box-shadow: 0 4px 0 #1C2333 !important;
   padding: var(--space-md) !important;
 }
 .game-title {
   font-size: 1.5rem !important;
   font-weight: 900 !important;
   letter-spacing: -0.02em !important;
-  color: #2C2C2C !important;
+  color: #1C2333 !important;
   background: none !important;
-  -webkit-text-fill-color: #2C2C2C !important;
+  -webkit-text-fill-color: #1C2333 !important;
 }
 .icon-btn,
 .sound-toggle {
-  border: 3px solid #2C2C2C !important;
+  border: 3px solid #1C2333 !important;
   background: #fff !important;
-  box-shadow: 3px 3px 0 #2C2C2C !important;
+  box-shadow: 3px 3px 0 #1C2333 !important;
   font-size: 1.3rem !important;
-  color: #2C2C2C !important;
+  color: #1C2333 !important;
 }
 .icon-btn:active,
 .sound-toggle:active {
   transform: translate(2px,2px) !important;
-  box-shadow: 1px 1px 0 #2C2C2C !important;
+  box-shadow: 1px 1px 0 #1C2333 !important;
 }
 
 .intro-text,
 .intro-title-text {
   font-size: 1.55rem !important;
   font-weight: 900 !important;
-  color: #2C2C2C !important;
+  color: #1C2333 !important;
   letter-spacing: -0.02em !important;
   text-shadow: 0 4px 0 rgba(0,0,0,0.06) !important;
 }
@@ -484,7 +483,7 @@ html {
 .select-label {
   font-size: 1rem !important;
   font-weight: 900 !important;
-  color: #2C2C2C !important;
+  color: #1C2333 !important;
   letter-spacing: 0.04em !important;
   text-transform: none !important;
   margin-top: 24px !important;
@@ -494,92 +493,92 @@ html {
   width: 80px !important;
   height: 80px !important;
   border-radius: 50% !important;
-  border: 3px solid #2C2C2C !important;
+  border: 3px solid #1C2333 !important;
   background: #fff !important;
   font-size: 1.2rem !important;
   font-weight: 900 !important;
-  color: #2C2C2C !important;
-  box-shadow: 4px 4px 0 #2C2C2C !important;
+  color: #1C2333 !important;
+  box-shadow: 4px 4px 0 #1C2333 !important;
   transition: all 0.1s ease !important;
 }
 .player-btn:active {
   transform: translate(2px,2px) !important;
-  box-shadow: 2px 2px 0 #2C2C2C !important;
+  box-shadow: 2px 2px 0 #1C2333 !important;
 }
 .player-btn.active {
-  background: #7C4DFF !important;
+  background: #1F3468 !important;
   color: #fff !important;
-  border-color: #2C2C2C !important;
-  box-shadow: 4px 4px 0 #2C2C2C !important;
+  border-color: #1C2333 !important;
+  box-shadow: 4px 4px 0 #1C2333 !important;
   transform: scale(1.05) !important;
 }
 
 .btn-play {
-  background: #FFD54F !important;
-  color: #2C2C2C !important;
+  background: #FFB703 !important;
+  color: #1C2333 !important;
   font-size: 1.4rem !important;
   font-weight: 900 !important;
   padding: 20px 60px !important;
-  border: 3px solid #2C2C2C !important;
+  border: 3px solid #1C2333 !important;
   border-radius: 999px !important;
-  box-shadow: 6px 6px 0 #2C2C2C !important;
+  box-shadow: 6px 6px 0 #1C2333 !important;
   letter-spacing: 0.02em !important;
-  -webkit-text-fill-color: #2C2C2C !important;
+  -webkit-text-fill-color: #1C2333 !important;
   background-image: none !important;
 }
 .btn-play:active {
   transform: translate(3px,3px) !important;
-  box-shadow: 3px 3px 0 #2C2C2C !important;
+  box-shadow: 3px 3px 0 #1C2333 !important;
 }
 
 .intro-rules {
   background: #fff !important;
-  border: 3px solid #2C2C2C !important;
+  border: 3px solid #1C2333 !important;
   border-radius: 16px !important;
-  box-shadow: 4px 4px 0 #2C2C2C !important;
+  box-shadow: 4px 4px 0 #1C2333 !important;
   padding: 14px 22px !important;
 }
 .intro-rules li {
   font-weight: 700 !important;
-  color: #2C2C2C !important;
+  color: #1C2333 !important;
 }
 
 .badge-2p {
-  background: #7C4DFF !important;
+  background: #1F3468 !important;
   color: #fff !important;
-  border: 3px solid #2C2C2C !important;
-  box-shadow: 3px 3px 0 #2C2C2C !important;
+  border: 3px solid #1C2333 !important;
+  box-shadow: 3px 3px 0 #1C2333 !important;
   font-weight: 900 !important;
 }
 
 /* ── 카운트다운 화면 ── */
 .screen-countdown {
-  background: #FFD54F !important;
+  background: #FFB703 !important;
 }
 .countdown-number {
-  color: #2C2C2C !important;
+  color: #1C2333 !important;
   text-shadow: 6px 6px 0 #fff, 12px 12px 0 rgba(0,0,0,0.15) !important;
   font-weight: 900 !important;
   background: none !important;
-  -webkit-text-fill-color: #2C2C2C !important;
+  -webkit-text-fill-color: #1C2333 !important;
 }
 
 /* ── 게임 화면 (top-bar + score-bar) ── */
 .top-bar {
-  background: #2C2C2C !important;
-  border-bottom: 3px solid #2C2C2C !important;
+  background: #1C2333 !important;
+  border-bottom: 3px solid #1C2333 !important;
 }
 .top-bar .question-counter {
   background: #fff !important;
-  color: #2C2C2C !important;
+  color: #1C2333 !important;
   font-weight: 900 !important;
-  border: 2px solid #2C2C2C !important;
+  border: 2px solid #1C2333 !important;
 }
 .top-bar .problem-timer {
-  background: #FFD54F !important;
-  color: #2C2C2C !important;
+  background: #FFB703 !important;
+  color: #1C2333 !important;
   font-weight: 900 !important;
-  border: 3px solid #2C2C2C !important;
+  border: 3px solid #1C2333 !important;
 }
 .top-bar .problem-status {
   font-weight: 900 !important;
@@ -592,30 +591,30 @@ html {
 }
 
 .score-bar {
-  background: #2C2C2C !important;
-  border-top: 3px solid #2C2C2C !important;
+  background: #1C2333 !important;
+  border-top: 3px solid #1C2333 !important;
 }
 .score-chip {
   background: #fff !important;
-  border: 2px solid #2C2C2C !important;
-  color: #2C2C2C !important;
+  border: 2px solid #1C2333 !important;
+  color: #1C2333 !important;
   font-weight: 900 !important;
   border-radius: 999px !important;
 }
 
 /* 플레이어 존 (게임 화면) */
 .zone {
-  border: 3px solid #2C2C2C !important;
+  border: 3px solid #1C2333 !important;
   box-shadow: inset 0 0 0 2px rgba(255,255,255,0.4);
 }
 .zone-label {
   font-weight: 900 !important;
-  color: #2C2C2C !important;
+  color: #1C2333 !important;
 }
 .zone-score-chip {
-  background: #2C2C2C !important;
+  background: #1C2333 !important;
   color: #fff !important;
-  border: 2px solid #2C2C2C !important;
+  border: 2px solid #1C2333 !important;
   font-weight: 900 !important;
 }
 
@@ -637,19 +636,19 @@ html {
   background:
     radial-gradient(circle at 20% 10%, rgba(255,213,79,0.25) 0, transparent 40%),
     radial-gradient(circle at 80% 90%, rgba(124,77,255,0.18) 0, transparent 40%),
-    #FFF8F0 !important;
+    #F5F7FA !important;
 }
 .result-title,
 .result-headline {
   font-weight: 900 !important;
-  color: #2C2C2C !important;
+  color: #1C2333 !important;
   text-shadow: 0 6px 0 rgba(0,0,0,0.08) !important;
   letter-spacing: -0.02em !important;
 }
 .result-winner {
-  border: 3px solid #2C2C2C !important;
+  border: 3px solid #1C2333 !important;
   border-radius: 22px !important;
-  box-shadow: 6px 6px 0 #2C2C2C !important;
+  box-shadow: 6px 6px 0 #1C2333 !important;
   background: #fff !important;
 }
 
@@ -658,23 +657,23 @@ html {
 .btn-retry,
 .btn-home,
 .btn-home-res {
-  border: 3px solid #2C2C2C !important;
+  border: 3px solid #1C2333 !important;
   font-weight: 900 !important;
   border-radius: 999px !important;
-  box-shadow: 5px 5px 0 #2C2C2C !important;
+  box-shadow: 5px 5px 0 #1C2333 !important;
   padding: 14px 32px !important;
   font-size: 1.05rem !important;
   letter-spacing: 0.02em !important;
 }
 .btn-primary,
 .btn-retry {
-  background: #FFD54F !important;
-  color: #2C2C2C !important;
+  background: #FFB703 !important;
+  color: #1C2333 !important;
 }
 .btn-home,
 .btn-home-res {
   background: #fff !important;
-  color: #2C2C2C !important;
+  color: #1C2333 !important;
 }
 .btn:active,
 .btn-primary:active,
@@ -682,7 +681,7 @@ html {
 .btn-home:active,
 .btn-home-res:active {
   transform: translate(3px,3px) !important;
-  box-shadow: 2px 2px 0 #2C2C2C !important;
+  box-shadow: 2px 2px 0 #1C2333 !important;
 }
 
 .result-emoji-big {
@@ -698,20 +697,20 @@ html {
 
 /* HUD 바 (top-bar 외 패턴 사용 게임용) */
 .game-hud {
-  background: #2C2C2C !important;
-  border-bottom: 3px solid #2C2C2C !important;
+  background: #1C2333 !important;
+  border-bottom: 3px solid #1C2333 !important;
 }
 
 /* 타이머 바 (게이지) */
 .hud-timer-bar,
 .hud-timer-track {
-  border: 2px solid #2C2C2C !important;
+  border: 2px solid #1C2333 !important;
   border-radius: 999px !important;
   overflow: hidden !important;
   box-shadow: 0 3px 0 rgba(0,0,0,0.3) !important;
 }
 .hud-timer-fill {
-  background: linear-gradient(90deg, #FFD54F, #FF9800) !important;
+  background: linear-gradient(90deg, #FFB703, #FF9800) !important;
   border-radius: 999px !important;
 }
 .hud-timer-fill.danger {
@@ -726,10 +725,10 @@ html {
 /* 점수 칩 (HUD 영역) */
 .hud-score-chip,
 .zone-score-chip {
-  border: 2px solid #2C2C2C !important;
+  border: 2px solid #1C2333 !important;
   font-weight: 900 !important;
   border-radius: 999px !important;
-  box-shadow: 2px 2px 0 #2C2C2C !important;
+  box-shadow: 2px 2px 0 #1C2333 !important;
 }
 
 /* 닫기 버튼 (다크 HUD 위) */
@@ -742,13 +741,13 @@ html {
 
 /* 플레이어 존 — 두꺼운 검정 테두리 (배경은 게임 CSS 유지) */
 .player-zone {
-  border: 3px solid #2C2C2C !important;
+  border: 3px solid #1C2333 !important;
 }
 .player-zone .zone-label {
-  border: 2px solid #2C2C2C !important;
+  border: 2px solid #1C2333 !important;
   font-weight: 900 !important;
   border-radius: 999px !important;
-  box-shadow: 2px 2px 0 #2C2C2C !important;
+  box-shadow: 2px 2px 0 #1C2333 !important;
 }
 .player-zone .zone-score {
   font-weight: 900 !important;
@@ -757,7 +756,7 @@ html {
 /* 게임 화면 하단/상단 일반 점수 표시 영역 */
 .score-row,
 .scoreboard {
-  background: #2C2C2C !important;
+  background: #1C2333 !important;
   color: #fff !important;
 }
 
@@ -770,14 +769,14 @@ html {
   text-shadow: 0 2px 0 rgba(0,0,0,0.4) !important;
 }
 .progress-bar {
-  border: 2px solid #2C2C2C !important;
+  border: 2px solid #1C2333 !important;
   border-radius: 999px !important;
   overflow: hidden !important;
   box-shadow: 0 3px 0 rgba(0,0,0,0.3) !important;
   background: rgba(255,255,255,0.18) !important;
 }
 .progress-bar-fill {
-  background: linear-gradient(90deg, #FFD54F, #FF9800) !important;
+  background: linear-gradient(90deg, #FFB703, #FF9800) !important;
   border-radius: 999px !important;
 }
 .close-btn,
@@ -799,14 +798,14 @@ html {
   font-weight: 700 !important;
 }
 .screen-result .stat-val {
-  color: #2C2C2C !important;
+  color: #1C2333 !important;
   font-weight: 900 !important;
 }
 .screen-result .result-stats {
   background: rgba(255,255,255,0.85) !important;
-  border: 3px solid #2C2C2C !important;
+  border: 3px solid #1C2333 !important;
   border-radius: 18px !important;
-  box-shadow: 5px 5px 0 #2C2C2C !important;
+  box-shadow: 5px 5px 0 #1C2333 !important;
 }
 .screen-result .stat-row {
   font-weight: 700 !important;
@@ -816,27 +815,27 @@ html {
 /* ── Level 3: 난이도/옵션 선택 버튼 (diff-btn, option-btn) ── */
 .diff-btn,
 .option-btn {
-  border: 3px solid #2C2C2C !important;
+  border: 3px solid #1C2333 !important;
   background: #fff !important;
-  color: #2C2C2C !important;
+  color: #1C2333 !important;
   font-weight: 900 !important;
   border-radius: 999px !important;
-  box-shadow: 4px 4px 0 #2C2C2C !important;
+  box-shadow: 4px 4px 0 #1C2333 !important;
   padding: 12px 24px !important;
   transition: all 0.1s ease !important;
 }
 .diff-btn:active,
 .option-btn:active {
   transform: translate(2px,2px) !important;
-  box-shadow: 2px 2px 0 #2C2C2C !important;
+  box-shadow: 2px 2px 0 #1C2333 !important;
 }
 .diff-btn.active,
 .option-btn.active,
 .diff-btn.selected,
 .option-btn.selected {
-  background: #7C4DFF !important;
+  background: #1F3468 !important;
   color: #fff !important;
-  box-shadow: 4px 4px 0 #2C2C2C !important;
+  box-shadow: 4px 4px 0 #1C2333 !important;
   transform: scale(1.05) !important;
 }
 .diff-btn .diff-sub,
@@ -913,10 +912,10 @@ html {
    ═══════════════════════════════════════════════════════════════ */
 
 /* Pattern 1: .zone.p-blue/p-red/p-orange/p-purple (color-themed) */
-.zone.p-blue   { background: #B3E5FC !important; color: #2C2C2C !important; }
-.zone.p-red    { background: #FFCDD2 !important; color: #2C2C2C !important; }
-.zone.p-orange { background: #FFE0B2 !important; color: #2C2C2C !important; }
-.zone.p-purple { background: #C8E6C9 !important; color: #2C2C2C !important; }
+.zone.p-blue   { background: #B3E5FC !important; color: #1C2333 !important; }
+.zone.p-red    { background: #FFCDD2 !important; color: #1C2333 !important; }
+.zone.p-orange { background: #FFE0B2 !important; color: #1C2333 !important; }
+.zone.p-purple { background: #C8E6C9 !important; color: #1C2333 !important; }
 
 /* Pattern 2: nth-child for games using .zone (shape-match, color-touch, etc.) */
 .zones-wrap.p2 .zone:nth-child(1),
@@ -945,43 +944,43 @@ html {
 
 /* Zone label: 다크 테마에서는 흰색이었던 것을 대비를 위해 어둡게 */
 .zone-label {
-  color: #2C2C2C !important;
+  color: #1C2333 !important;
 }
 
 /* Zone에 글자/아이콘이 흐릿하게 보이지 않도록 텍스트 색 보정 */
 .zone .zone-icon,
 .zone-score {
-  color: #2C2C2C !important;
+  color: #1C2333 !important;
 }
 
 /* Screen-game 자체 배경을 밝게 (다크 테마 게임에서) */
 .screen-game {
-  background: #FFF8F0 !important;
+  background: #F5F7FA !important;
 }
 
 
 /* ═══════════════════════════════════════════════════════════════
-   LEVEL 4 — BOARD GAME TABLE THEME (보드게임 테이블)
-   인기 보드게임 앱(Ludo King / Monopoly Go) 스타일 포크:
-   펠트 그린 테이블 + 우드 프레임 + 크림 보드 + 골드 청키 버튼
-   + Ludo 4색 플레이어 토큰. Level 3 위에 덮는 오버라이드 레이어.
+   LEVEL 4 — CLEAN CLASSROOM THEME (클린 클래스룸)
+   Coolmath Games풍 클린 리스킨: 네이비 헤더/배경 + 화이트 보드
+   + 앰버 포인트. 변수 이름(felt/wood/cream/gold)은 하위 게임 CSS
+   호환을 위해 유지하고 값만 교체. Level 3 위에 덮는 오버라이드 레이어.
    전자칠판(65~86" 터치스크린) 가로 화면 + 원거리 가시성 최적화.
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
-  --felt: #1E7A46;
-  --felt-dark: #145932;
-  --wood: #6D4423;
-  --wood-light: #8D5A2B;
-  --board-cream: #FFF8E1;
-  --gold: #FFC83D;
-  --gold-dark: #E8A50C;
-  --ink: #2C2C2C;
+  --felt: #152447;
+  --felt-dark: #0C1730;
+  --wood: #1F3468;
+  --wood-light: #2A4378;
+  --board-cream: #FFFFFF;
+  --gold: #FFB703;
+  --gold-dark: #E09E00;
+  --ink: #1C2333;
   --tok-blue: #1E88E5;
   --tok-red: #E53935;
   --tok-green: #43A047;
   --tok-yellow: #FDD835;
-  --font-family: 'Jua', 'Pretendard Variable', -apple-system, 'Noto Sans KR', sans-serif;
+  --font-family: 'Pretendard Variable', -apple-system, 'Noto Sans KR', sans-serif;
 }
 
 /* ── 인트로: 펠트 그린 테이블 ── */
@@ -1001,7 +1000,7 @@ html {
 /* 우드 헤더 바 */
 .game-header {
   background: linear-gradient(180deg, var(--wood-light), var(--wood)) !important;
-  border-bottom: 4px solid #4E2E12 !important;
+  border-bottom: 4px solid #0C1730 !important;
   box-shadow: 0 5px 0 rgba(0,0,0,0.35) !important;
 }
 .game-title {
@@ -1019,12 +1018,12 @@ html {
   box-shadow: 0 1px 0 rgba(0,0,0,0.4) !important;
 }
 
-/* 인트로 텍스트: 펠트 위 크림색 */
-.intro-text, .intro-title-text {
+/* 인트로 텍스트: 네이비 위 화이트 */
+.intro-text, .intro-title-text, .intro-desc {
   color: #FFFFFF !important;
   text-shadow: 0 3px 0 rgba(0,0,0,0.35) !important;
 }
-.intro-subtext, .intro-desc-text {
+.intro-subtext, .intro-desc-text, .intro-sub {
   color: rgba(255,255,255,0.85) !important;
 }
 .player-select-label, .select-label {
@@ -1052,7 +1051,7 @@ html {
 
 /* PLAY 버튼: 골드 주사위 굴림 버튼 */
 .btn-play {
-  background: linear-gradient(180deg, #FFD968, var(--gold)) !important;
+  background: linear-gradient(180deg, #FFC533, var(--gold)) !important;
   border: 4px solid var(--ink) !important;
   box-shadow: 0 8px 0 var(--gold-dark), 0 12px 18px rgba(0,0,0,0.35) !important;
   color: var(--ink) !important;
@@ -1092,7 +1091,7 @@ html {
 }
 .top-bar, .game-hud, .score-bar, .score-row, .scoreboard {
   background: linear-gradient(180deg, var(--wood-light), var(--wood)) !important;
-  border-color: #4E2E12 !important;
+  border-color: #0C1730 !important;
 }
 .top-bar .problem-timer {
   background: var(--gold) !important;
@@ -1120,7 +1119,7 @@ html {
   box-shadow: 0 8px 0 rgba(0,0,0,0.4) !important;
 }
 .btn-primary, .btn-retry {
-  background: linear-gradient(180deg, #FFD968, var(--gold)) !important;
+  background: linear-gradient(180deg, #FFC533, var(--gold)) !important;
   box-shadow: 0 6px 0 var(--gold-dark) !important;
   border: 3px solid var(--ink) !important;
 }
@@ -1173,7 +1172,7 @@ html {
 .hud-close {
   background: #E53935 !important;
   color: #FFFFFF !important;
-  border: 3px solid #FFF8E1 !important;
+  border: 3px solid #FFFFFF !important;
   box-shadow: 0 4px 0 rgba(0,0,0,0.4) !important;
 }
 .close-btn:active,
