@@ -62,7 +62,7 @@ node scripts/auto-add-game-helpers.js list-existing-folders
   `20 - 남은수`만큼 **새 후보를 추가(top-up)**한다(기존에 남아 있는 후보는 버리지 않고 그대로 둔다).
 - `stats`의 `byCategory`에서 **가장 적은 카테고리부터** 채운다. 균등을 강제하지는 않는다 —
   포화된 카테고리(speed/brain/coop/puzzle)에서 distinct·저삭제위험 후보가 부족하면
-  콘텐츠형(knowledge·math)으로 채워서라도 20개를 맞춘다.
+  콘텐츠형(math)으로 채워서라도 20개를 맞춘다.
 - 각 후보 = `{ folder, name, category, pattern, template }`
   (`pattern`=A~D, `template`=`PATTERNS.md`의 복사할 실존 게임 폴더).
 - 새 후보는 **현재 풀에 남은 후보 + registry + 0절/삭제목록**과 모두 교차 대조해 중복·금지를 피한다.
