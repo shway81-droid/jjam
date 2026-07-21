@@ -115,7 +115,7 @@ for (const t of targets) {
   for (const g of games) catCount[g.category] = (catCount[g.category] || 0) + 1;
   const distLine =
     `⚡반응속도 ${catCount.speed || 0} · 🧠두뇌 ${catCount.brain || 0} · 📐수학 ${catCount.math || 0}` +
-    ` · 📚지식 ${catCount.knowledge || 0} · 🤝협력 ${catCount.coop || 0} · 🧩퍼즐 ${catCount.puzzle || 0}`;
+    ` · 🤝협력 ${catCount.coop || 0} · 🧩퍼즐 ${catCount.puzzle || 0}`;
 
   const countTargets = [
     { file: 'index.html', name: '게임 수 표기', subs: [
@@ -130,7 +130,7 @@ for (const t of targets) {
       [/게임을 \d+종으로 늘리고/g, `게임을 ${total}종으로 늘리고`],
       [/## 게임 \d+종/g, `## 게임 ${total}종`],
       [/\*\*\d+종\*\* \(중복/g, `**${total}종** (중복`],
-      [/⚡반응속도 \d+ · 🧠두뇌 \d+ · 📐수학 \d+ · 📚지식 \d+ · 🤝협력 \d+ · 🧩퍼즐 \d+/g, distLine],
+      [/⚡반응속도 \d+ · 🧠두뇌 \d+ · 📐수학 \d+ · 🤝협력 \d+ · 🧩퍼즐 \d+/g, distLine],
     ]},
   ];
 

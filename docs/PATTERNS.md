@@ -20,7 +20,7 @@ engine.js가 제공하는 헬퍼를 재사용한다: `runCountdown`, `createTime
 `createSoundManager`(+`DEFAULT_SOUNDS`), `setupSoundToggle`, `setupPlayerSelect`,
 `onTap`, `getAutoplayPauseMs`, `goHome`. (BGM·군중음·상황 효과음은 자동 주입 — 게임 코드 무수정)
 
-## 패턴 A — 데이터 4지선다 / 분류 (knowledge·일부 math)
+## 패턴 A — 데이터 4지선다 / 분류 (일부 math)
 
 대상→4지선다 반복. 문제 데이터 풀에서 매 라운드 무작위 출제.
 
@@ -95,7 +95,7 @@ engine.js가 제공하는 헬퍼를 재사용한다: `runCountdown`, `createTime
   "icon": "🎲",                         // 이모지 1개
   "color": "#RRGGBB",                    // 헥스 6자리
   "playTime": "30초",
-  "category": "speed|brain|math|knowledge|coop|puzzle",
+  "category": "speed|brain|math|coop|puzzle",
   "players": "2-4명" | "2명"
 }
 ```
