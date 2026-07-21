@@ -1,9 +1,0 @@
-{
-  "name": "맞나 틀리나",
-  "description": "식이 맞으면 ⭕, 틀리면 ❌! 부등호와 계산을 빠르게 판단해요",
-  "icon": "⚖️",
-  "color": "#7E57C2",
-  "playTime": "1분",
-  "category": "speed",
-  "players": "2-4명"
-}

@@ -1,9 +1,0 @@
-{
-  "name": "구구단",
-  "description": "2단부터 9단까지! 곱셈 답을 가장 먼저 맞혀보세요!",
-  "icon": "✖️",
-  "color": "#FF7043",
-  "playTime": "1~2분",
-  "category": "math",
-  "players": "2-4명"
-}

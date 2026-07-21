@@ -1,9 +1,0 @@
-{
-  "name": "숫자 수수께끼",
-  "description": "힌트를 모두 만족하는 수를 찾아요! 조건 추리 게임",
-  "icon": "🔍",
-  "color": "#8E44AD",
-  "playTime": "1분",
-  "category": "brain",
-  "players": "2-4명"
-}

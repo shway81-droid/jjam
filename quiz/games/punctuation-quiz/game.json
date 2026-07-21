@@ -1,9 +1,0 @@
-{
-  "name": "문장부호 퀴즈",
-  "description": "문장부호의 이름과 쓰임을 묻는 문제를 보고 정답을 가장 먼저 맞혀요! 국어 문장부호 상식 게임",
-  "icon": "❓",
-  "color": "#7E57C2",
-  "playTime": "1~2분",
-  "category": "knowledge",
-  "players": "2-4명"
-}

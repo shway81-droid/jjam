@@ -1,9 +1,0 @@
-{
-  "name": "나눗셈 몫",
-  "description": "나눗셈 식을 보고 몫이 얼마인지 가장 먼저 골라요!",
-  "icon": "➗",
-  "color": "#00897B",
-  "playTime": "1~2분",
-  "category": "math",
-  "players": "2-4명"
-}
