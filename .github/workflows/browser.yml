@@ -1,0 +1,79 @@
+name: 브라우저 실동작 검증
+
+# 정적 검증(ci.yml)이 잡지 못하는 것 — "게임이 실제로 켜지고 끝까지 돌아가는가" — 를 확인한다.
+# 각 게임을 크로미움으로 띄워 인트로 → PLAY → 카운트다운 → 라운드 → 결과화면까지
+# 자동 플레이하고, 콘솔 에러가 하나도 없는지 본다.
+#
+# 실행 범위
+#   PR            : 그 PR이 건드린 게임만 (보통 몇 종 → 몇 분)
+#   main 푸시·수동 : 전 게임 (--all)
+#   매주 월요일    : 전 게임 (손대지 않아도 외부 요인으로 깨지는 것을 잡기 위해)
+#
+# 조작 방식이 달라 자동 플레이가 안 되는 게임은 실패로 처리하지 않고 △로 보고한다.
+# (그 게임도 로딩·PLAY·게임화면 진입·콘솔 에러 0 까지는 확인된다)
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 20 * * 0'      # 월요일 05:00 KST
+  workflow_dispatch:
+
+concurrency:
+  group: browser-verify-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  play:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0        # PR에서 변경된 게임을 찾으려면 base 커밋이 필요하다
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 의존성 설치
+        run: npm ci
+
+      - name: 크로미움 설치
+        run: npx playwright install --with-deps chromium
+
+      - name: 검증 대상 결정
+        id: scope
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            CHANGED=$(git diff --name-only "${{ github.event.pull_request.base.sha }}" HEAD \
+              | grep '^games/' | cut -d/ -f2 | sort -u | tr '\n' ' ')
+            # 공통 파일(엔진·스타일·런처)이 바뀌면 전 게임에 영향이 가므로 전체를 돈다
+            if git diff --name-only "${{ github.event.pull_request.base.sha }}" HEAD \
+              | grep -qE '^(shared/|index\.html|scripts/browser-verify\.js)'; then
+              echo "공통 파일 변경 감지 → 전 게임 검증"
+              echo "target=--all" >> "$GITHUB_OUTPUT"
+            elif [ -n "$CHANGED" ]; then
+              echo "변경된 게임: $CHANGED"
+              echo "target=$CHANGED" >> "$GITHUB_OUTPUT"
+            else
+              echo "게임·공통 파일 변경 없음 → 건너뜀"
+              echo "target=" >> "$GITHUB_OUTPUT"
+            fi
+          else
+            echo "target=--all" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 자동 플레이 검증
+        if: steps.scope.outputs.target != ''
+        run: node scripts/browser-verify.js ${{ steps.scope.outputs.target }} --jobs=4
+
+      - name: 실패 시 스크린샷 업로드
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: game-screenshots
+          path: /tmp/game-shots
+          retention-days: 7
+          if-no-files-found: ignore

@@ -49,9 +49,12 @@ games/<폴더>/        # 게임별 game.json + index.html + style.css + game.js
 games/registry.json # 게임 목록
 games/meta.json     # 전 게임 메타 통합본 (런처가 1요청으로 받음, gen-metadata 생성)
 sw.js               # 오프라인 서비스 워커
+assets/fonts/       # 자가 호스팅 웹폰트 (Pretendard 서브셋, OFL 1.1)
 scripts/verify-game.js  # 게임 1개 정적 검증 21항목 (node scripts/verify-game.js <폴더>)
 scripts/verify-all.js   # 전 게임 일괄 검증 + registry 정합성 (npm test)
 scripts/gen-metadata.js # game.json → 파생 메타 생성 (npm run gen)
+scripts/browser-verify.js       # 실제 브라우저로 자동 플레이 (npm run verify:browser)
+scripts/check-font-coverage.mjs # 서브셋 폰트에 없는 글자가 생겼는지 확인
 ```
 
 ### 메타데이터 단일 소스
@@ -67,6 +70,23 @@ npm test      # 동기화 확인(gen --check) + 전 게임 정적 검증 (CI와 
 ```
 
 CI(`.github/workflows/ci.yml`)가 PR마다 `npm test`로 동기화·검증을 강제한다.
+
+### 검증 두 겹 — 정적 + 실제 브라우저
+
+`npm test`는 파일 구조·메타 동기화 같은 **정적** 검사라 "게임이 실제로 돌아가는가"는 못 본다.
+그 자리를 `scripts/browser-verify.js`가 메운다 — 게임을 크로미움으로 띄워
+**인트로 → PLAY → 카운트다운 → 라운드 → 결과화면**까지 자동 플레이하고 콘솔 에러 0을 확인한다.
+
+```
+npm run verify:browser -- <폴더> [<폴더> ...]   # 특정 게임
+npm run verify:browser -- --all --jobs=4        # 전 게임
+```
+
+`.github/workflows/browser.yml`이 **PR에서는 그 PR이 건드린 게임만**, main 푸시·매주 월요일에는
+전 게임을 돈다. (`shared/`·`index.html`이 바뀌면 PR에서도 전 게임을 돈다 — 전체에 영향이 가므로.)
+
+조작 방식이 달라 자동 플레이가 안 되는 게임(타일 배치·드래그·시퀀스 재현 등)은 **실패가 아니라
+△로 구분해 보고**한다. 그 게임도 로딩·PLAY·게임화면 진입·콘솔 에러 0 까지는 확인된다.
 
 ## 로컬 실행
 

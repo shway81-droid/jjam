@@ -78,7 +78,10 @@ async function verifyGame(browser, folder) {
   page.on('console', (m) => { if (m.type() === 'error') errors.push('console: ' + m.text()); });
   page.on('pageerror', (e) => errors.push('pageerror: ' + e.message));
 
-  const result = { folder, ok: false, reached: false, errors, realErrors: [], note: '' };
+  // status: 'pass'   결과화면까지 자동 플레이 성공 + 콘솔 에러 0
+  //         'partial' 게임화면 진입 + 콘솔 에러 0, 다만 이 게임의 조작 방식은 자동 플레이 미지원
+  //         'fail'    콘솔 에러가 있거나 게임화면조차 못 띄움
+  const result = { folder, status: 'fail', reached: false, errors, realErrors: [], note: '' };
   try {
     const url = `http://localhost:${PORT}/games/${folder}/index.html`;
     for (let attempt = 1; ; attempt++) {
@@ -90,23 +93,76 @@ async function verifyGame(browser, folder) {
     // 카운트다운 후 게임화면
     await page.waitForSelector('#gameScreen.active', { timeout: 12000 });
 
-    // 라운드 자동 진행: 각 존의 첫 버튼을 눌러 라운드를 소진 → 결과화면까지
-    for (let i = 0; i < 24; i++) {
-      const done = await page.$('#resultScreen.active');
-      if (done) break;
-      await page.evaluate(() => {
-        document.querySelectorAll('.zone').forEach((z) => {
-          const btn = z.querySelector('.answer-btn:not([disabled])');
-          if (btn) btn.click();
-        });
+    // 이 게임을 자동으로 조작할 수 있는가?
+    // 하니스가 누를 수 있는 것은 "보기 중 하나 고르기" 방식뿐이다.
+    // 보기 버튼의 클래스명은 게임마다 다르므로(answer-btn · ox-btn · time-btn ·
+    // item-btn · rs-choice-btn …) 이름을 일일이 나열하지 않고,
+    // "플레이 영역(.zone) 안에 있는, 누를 수 있는 버튼"으로 일반화해 찾는다.
+    // 상단 바의 닫기·일시정지·소리 버튼은 .zone 밖이라 걸리지 않는다.
+    //
+    // 타일 배치·드래그·시퀀스 재현처럼 클릭 한 번으로 답할 수 없는 게임은
+    // 끝까지 못 갔다고 실패로 처리하지 않고 '자동 플레이 미지원'으로 구분해 보고한다.
+    const CHOICE = 'button:not([disabled]), [class*="-btn"]:not([disabled]), [class*="_btn"]:not([disabled])';
+
+    const playable = await page.evaluate((sel) => {
+      const zones = document.querySelectorAll('.zone');
+      const scope = zones.length ? zones : [document.getElementById('gameScreen')].filter(Boolean);
+      return [...scope].some((z) => {
+        const el = z.querySelector(sel);
+        return !!el && el.getClientRects().length > 0;
       });
-      await page.waitForTimeout(2100);
+    }, CHOICE);
+
+    if (playable) {
+      // 라운드 자동 진행: 각 존의 첫 보기를 눌러 라운드를 소진 → 결과화면까지
+      // 화면이 여러 번 연속으로 그대로면 하니스가 이 게임을 몰지 못하는 것이므로
+      // 남은 반복을 기다리지 않고 빠져나온다(전 게임 검증 시간을 크게 줄인다).
+      let lastSnapshot = '';
+      let stalled = 0;
+      for (let i = 0; i < 24; i++) {
+        if (await page.$('#resultScreen.active')) break;
+        await page.evaluate((sel) => {
+          const zones = document.querySelectorAll('.zone');
+          const scope = zones.length ? zones : [document.getElementById('gameScreen')].filter(Boolean);
+          scope.forEach((z) => {
+            for (const el of z.querySelectorAll(sel)) {
+              if (el.getClientRects().length > 0) { el.click(); break; }
+            }
+          });
+        }, CHOICE);
+        await page.waitForTimeout(2100);
+
+        const snapshot = await page.evaluate(() => {
+          const g = document.getElementById('gameScreen');
+          return g ? g.textContent.replace(/\s+/g, ' ').slice(0, 400) : '';
+        });
+        stalled = snapshot === lastSnapshot ? stalled + 1 : 0;
+        lastSnapshot = snapshot;
+        if (stalled >= 3) break;
+      }
+      result.reached = !!(await page.$('#resultScreen.active'));
     }
-    result.reached = !!(await page.$('#resultScreen.active'));
+
     await page.screenshot({ path: path.join(SHOTDIR, folder + '.png') });
     result.realErrors = errors.filter((e) => !isAssetNoise(e));
-    result.ok = result.reached && result.realErrors.length === 0;
-    if (!result.reached) result.note = '결과화면 미도달';
+
+    // 분류 기준
+    // - 콘솔 에러가 있으면 게임 결함이므로 실패.
+    // - 결과화면까지 갔으면 통과.
+    // - 에러 없이 게임화면까지는 갔지만 끝까지 못 몬 경우는 '실패'가 아니다.
+    //   하니스는 "보기 중 하나 고르기"만 조작할 수 있어서, 타일 배치·드래그·
+    //   시퀀스 재현 같은 게임은 정상이어도 결과화면에 도달시킬 수 없다.
+    //   게임이 멀쩡한데 빨간불이 뜨면 곧 아무도 이 검증을 보지 않게 된다.
+    if (result.realErrors.length) {
+      result.note = '콘솔 에러';
+    } else if (result.reached) {
+      result.status = 'pass';
+    } else {
+      result.status = 'partial';
+      result.note = playable
+        ? '끝까지 자동 조작 불가 (게임화면 진입·에러 0까지 확인)'
+        : '자동 플레이 미지원 방식 (게임화면 진입·에러 0까지 확인)';
+    }
   } catch (e) {
     result.note = 'exception: ' + e.message;
   } finally {
@@ -116,28 +172,55 @@ async function verifyGame(browser, folder) {
 }
 
 (async () => {
-  let folders = process.argv.slice(2);
-  if (folders[0] === '--all') {
+  const args = process.argv.slice(2);
+  const jobsArg = args.find((a) => a.startsWith('--jobs='));
+  const JOBS = Math.max(1, Number(jobsArg ? jobsArg.split('=')[1] : 4) || 4);
+
+  let folders = args.filter((a) => !a.startsWith('--'));
+  if (args.includes('--all')) {
     folders = JSON.parse(fs.readFileSync(path.join(ROOT, 'games', 'registry.json'), 'utf8'));
   }
-  if (!folders.length) { console.error('Usage: node scripts/browser-verify.js <folder> [...] | --all'); process.exit(1); }
+  if (!folders.length) {
+    console.error('Usage: node scripts/browser-verify.js <folder> [...] | --all [--jobs=N]');
+    process.exit(1);
+  }
 
   const exe = findChromium();
   const server = await startServer();
   const browser = await chromium.launch({ headless: true, executablePath: exe || undefined,
     args: ['--no-sandbox', '--disable-dev-shm-usage'] });
 
-  let pass = 0, fail = 0;
-  for (const f of folders) {
-    const r = await verifyGame(browser, f);
-    const icon = r.ok ? '✓' : '✗';
-    const extra = r.ok ? '' : `  — ${r.note || ''} ${(r.realErrors.length ? r.realErrors : r.errors).slice(0, 3).join(' | ')}`;
-    console.log(`  ${icon} ${f}${extra}`);
-    if (r.ok) pass++; else fail++;
-  }
+  // 게임끼리 상태를 공유하지 않으므로(각자 새 페이지) 동시에 돌려도 안전하다.
+  const results = new Array(folders.length);
+  let next = 0;
+  await Promise.all(Array.from({ length: Math.min(JOBS, folders.length) }, async () => {
+    for (;;) {
+      const i = next++;
+      if (i >= folders.length) return;
+      results[i] = await verifyGame(browser, folders[i]);
+    }
+  }));
+
   await browser.close();
   server.close();
 
-  console.log(`\n결과: ${pass}/${folders.length} 통과  (스크린샷: ${SHOTDIR})`);
+  const ICON = { pass: '✓', partial: '△', fail: '✗' };
+  for (const r of results) {
+    const extra = r.status === 'pass' ? ''
+      : `  — ${r.note || ''} ${(r.realErrors.length ? r.realErrors : []).slice(0, 3).join(' | ')}`;
+    console.log(`  ${ICON[r.status]} ${r.folder}${extra}`);
+  }
+
+  const pass = results.filter((r) => r.status === 'pass').length;
+  const partial = results.filter((r) => r.status === 'partial').length;
+  const fail = results.filter((r) => r.status === 'fail').length;
+
+  console.log(`\n결과: ${folders.length}종 중 ✓통과 ${pass} · △자동플레이 미지원 ${partial} · ✗실패 ${fail}`);
+  if (partial) {
+    // 커버리지를 조용히 줄이지 않는다 — 무엇이 끝까지 검증되지 않았는지 명시한다.
+    console.log(`  △ ${partial}종은 조작 방식이 달라 결과화면까지는 확인하지 못했습니다`);
+    console.log(`     (로딩 → PLAY → 게임화면 진입 → 콘솔 에러 0 까지는 확인됨)`);
+  }
+  console.log(`  스크린샷: ${SHOTDIR}`);
   process.exit(fail > 0 ? 1 : 0);
 })();

@@ -6,7 +6,8 @@
   "scripts": {
     "gen": "node scripts/gen-metadata.js",
     "verify": "node scripts/verify-all.js",
-    "test": "node scripts/gen-metadata.js --check && node scripts/verify-all.js"
+    "verify:browser": "node scripts/browser-verify.js",
+    "test": "node scripts/gen-metadata.js --check && node scripts/check-font-coverage.mjs && node scripts/verify-all.js"
   },
   "license": "MIT",
   "devDependencies": {

@@ -31,7 +31,8 @@ self.addEventListener('install', function(event) {
         './favicon.svg',
         './og-image.svg',
         './og-image.png',
-        './manifest.json'
+        './manifest.json',
+        './assets/fonts/PretendardVariable.subset.woff2'
       ]);
     })
   );
@@ -123,7 +124,7 @@ self.addEventListener('fetch', function(event) {
       if (cached) return cached;
 
       return fetch(event.request, { cache: 'no-cache' }).then(function(response) {
-        if (response.ok && (event.request.url.includes('/games/') || event.request.url.includes('/shared/'))) {
+        if (response.ok && (event.request.url.includes('/games/') || event.request.url.includes('/shared/') || event.request.url.includes('/assets/'))) {
           var responseClone = response.clone();
           caches.open(CACHE_NAME).then(function(cache) {
             cache.put(event.request, responseClone);
