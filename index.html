@@ -633,6 +633,8 @@
           <button class="sound-toggle" id="soundToggle" aria-label="사운드 토글"><svg class="s3d s3d-20" aria-hidden="true"><use href="#i-sound"/></svg></button>
           <button class="fs-toggle" id="fsToggle" aria-label="전체화면" title="전체화면"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></button>
           <button class="bgm-toggle-hdr on" id="bgmToggle" aria-label="배경음악" title="배경음악"><svg class="s3d s3d-20" aria-hidden="true"><use href="#i-note"/></svg></button>
+          <!-- 자매 사이트 바로가기 — 내용·스타일은 shared/jjam-switcher.js 안에 있다 -->
+          <div class="jjam-switch" data-site="game"></div>
         </div>
       </div>
 
@@ -745,6 +747,7 @@
   </div>
 
   <script src="shared/engine.js?v=10"></script>
+  <script src="shared/jjam-switcher.js" defer></script>
   <script>
     // ═══ 게임 메타데이터 — category·players·폴백 모두 game.json 단일 소스에서 파생 ═══
     /* @generated:fallback — scripts/gen-metadata.js가 game.json에서 생성. registry fetch 실패 시 오프라인 폴백. 직접 수정 금지 (npm run gen) */

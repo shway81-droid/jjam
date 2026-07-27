@@ -26,6 +26,7 @@ self.addEventListener('install', function(event) {
         './index.html',
         './shared/style.css',
         './shared/engine.js',
+        './shared/jjam-switcher.js',
         './games/registry.json',
         './games/meta.json',
         './favicon.svg',
