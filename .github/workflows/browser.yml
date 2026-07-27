@@ -49,10 +49,13 @@ jobs:
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             CHANGED=$(git diff --name-only "${{ github.event.pull_request.base.sha }}" HEAD \
               | grep '^games/' | cut -d/ -f2 | sort -u | tr '\n' ' ')
-            # 공통 파일(엔진·스타일·런처)이 바뀌면 전 게임에 영향이 가므로 전체를 돈다
+            # 전 게임이 로드하는 파일(shared/)이나 하니스 자체가 바뀌면 전체를 돈다.
+            # 런처 index.html 은 제외한다 — 게임은 shared/ 만 로드하고 런처를 참조하지 않는다.
+            # (게임이 추가·삭제되면 index.html 도 같이 바뀌지만, 그땐 games/ 도 바뀌므로
+            #  아래 게임별 분기가 잡아낸다.)
             if git diff --name-only "${{ github.event.pull_request.base.sha }}" HEAD \
-              | grep -qE '^(shared/|index\.html|scripts/browser-verify\.js)'; then
-              echo "공통 파일 변경 감지 → 전 게임 검증"
+              | grep -qE '^(shared/|scripts/browser-verify\.js)'; then
+              echo "전 게임 공통 파일 변경 감지 → 전 게임 검증"
               echo "target=--all" >> "$GITHUB_OUTPUT"
             elif [ -n "$CHANGED" ]; then
               echo "변경된 게임: $CHANGED"
