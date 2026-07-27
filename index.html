@@ -82,7 +82,7 @@
     .sound-toggle:hover, .fs-toggle:hover, .bgm-toggle-hdr:hover { background: #2A4378; }
     .sound-toggle:active, .fs-toggle:active, .bgm-toggle-hdr:active { transform: translateY(1px); box-shadow: none; }
     .fs-toggle.on, .bgm-toggle-hdr.on { background: var(--amber); border-color: var(--amber); color: var(--navy); }
-    .fs-toggle svg { display: block; stroke: #fff; }
+    .fs-toggle svg { display: block; stroke: #fff; width: 26px; height: 26px; stroke-width: 2.4; }
     .fs-toggle.on svg { stroke: var(--navy); }
 
     /* ── 카테고리 필터 — 헤더 내 메뉴 ── */
@@ -466,7 +466,7 @@
     .cat-btn, .roulette-cta, .pick-cta, .r-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
     .cat-btn { gap: 6px; }
     .draw-btn { display: flex; align-items: center; justify-content: center; gap: 9px; }
-    .sound-toggle svg, .bgm-toggle-hdr svg { width: 26px; height: 26px; display: block; }
+    .sound-toggle svg, .bgm-toggle-hdr svg { width: 32px; height: 32px; display: block; }
     .fav-toggle svg { width: 18px; height: 18px; display: block; }
     .sound-toggle.muted svg { filter: grayscale(1); opacity: 0.45; }
     .fav-toggle:not(.on) svg { filter: grayscale(1) opacity(0.5); }
