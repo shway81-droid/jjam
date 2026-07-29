@@ -47,8 +47,13 @@ jobs:
         id: scope
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
+            # games/ 바로 아래 파일(meta.json·registry.json)은 게임 폴더가 아니다.
+            # '^games/' 로만 거르면 meta.json 이 게임 이름으로 넘어가
+            # games/meta.json/index.html 을 열려다 타임아웃으로 실패한다.
+            # 폴더 뒤 슬래시까지 요구해 실제 게임 폴더만 남긴다.
+            # (게임 추가·삭제 시엔 games/<폴더>/ 도 함께 바뀌므로 여전히 잡힌다.)
             CHANGED=$(git diff --name-only "${{ github.event.pull_request.base.sha }}" HEAD \
-              | grep '^games/' | cut -d/ -f2 | sort -u | tr '\n' ' ')
+              | grep -E '^games/[^/]+/' | cut -d/ -f2 | sort -u | tr '\n' ' ')
             # 전 게임이 로드하는 파일이나 하니스 자체가 바뀌면 전체를 돈다.
             # 게임이 실제로 로드하는 건 shared/style.css 와 shared/engine.js 둘뿐이다.
             # 런처 index.html·shared/jjam-switcher.js 는 제외한다 — 런처 화면에만 쓰여
