@@ -79,3 +79,12 @@ jobs:
       - name: 자동 플레이 검증
         if: steps.scope.outputs.target != ''
         run: node scripts/browser-verify.js ${{ steps.scope.outputs.target }} --jobs=4
+
+      - name: 실패 시 스크린샷 업로드
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: game-screenshots
+          path: /tmp/game-shots
+          retention-days: 7
+          if-no-files-found: ignore
