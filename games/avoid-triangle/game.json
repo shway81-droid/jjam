@@ -1,0 +1,9 @@
+{
+  "name": "삼각형 피하기",
+  "description": "번갈아 선을 칠하다 내 색 삼각형을 먼저 만들면 져요! 상대를 몰아넣는 두뇌 전략 게임",
+  "icon": "📐",
+  "color": "#00897B",
+  "playTime": "1~2분",
+  "category": "brain",
+  "players": "2명"
+}

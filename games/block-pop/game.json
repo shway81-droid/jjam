@@ -1,0 +1,9 @@
+{
+  "name": "뭉치 터트리기",
+  "description": "붙어있는 같은 색 2개 이상을 톡! 블록이 무너져 내려요. 가장 많이 없앤 사람 승리!",
+  "icon": "💥",
+  "color": "#EC407A",
+  "playTime": "1분",
+  "category": "puzzle",
+  "players": "2-4명"
+}

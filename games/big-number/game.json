@@ -1,0 +1,9 @@
+{
+  "name": "가장 큰 수 만들기",
+  "description": "숫자 카드로 만들 수 있는 가장 큰 수(또는 가장 작은 수)를 골라요!",
+  "icon": "🔢",
+  "color": "#EF6C00",
+  "playTime": "1분",
+  "category": "math",
+  "players": "2-4명"
+}

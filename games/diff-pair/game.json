@@ -1,0 +1,9 @@
+{
+  "name": "빼기 짝꿍",
+  "description": "P1·P2가 카드 한 장씩 골라 두 수의 차가 목표가 되게 맞춰요!",
+  "icon": "➖",
+  "color": "#EF6C00",
+  "playTime": "1분",
+  "category": "coop",
+  "players": "2명"
+}

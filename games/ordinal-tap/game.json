@@ -1,0 +1,9 @@
+{
+  "name": "몇째일까",
+  "description": "한 줄로 선 그림에서 왼쪽부터 몇째인지 찾아 골라요!",
+  "icon": "🔟",
+  "color": "#5E35B1",
+  "playTime": "1분",
+  "category": "math",
+  "players": "2-4명"
+}

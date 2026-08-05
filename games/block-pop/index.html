@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>뭉치 터트리기</title>
+  <link rel="stylesheet" href="../../shared/style.css?v=5">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 화면 1: 인트로 -->
+  <section class="screen screen-intro active" id="introScreen">
+    <header class="game-header">
+      <button class="icon-btn" id="backBtn" aria-label="뒤로가기">←</button>
+      <h1 class="game-title">💥 뭉치 터트리기</h1>
+      <button class="sound-toggle" id="soundToggleIntro" aria-label="사운드 토글">🔊</button>
+    </header>
+
+    <div class="intro-body">
+      <div class="intro-illustration" aria-hidden="true">
+        <svg viewBox="0 0 140 110" width="140" height="110">
+          <rect x="8" y="8" width="124" height="94" rx="10" fill="#FFF8F0" stroke="#2C2C2C" stroke-width="3"/>
+          <!-- 붙어있는 같은 색 뭉치 (분홍 3개) 강조 -->
+          <g stroke="#2C2C2C" stroke-width="2.5">
+            <rect x="18" y="18" width="26" height="26" rx="6" fill="#F06292"/>
+            <rect x="46" y="18" width="26" height="26" rx="6" fill="#F06292"/>
+            <rect x="18" y="46" width="26" height="26" rx="6" fill="#F06292"/>
+            <rect x="74" y="18" width="26" height="26" rx="6" fill="#4FC3F7"/>
+            <rect x="102" y="18" width="22" height="26" rx="6" fill="#AED581"/>
+            <rect x="46" y="46" width="26" height="26" rx="6" fill="#4FC3F7"/>
+            <rect x="74" y="46" width="26" height="26" rx="6" fill="#AED581"/>
+            <rect x="18" y="74" width="26" height="22" rx="6" fill="#4FC3F7"/>
+            <rect x="46" y="74" width="26" height="22" rx="6" fill="#F06292"/>
+          </g>
+          <text x="31" y="36" text-anchor="middle" font-size="16">👆</text>
+        </svg>
+      </div>
+      <p class="intro-text">붙어있는 같은 색을<br>톡 터트려요!</p>
+      <p class="intro-subtext">2개 이상 뭉친 것만 터져요 · 많이 없앤 사람 승! · 45초</p>
+
+      <div class="select-label">인원 선택</div>
+      <div class="player-select-row">
+        <button class="player-btn active" data-count="2">2명</button>
+        <button class="player-btn" data-count="3">3명</button>
+        <button class="player-btn" data-count="4">4명</button>
+      </div>
+    </div>
+
+    <button class="btn btn-primary btn-play" id="playBtn">PLAY</button>
+  </section>
+
+  <!-- 화면 1-5: 카운트다운 -->
+  <section class="screen screen-countdown" id="countdownScreen">
+    <div class="countdown-number" id="countdownNumber">3</div>
+  </section>
+
+  <!-- 화면 2: 게임 플레이 -->
+  <section class="screen screen-game" id="gameScreen">
+
+    <div class="top-bar" id="problemPanel">
+      <div class="top-bar-meta">
+        <div class="question-counter" id="questionCounter">💥 많이 없애기</div>
+        <div class="problem-timer" id="problemTimer">45</div>
+      </div>
+      <div class="problem-status" id="problemStatus">붙어있는 같은 색 2개 이상을 톡!</div>
+      <button class="icon-btn close-btn" id="closeBtn" aria-label="홈으로">✕</button>
+    </div>
+
+    <div class="zones-wrap" id="zonesWrap"></div>
+    <div class="score-bar" id="scoreBar"></div>
+  </section>
+
+  <!-- 화면 3: 결과 -->
+  <section class="screen screen-result" id="resultScreen">
+    <header class="result-header">
+      <h2 class="result-title" id="resultTitle">게임 종료!</h2>
+    </header>
+    <div class="result-winner" id="resultWinner"></div>
+
+    <div class="total-row" id="totalRow"></div>
+
+    <div class="result-actions">
+      <button class="btn btn-primary" id="retryBtn">다시하기</button>
+      <button class="btn btn-secondary" id="homeBtn">홈으로</button>
+    </div>
+  </section>
+
+  <script src="../../shared/engine.js?v=12"></script>
+  <script src="game.js"></script>
+</body>
+</html>

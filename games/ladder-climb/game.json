@@ -1,0 +1,9 @@
+{
+  "name": "사다리 타기",
+  "description": "사다리를 따라 내려가면 어디에 도착할까요? 가장 먼저 골라요!",
+  "icon": "🪜",
+  "color": "#EC407A",
+  "playTime": "1분",
+  "category": "puzzle",
+  "players": "2-4명"
+}

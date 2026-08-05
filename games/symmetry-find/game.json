@@ -1,0 +1,9 @@
+{
+  "name": "대칭 무늬 찾기",
+  "description": "접으면 딱 맞는 대칭 무늬는 어느 것? 좌우·상하 대칭인 무늬를 가장 먼저 찾아요!",
+  "icon": "🦋",
+  "color": "#26A69A",
+  "playTime": "1~2분",
+  "category": "puzzle",
+  "players": "2-4명"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "단위 바꾸기",
+  "description": "길이 단위(mm·cm·m)를 알맞게 바꿔요!",
+  "icon": "📏",
+  "color": "#26A69A",
+  "playTime": "1분",
+  "category": "math",
+  "players": "2-4명"
+}

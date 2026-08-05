@@ -1,0 +1,9 @@
+{
+  "name": "조각 채우기",
+  "description": "주어진 조각을 끼워 빈 판을 빈틈없이 채워요! 가장 먼저 채운 사람 승리!",
+  "icon": "🧩",
+  "color": "#26A69A",
+  "playTime": "1~2분",
+  "category": "puzzle",
+  "players": "2-4명"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "숫자 규칙",
+  "description": "수의 배열 규칙을 찾아 다음에 올 수를 맞혀요!",
+  "icon": "🔢",
+  "color": "#5C6BC0",
+  "playTime": "1분",
+  "category": "brain",
+  "players": "2-4명"
+}

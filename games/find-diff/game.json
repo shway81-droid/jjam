@@ -1,0 +1,9 @@
+{
+  "name": "다른 곳 찾기",
+  "description": "두 그림을 비교해서 다른 한 칸을 가장 먼저 찾아요!",
+  "icon": "🔍",
+  "color": "#5C6BC0",
+  "playTime": "1분",
+  "category": "brain",
+  "players": "2-4명"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "거스름돈",
+  "description": "돈을 내고 물건을 사면 거스름돈은 얼마일까요? 가장 먼저 골라요!",
+  "icon": "💰",
+  "color": "#8D6E63",
+  "playTime": "1분",
+  "category": "math",
+  "players": "2-4명"
+}

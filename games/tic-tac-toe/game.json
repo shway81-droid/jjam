@@ -1,0 +1,9 @@
+{
+  "name": "삼목 빙고",
+  "description": "번갈아 놓아 가로·세로·대각선으로 세 개를 먼저 이으면 승리!",
+  "icon": "⭕",
+  "color": "#00897B",
+  "playTime": "1~2분",
+  "category": "brain",
+  "players": "2명"
+}

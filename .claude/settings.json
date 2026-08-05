@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "permissions": {
+    "allow": [
+      "Write(.claude/game-pool.json)",
+      "Edit(.claude/game-pool.json)",
+      "Bash(node scripts/auto-add-game-helpers.js:*)",
+      "Bash(node scripts/verify-game.js:*)",
+      "Bash(npm test:*)",
+      "Bash(npm run gen:*)"
+    ]
+  }
+}

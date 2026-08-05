@@ -1,0 +1,9 @@
+{
+  "name": "펭귄 빙판길",
+  "description": "펭귄은 벽에 부딪힐 때까지 미끄러져요! 물고기 위에 정확히 멈추기!",
+  "icon": "🐧",
+  "color": "#00ACC1",
+  "playTime": "1~2분",
+  "category": "puzzle",
+  "players": "2-4명"
+}

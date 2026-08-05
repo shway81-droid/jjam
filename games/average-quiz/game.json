@@ -1,0 +1,9 @@
+{
+  "name": "평균 구하기",
+  "description": "여러 수의 평균을 구하는 문제를 보고 정답을 가장 먼저 맞혀요! 평균 계산 게임",
+  "icon": "📊",
+  "color": "#FBC02D",
+  "playTime": "1~2분",
+  "category": "math",
+  "players": "2-4명"
+}

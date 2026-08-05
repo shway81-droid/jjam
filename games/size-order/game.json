@@ -1,0 +1,9 @@
+{
+  "name": "키 순서 찾기",
+  "description": "동그라미들을 보고 몇 번째로 큰지 가장 먼저 찾아 골라요!",
+  "icon": "📏",
+  "color": "#FFA726",
+  "playTime": "30초",
+  "category": "brain",
+  "players": "2-4명"
+}

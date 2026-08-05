@@ -1,0 +1,9 @@
+{
+  "name": "계산 미로",
+  "description": "오른쪽·아래로만 지나며 칸의 연산을 차례로 적용해 목표 수를 만드는 길을 가장 먼저 찾아요!",
+  "icon": "🧮",
+  "color": "#26A69A",
+  "playTime": "1~2분",
+  "category": "puzzle",
+  "players": "2-4명"
+}
